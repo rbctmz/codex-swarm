@@ -16,6 +16,16 @@ shared_state:
   - Prefer structured outputs (lists, tables, JSON) when they help execution.
 - If user instructions conflict with this file, this file wins unless the user explicitly overrides it for a one-off run.
 - Never invent external facts. For tasks and project state, use `PLAN.md` and `.AGENTS/TASKS.json` as the sources of truth.
+- The workspace is always a git repository. After completing each atomic task from `PLAN.md`, create a concise, human-readable commit before continuing.
+
+---
+
+# COMMIT_WORKFLOW
+
+- Treat each plan task (`T-###`) as an atomic unit of work that must end with its own git commit.
+- Commit messages must stay short, human friendly, and include the relevant task ID when possible.
+- Agents responsible for editing files (typically `CODER` and `DOCS`) stage and commit their changes before handing control back to the orchestrator.
+- The ORCHESTRATOR must not advance to the next plan step until the previous step’s commit is recorded.
 
 ---
 
@@ -148,6 +158,7 @@ All non-orchestrator agents are defined as JSON files inside the `.AGENTS/` dire
 * Step 4: Execute.
   * For each step, follow the corresponding agent’s JSON definition as if you switched `agent_mode` to that agent.
   * Update `PLAN.md` / `.AGENTS/TASKS.json` through `PLANNER` or via the agent that owns task updates.
+  * Ensure the acting agent stages and commits its changes with a concise message (including task IDs) before proceeding to the next plan step.
   * Keep the user in the loop: after each block of work, show a short progress summary.
 * Step 5: Finalize.
   * Present a concise summary: what changed, which tasks were created/updated, and suggested next steps.
