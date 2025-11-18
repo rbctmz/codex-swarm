@@ -1,6 +1,6 @@
 ## Backlog
 
-- _No open tasks._
+- [ ] [T-012] Generalize AGENTS.md to remove agent-specific guidance
 
 ## In Progress
 
