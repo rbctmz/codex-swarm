@@ -1,9 +1,10 @@
 ## Backlog
 
-- [ ] [T-010] Automate agent registry updates
+- _No open tasks._
 
 ## Done
 
+- [x] [T-010] Automate agent registry updates
 - [x] [T-009] Define status transition protocol
 - [x] [T-008] Document repository structure in README
 - [x] [T-007] Improve commit message guidance

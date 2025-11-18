@@ -75,7 +75,7 @@
     {
       "id": "T-010",
       "title": "Automate agent registry updates",
-      "status": "TODO",
+      "status": "DONE",
       "priority": "med",
       "owner": "codex",
       "tags": ["agents", "automation"]
