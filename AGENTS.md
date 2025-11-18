@@ -29,6 +29,14 @@ shared_state:
 - Each step summary should mention the new commit hash so every change is traceable from the conversation log.
 - Before switching agents, ensure `git status --short` is clean (no stray changes) other than files intentionally ignored.
 
+## Commit Message Patterns
+
+- **Planning commits (PLANNER)** — When opening or reshaping tasks, use messages like `Plan T-010 data cleanup tasks` so the log makes it obvious which IDs entered the backlog.
+- **Implementation commits (CODER)** — Describe the delivered change while naming every task, e.g., `Implement T-007 commit policy updates`.
+- **Documentation commits (DOCS)** — Tie the docs change to the task and audience, such as `Docs T-008 describe repo layout`.
+- **Review/closure commits (REVIEWER)** — When marking work DONE or BLOCKED without code edits, prefer messages like `Review T-007 completed` to clarify intent.
+- If one commit spans multiple IDs, list them all (`Finish T-007/T-008 release tweaks`). Avoid vague phrases like “misc fixes”.
+
 ---
 
 # SHARED_STATE
