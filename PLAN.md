@@ -1,6 +1,7 @@
 ## Backlog
 
-- _No open tasks._
+- [ ] [T-007] Improve commit message guidance
+- [ ] [T-008] Document repository structure in README
 
 ## Done
 
