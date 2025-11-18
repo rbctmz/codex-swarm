@@ -71,6 +71,14 @@
       "priority": "high",
       "owner": "codex",
       "tags": ["workflow", "tasks"]
+    },
+    {
+      "id": "T-010",
+      "title": "Automate agent registry updates",
+      "status": "TODO",
+      "priority": "med",
+      "owner": "codex",
+      "tags": ["agents", "automation"]
     }
   ]
 }

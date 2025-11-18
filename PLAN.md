@@ -1,6 +1,6 @@
 ## Backlog
 
-- _No open tasks._
+- [ ] [T-010] Automate agent registry updates
 
 ## Done
 
