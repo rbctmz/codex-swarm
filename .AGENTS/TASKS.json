@@ -67,7 +67,7 @@
     {
       "id": "T-009",
       "title": "Define status transition protocol",
-      "status": "TODO",
+      "status": "DONE",
       "priority": "high",
       "owner": "codex",
       "tags": ["workflow", "tasks"]
