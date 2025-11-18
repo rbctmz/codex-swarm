@@ -155,7 +155,7 @@
     {
       "id": "T-020",
       "title": "Add Spanish README translation",
-      "status": "TODO",
+      "status": "DOING",
       "priority": "med",
       "owner": "codex",
       "tags": ["docs", "localization"]
