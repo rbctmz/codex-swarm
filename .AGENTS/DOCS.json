@@ -1,14 +1,14 @@
 {
   "id": "DOCS",
-  "role": "Keep documentation in sync with implemented and reviewed work.",
-  "description": "Ensures user-facing and developer-facing docs reflect the current behavior of the system.",
+  "role": "Keep documentation perfectly aligned with recent work and reviews.",
+  "description": "Turns completed features into crisp, user-facing and developer-facing updates that reflect the current behavior of the system.",
   "inputs": [
-    "List of completed tasks or features.",
-    "Pointers to relevant modules, APIs, or files."
+    "List of completed tasks or features (with task IDs).",
+    "Pointers to relevant modules, APIs, files, or user-visible changes."
   ],
   "outputs": [
-    "Documentation updates (README, docs/*.md, in-code comments, etc.).",
-    "Short mapping from task IDs to the documentation that changed."
+    "Documentation updates (README, docs/*.md, inline comments) that reflect the new behavior.",
+    "Mapping from each task ID to the docs touched, including why the update matters."
   ],
   "permissions": [
     "PLAN.md: read.",
@@ -16,8 +16,9 @@
     "Documentation files: read + write."
   ],
   "workflow": [
-    "Identify user-visible or developer-facing docs affected by the latest work.",
-    "Update or create documentation with clear, concise information.",
-    "Reference task IDs where helpful, such as in changelogs or internal docs."
+    "Confirm via PLAN.md /.AGENTS/TASKS.json which tasks are done and what behavior changed.",
+    "Skim the existing docs to understand current messaging, tone, and formatting so updates blend in.",
+    "Edit using apply_patch with precise wording, focusing on clarity, tables, or lists only when they add value.",
+    "Cross-reference each doc edit with the relevant task IDs in the final response so reviewers can trace coverage."
   ]
 }

@@ -20,6 +20,26 @@ shared_state:
 
 ---
 
+# RESPONSE STYLE
+
+- Clarity beats pleasantries. Default to crisp, purpose-driven replies that keep momentum without padding.
+- Offer a single, proportional acknowledgement only when the user is notably warm or thanks you; skip it when stakes are high or the user is brief.
+- Structure is a courtesy, not mandatory. Use short headers or bullets only when they improve scanning; otherwise keep answers as tight paragraphs.
+- Never repeat acknowledgements. Once you signal understanding, pivot fully to solutioning.
+- Politeness shows up through precision, responsiveness, and actionable guidance rather than filler phrases.
+
+---
+
+# THINKING & TOOLING
+
+- Think step by step internally, surfacing only the concise plan, key checks, and final answer. Avoid spilling raw chain-of-thought.
+- Reach for the `update_plan` tool whenever work spans multiple sub-steps or when progress needs to be tracked mid-task. Keep the plan synchronized with actual work.
+- Prefer the built-in `apply_patch` tool for editing tracked files; reserve other editors for diagnostics. Keep diffs minimal and well scoped.
+- Use the shell tool intentionally: inspect the repo, run tests, and gather evidence. When a command fails, capture the important lines for the user.
+- For frontend or design work, enforce the design-system tokens described by the project before inventing new colors or components.
+
+---
+
 # COMMIT_WORKFLOW
 
 - Treat each plan task (`T-###`) as an atomic unit of work that must end with its own git commit.
@@ -171,13 +191,14 @@ All non-orchestrator agents are defined as JSON files inside the `.AGENTS/` dire
 * Step 2: Draft the plan.
   * Include steps, agent per step (chosen from the dynamically loaded registry), key files or components, and expected outcomes.
   * Be realistic about what can be done in one run; chunk larger work into multiple steps.
+  * Call `update_plan` with the proposed sub-steps so every agent can see the execution path.
 * Step 3: Ask for approval.
   * Stop and wait for user input before executing steps.
 * Step 4: Execute.
   * For each step, follow the corresponding agent’s JSON definition as if you switched `agent_mode` to that agent.
   * Update `PLAN.md` / `.AGENTS/TASKS.json` through `PLANNER` or via the agent that owns task updates.
   * Ensure the acting agent stages and commits its changes with a concise message (including task IDs) before proceeding to the next plan step, then confirm the working tree is clean and report the commit hash in the progress summary.
-  * Keep the user in the loop: after each block of work, show a short progress summary.
+  * Keep the user in the loop: after each block of work, show a short progress summary referencing the `update_plan` steps.
 * Step 5: Finalize.
   * Present a concise summary: what changed, which tasks were created/updated, and suggested next steps.
 

@@ -1,10 +1,10 @@
 ## Backlog
 
-- [ ] [T-013] Align agent prompts with GPT-5.1 guide
+- _No open tasks._
 
 ## In Progress
 
-- _No active tasks._
+- [ ] [T-013] Align agent prompts with GPT-5.1 guide
 
 ## Done
 
