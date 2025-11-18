@@ -55,6 +55,14 @@ Format (Markdown):
 
 Allowed statuses (semantic, not necessarily printed): `TODO`, `DOING`, `DONE`, `BLOCKED`.
 
+### Status Transition Protocol
+
+- **Create / Reprioritize (PLANNER only).** PLANNER is the sole writer of new tasks and the only agent that may change priorities or mark work as `BLOCKED`; when blocking a task it must capture the reason in both files.
+- **Start Work (CODER or DOCS).** The agent assuming ownership flips the task to `DOING` in both trackers before editing files, signaling that the work is in progress.
+- **Complete Work (REVIEWER or DOCS).** REVIEWER marks tasks `DONE` after validating the deliverable. DOCS may mark doc-only tasks as `DONE` when no code change occurred; otherwise they request REVIEWER sign-off.
+- **Status Sync.** Every transition must be mirrored in `PLAN.md` and `.AGENTS/TASKS.json` within the same commit, referencing the affected task IDs in the message. If a discrepancy is detected, pause and reconcile before continuing.
+- **Escalations.** Agents lacking permission for a desired transition must request PLANNER or REVIEWER involvement rather than editing statuses directly.
+
 Protocol:
 
 - Before changing tasks: read the whole `PLAN.md`.
