@@ -35,7 +35,7 @@
     {
       "id": "T-005",
       "title": "Document commit workflow in README",
-      "status": "TODO",
+      "status": "DONE",
       "priority": "med",
       "owner": "codex",
       "tags": ["docs", "workflow"]

@@ -27,6 +27,14 @@ Codex Agents Swarm is a lightweight framework that bridges the OpenAI Codex Plug
 
 This structure lets you string together arbitrary workflows such as code implementation, documentation refreshes, research digests, or task triage—all from the same IDE session.
 
+## Commit Workflow
+
+- The workspace is always a git repository, so every meaningful change must land in version control.
+- Each atomic task listed in `PLAN.md` maps to exactly one commit with a concise, human-readable message (ideally referencing the task ID).
+- The agent that performs the work stages and commits before handing control back to the orchestrator, and the orchestrator pauses the plan until that commit exists.
+- Step summaries mention the new commit hash and confirm the working tree is clean so humans can audit progress directly from the conversation.
+- If a plan step produces no file changes, call that out explicitly; otherwise the swarm must not proceed without a commit.
+
 ## Shared State Details
 
 - **`PLAN.md`**: Markdown checklist intended for humans. It lists tasks with IDs, sections (Backlog, In Progress, Done), and checkbox status. Agents always read it fully before editing.

@@ -1,9 +1,10 @@
 ## Backlog
 
-- [ ] [T-005] Document commit workflow in README
+- _No open tasks._
 
 ## Done
 
+- [x] [T-005] Document commit workflow in README
 - [x] [T-004] Enforce per-task git commits in AGENTS spec
 - [x] [T-001] Document framework in README
 - [x] [T-002] Restructure agent registry into JSON files
