@@ -1,10 +1,10 @@
 ## Backlog
 
-- [ ] [T-022] Add Russian README translation
+- _No open tasks._
 
 ## In Progress
 
-- _No active tasks._
+- [ ] [T-022] Add Russian README translation
 
 ## Done
 
