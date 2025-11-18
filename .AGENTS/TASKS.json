@@ -183,6 +183,14 @@
       "priority": "med",
       "owner": "codex",
       "tags": ["docs", "localization"]
+    },
+    {
+      "id": "T-024",
+      "title": "Revise glossary schema for translations",
+      "status": "DOING",
+      "priority": "high",
+      "owner": "codex",
+      "tags": ["docs", "localization", "glossary"]
     }
   ]
 }

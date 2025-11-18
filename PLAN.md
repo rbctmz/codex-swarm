@@ -4,7 +4,7 @@
 
 ## In Progress
 
-- _No active tasks._
+- [ ] [T-024] Revise glossary schema for translations
 
 ## Done
 
