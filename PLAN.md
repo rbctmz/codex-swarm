@@ -1,6 +1,6 @@
 ## Backlog
 
-- _No open tasks._
+- [ ] [T-018] Streamline AGENTS.md English guidelines
 
 ## In Progress
 

@@ -135,6 +135,14 @@
       "priority": "high",
       "owner": "codex",
       "tags": ["prompting", "agents"]
+    },
+    {
+      "id": "T-018",
+      "title": "Streamline AGENTS.md English guidelines",
+      "status": "TODO",
+      "priority": "high",
+      "owner": "codex",
+      "tags": ["docs", "agents"]
     }
   ]
 }
