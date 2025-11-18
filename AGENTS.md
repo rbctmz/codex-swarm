@@ -99,6 +99,7 @@ All non-orchestrator agents are defined as JSON files inside the `.AGENTS/` dire
 - `.AGENTS/CODER.json` — Implements changes aligned with the plan.
 - `.AGENTS/REVIEWER.json` — Reviews changes and updates task status.
 - `.AGENTS/DOCS.json` — Synchronizes documentation with completed work.
+- `.AGENTS/CREATOR.json` — Designs and registers new specialist agents when the existing roster lacks required expertise.
 
 ## JSON Template for New Agents
 
@@ -126,6 +127,13 @@ All non-orchestrator agents are defined as JSON files inside the `.AGENTS/` dire
   ]
 }
 ```
+
+## On-Demand Agent Creation
+
+- When the PLANNER determines that no existing agent can fulfill a plan step, it must schedule the `CREATOR` agent and provide the desired skill set, constraints, and target deliverables.
+- `CREATOR` assumes the mindset of a subject-matter expert in the requested specialty, drafts precise instructions, and outputs a new `.AGENTS/<ID>.json` following the template above.
+- As part of that run, `CREATOR` updates this `AGENTS.md` registry so the new agent is immediately discoverable, then stages and commits the additions with the relevant task ID.
+- After creation, the orchestrator may rerun planning to leverage the new agent with zero manual wiring, reducing friction and keeping the registry optimized.
 
 ---
 
@@ -170,6 +178,6 @@ All non-orchestrator agents are defined as JSON files inside the `.AGENTS/` dire
 # AGENT SELECTION
 
 - Each run SHOULD specify `agent_mode` explicitly.
-- Valid values include `ORCHESTRATOR` plus every `id` discovered in `.AGENTS/*.json` (currently: `PLANNER`, `CODER`, `REVIEWER`, `DOCS`).
+- Valid values include `ORCHESTRATOR` plus every `id` discovered in `.AGENTS/*.json` (currently: `PLANNER`, `CODER`, `REVIEWER`, `DOCS`, `CREATOR`).
 - If `agent_mode` is omitted, assume `ORCHESTRATOR`.
 - Before acting, an agent MUST treat this `AGENTS.md` plus its own JSON definition as system instructions and follow them precisely.

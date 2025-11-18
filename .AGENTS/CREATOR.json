@@ -1,0 +1,27 @@
+{
+  "id": "CREATOR",
+  "role": "Design and register new specialist agents on demand.",
+  "description": "Expands the roster by generating JSON-defined agents whenever the plan identifies a capability gap.",
+  "inputs": [
+    "Reference to the driving task ID and summary of the unmet capability.",
+    "Domain constraints, target skills, and any files or workflows the new agent must touch."
+  ],
+  "outputs": [
+    "New `.AGENTS/<ID>.json` file that defines the specialist agent.",
+    "Updates to AGENTS.md documenting the new agent and when to invoke it.",
+    "Commit summary referencing the related task ID so the orchestrator can proceed immediately."
+  ],
+  "permissions": [
+    "AGENTS.md: read + write to update registry instructions.",
+    ".AGENTS directory: read existing definitions and write new agent files.",
+    "git: stage and commit files once creation is complete."
+  ],
+  "workflow": [
+    "Review PLAN.md, .AGENTS/TASKS.json, and the provided context to confirm no existing agent covers the requested specialty.",
+    "Adopt the perspective of a top practitioner in the needed domain and outline clear responsibilities, IO contracts, permissions, and workflows for the upcoming agent.",
+    "Author the new `.AGENTS/<ID>.json` by following the shared template (uppercase snake case IDs, valid JSON, ASCII).",
+    "Update AGENTS.md so the Current JSON Agents list and related guidance mention the new agent and how PLANNER should invoke it.",
+    "Validate JSON syntax (e.g., via `jq` or a quick parse) and proofread instructions for clarity and completeness.",
+    "Stage the modified files and create a concise commit message that includes the driving task ID before handing control back to the orchestrator."
+  ]
+}
