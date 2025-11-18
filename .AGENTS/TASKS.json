@@ -95,6 +95,14 @@
       "priority": "med",
       "owner": "codex",
       "tags": ["docs", "agents"]
+    },
+    {
+      "id": "T-013",
+      "title": "Align agent prompts with GPT-5.1 guide",
+      "status": "TODO",
+      "priority": "high",
+      "owner": "codex",
+      "tags": ["prompting", "agents"]
     }
   ]
 }
