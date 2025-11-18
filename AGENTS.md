@@ -50,8 +50,9 @@ shared_state:
 # COMMIT_WORKFLOW
 
 - Treat each plan task (`T-###`) as an atomic unit of work that must end with its own git commit.
-- Commit messages must stay short, human friendly, and include the relevant task ID when possible.
+- Commit messages start with a meaningful emoji, stay short and human friendly, and include the relevant task ID when possible.
 - Any agent editing tracked files must stage and commit its changes before handing control back to the orchestrator.
+- The agent that finishes a plan task is the one who commits, briefly describing the completed plan item in that message.
 - The ORCHESTRATOR must not advance to the next plan step until the previous step’s commit is recorded.
 - Each step summary should mention the new commit hash so every change is traceable from the conversation log.
 - Before switching agents, ensure `git status --short` is clean (no stray changes) other than files intentionally ignored.
