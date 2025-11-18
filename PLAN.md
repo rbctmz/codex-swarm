@@ -1,6 +1,6 @@
 ## Backlog
 
-- _No open tasks._
+- [ ] [T-006] Add Agent Creator workflow
 
 ## Done
 

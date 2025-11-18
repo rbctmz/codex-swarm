@@ -39,6 +39,14 @@
       "priority": "med",
       "owner": "codex",
       "tags": ["docs", "workflow"]
+    },
+    {
+      "id": "T-006",
+      "title": "Add Agent Creator workflow",
+      "status": "TODO",
+      "priority": "high",
+      "owner": "codex",
+      "tags": ["agents", "automation"]
     }
   ]
 }
