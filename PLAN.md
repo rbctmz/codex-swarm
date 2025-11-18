@@ -4,10 +4,11 @@
 
 ## In Progress
 
-- [ ] [T-012] Generalize AGENTS.md to remove agent-specific guidance
+- _No active tasks._
 
 ## Done
 
+- [x] [T-012] Generalize AGENTS.md to remove agent-specific guidance
 - [x] [T-011] Evaluate current workflow and suggest improvements
 - [x] [T-010] Automate agent registry updates
 - [x] [T-009] Define status transition protocol

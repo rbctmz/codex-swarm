@@ -91,7 +91,7 @@
     {
       "id": "T-012",
       "title": "Generalize AGENTS.md to remove agent-specific guidance",
-      "status": "DOING",
+      "status": "DONE",
       "priority": "med",
       "owner": "codex",
       "tags": ["docs", "agents"]
