@@ -11,12 +11,33 @@ Codex Agents Swarm is a lightweight framework that bridges the OpenAI Codex Plug
 
 ## Repository Layout
 
+```
+.
+├── AGENTS.md
+├── LICENSE
+├── PLAN.md
+├── README.md
+└── .AGENTS/
+    ├── PLANNER.json
+    ├── CODER.json
+    ├── REVIEWER.json
+    ├── DOCS.json
+    ├── CREATOR.json
+    └── TASKS.json
+```
+
 | Path | Purpose |
 | --- | --- |
-| `AGENTS.md` | Global rules and the ORCHESTRATOR specification, including the JSON template for new agents. |
-| `.AGENTS/` | JSON registry for domain agents (PLANNER, CODER, REVIEWER, DOCS) plus the canonical `TASKS.json`. |
-| `PLAN.md` | Human-readable backlog tracked by PLANNER and shared with the rest of the swarm. |
-| `LICENSE` | MIT License. |
+| `AGENTS.md` | Global rules, commit workflow, and the ORCHESTRATOR specification (plus the JSON template for new agents). |
+| `.AGENTS/PLANNER.json` | Defines how tasks are added/updated across `PLAN.md` and `.AGENTS/TASKS.json`. |
+| `.AGENTS/CODER.json` | Implementation specialist responsible for code or config edits tied to task IDs. |
+| `.AGENTS/REVIEWER.json` | Performs reviews, verifies work, and flips task statuses accordingly. |
+| `.AGENTS/DOCS.json` | Keeps README and other docs synchronized with recently completed work. |
+| `.AGENTS/CREATOR.json` | On-demand agent factory that writes new JSON agents plus registry updates. |
+| `.AGENTS/TASKS.json` | Machine-readable backlog mirror; canonical when discrepancies appear. |
+| `PLAN.md` | Human-readable backlog shared in the conversation (Backlog / Done sections). |
+| `README.md` | High-level overview and onboarding material for the repository. |
+| `LICENSE` | MIT License for the project. |
 
 ## Agent Lifecycle
 
