@@ -4,10 +4,11 @@
 
 ## In Progress
 
-- [ ] [T-016] Remove tool references from AGENTS.md for Codex-only workflow
+- _No active tasks._
 
 ## Done
 
+- [x] [T-016] Remove tool references from AGENTS.md for Codex-only workflow
 - [x] [T-015] Align agent prompts with Cursor + Codex constraints
 - [x] [T-014] Document Cursor + Codex local workflow in AGENTS.md
 - [x] [T-013] Align agent prompts with GPT-5.1 guide
