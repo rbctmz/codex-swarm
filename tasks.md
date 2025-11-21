@@ -1,24 +1,19 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-21 15:52:04 UTC_
+_Last updated: 2025-11-21 16:00:55 UTC_
 
 ## ⭐ Summary
 - 🧮 **Total:** 29
 - 📋 **Backlog:** 0
-- 🚧 **In Progress:** 1
+- 🚧 **In Progress:** 0
 - ⛔ **Blocked:** 0
-- ✅ **Done:** 28
+- ✅ **Done:** 29
 
 ## 📋 Backlog
 _No open tasks._
 
 ## 🚧 In Progress
-- ⚙️ **[T-029] Audit agents for optimization opportunities**
-  - _Status:_ *In Progress*
-  - **Priority:** high • **Owner:** UPDATER • **Tags:** agents, optimization
-  - _Description:_ Review every agent prompt and workflow the user asked about to find practical optimizations and recommend next steps.
-  - 💬 **Comments:**
-    - _No comments yet._
+_No active tasks._
 
 ## ⛔ Blocked
 _No blocked tasks._
@@ -219,3 +214,10 @@ _No blocked tasks._
   - _Description:_ Add a global reminder that any external libraries required by scripts must be installed only inside virtual environments.
   - 💬 **Comments:**
     - **docs:** _Added AGENTS.md guidance reminding contributors to install external dependencies only within virtual environments before running scripts._
+
+- ✅ **[T-029] Audit agents for optimization opportunities**
+  - _Status:_ *Done*
+  - **Priority:** high • **Owner:** UPDATER • **Tags:** agents, optimization
+  - _Description:_ Review every agent prompt and workflow the user asked about to find practical optimizations and recommend next steps.
+  - 💬 **Comments:**
+    - **UPDATER:** _Reported the missing glossary and CODER permission gaps plus suggested focused follow-ups._
