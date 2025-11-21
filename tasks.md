@@ -1,24 +1,19 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-21 18:11:50 UTC_
+_Last updated: 2025-11-21 18:12:43 UTC_
 
 ## **⭐ Summary**
 - 🧮 **Total:** 33
 - 📋 **Backlog:** 0
-- 🚧 **In Progress:** 1
+- 🚧 **In Progress:** 0
 - ⛔ **Blocked:** 0
-- ✅ **Done:** 32
+- ✅ **Done:** 33
 
 ## **📋 Backlog**
 _No open tasks._
 
 ## **🚧 In Progress**
-- ⚙️ **[T-033] Style tasks board markdown output**
-  - _Status:_ *In Progress*
-  - **Priority:** `high` • **Owner:** `🤖 CODEX` • **Tags:** `docs`, `workflow`, `formatting`
-  - _Description:_ Bold every heading, wrap Priority/Owner/Tags values in code spans, display agent names uppercase with icons, and turn commit hashes into GitHub links on the generated board.
-  - 💬 **Comments:**
-    - _No comments yet._
+_No active tasks._
 
 ## **⛔ Blocked**
 _No blocked tasks._
@@ -276,3 +271,11 @@ _No blocked tasks._
   - _Commit:_ [`f6eecde`](https://github.com/CodexTown/codex-swarm/commit/f6eecde89e99f7a3c31413e3a173620bd64331c9) — 📝 T-032 stylize README
   - 💬 **Comments:**
     - **docs:** _README now shows ASCII art, icons, and refreshed formatting so it feels more polished._
+
+- ✅ **[T-033] Style tasks board markdown output**
+  - _Status:_ *Done*
+  - **Priority:** `high` • **Owner:** `🤖 CODEX` • **Tags:** `docs`, `workflow`, `formatting`
+  - _Description:_ Bold every heading, wrap Priority/Owner/Tags values in code spans, display agent names uppercase with icons, and turn commit hashes into GitHub links on the generated board.
+  - _Commit:_ [`2f93325`](https://github.com/CodexTown/codex-swarm/commit/2f93325a23837b89b0431b3219cee725b6902583) — 🛠️ T-033 style tasks board
+  - 💬 **Comments:**
+    - **reviewer:** _Verified the board now bolds headings, code-highlights metadata, uppercases agent owners with icons, and links commit hashes._
