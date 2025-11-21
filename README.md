@@ -58,7 +58,7 @@ This structure lets you string together arbitrary workflows such as code impleme
 
 ## Shared State Details
 
-- **`PLAN.md`**: Markdown checklist intended for humans. It lists tasks with IDs, sections (Backlog, In Progress, Done), and checkbox status. Agents always read it fully before editing, and every completed entry immediately gets an indented `Review:` line that summarizes (in one or two sentences) what changed and why.
+- **`PLAN.md`**: Markdown checklist intended for humans. It lists tasks with IDs, sections (Backlog, In Progress, Done), and checkbox status. The PLANNER splits big goals into atomic items so each task captures one deliverable and can be assigned to a single specialist (implementation, docs, review, etc.). Agents always read it fully before editing, and every completed entry immediately gets an indented `Review:` line that summarizes (in one or two sentences) what changed and why.
 - **`.AGENTS/TASKS.json`**: Machine-focused mirror of the plan with strict JSON schema so agents can parse, filter, and update state deterministically. When discrepancies occur, `.AGENTS/TASKS.json` is the canonical source and `PLAN.md` must be reconciled.
 
 ## Adding a New Agent

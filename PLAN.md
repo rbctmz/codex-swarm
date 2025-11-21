@@ -38,3 +38,5 @@
   - Review: Updated the TRANSLATOR workflow and converted @GLOSSARY.json so English stays canonical while localized entries keep their own terms and descriptions.
 - [x] [T-025] Clarify emoji commit workflow
   - Review: Updated @AGENTS.md and @README.md so commit messages start with meaningful emojis and the finishing agent summarizes the completed plan item.
+- [x] [T-026] Enforce atomic task planning
+  - Review: Updated @.AGENTS/PLANNER.json, @AGENTS.md, and @README.md so the PLANNER splits requests into single-owner tasks.

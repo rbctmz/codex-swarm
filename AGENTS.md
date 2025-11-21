@@ -75,6 +75,7 @@ Format (Markdown):
 - `[ ] [T-001] Add Normalizer Service`
 - `[x] [T-000] Initialize repository`
 - Whenever a task moves into `Done`, append an indented `  - Review: ...` line right below it. Keep the review to one or two human-readable sentences that call out the key files, behaviors, or tests touched so future readers understand the change without opening the commit.
+- Keep tasks atomic: PLANNER decomposes each user request into multiple IDs when needed so every task represents a single deliverable that one specialist agent can finish independently (implementation, docs, review, etc.).
 
 Allowed statuses (semantic, not necessarily printed): `TODO`, `DOING`, `DONE`, `BLOCKED`.
 

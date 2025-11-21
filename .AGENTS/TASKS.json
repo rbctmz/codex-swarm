@@ -199,6 +199,14 @@
       "priority": "high",
       "owner": "codex",
       "tags": ["workflow", "git"]
+    },
+    {
+      "id": "T-026",
+      "title": "Enforce atomic task planning",
+      "status": "DONE",
+      "priority": "high",
+      "owner": "codex",
+      "tags": ["workflow", "planning"]
     }
   ]
 }
