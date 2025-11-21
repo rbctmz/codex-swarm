@@ -1,16 +1,21 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-21 14:39:24 UTC_
+_Last updated: 2025-11-21 15:51:11 UTC_
 
 ## ⭐ Summary
-- 🧮 **Total:** 26
-- 📋 **Backlog:** 0
+- 🧮 **Total:** 29
+- 📋 **Backlog:** 1
 - 🚧 **In Progress:** 0
 - ⛔ **Blocked:** 0
-- ✅ **Done:** 26
+- ✅ **Done:** 28
 
 ## 📋 Backlog
-_No open tasks._
+- 📝 **[T-029] Audit agents for optimization opportunities**
+  - _Status:_ *Backlog*
+  - **Priority:** high • **Owner:** UPDATER • **Tags:** agents, optimization
+  - _Description:_ Review every agent prompt and workflow the user asked about to find practical optimizations and recommend next steps.
+  - 💬 **Comments:**
+    - _No comments yet._
 
 ## 🚧 In Progress
 _No active tasks._
@@ -200,3 +205,17 @@ _No blocked tasks._
   - _Description:_ Ensure the PLANNER splits every request into single-owner tasks with unique commits.
   - 💬 **Comments:**
     - **reviewer:** _Updated .AGENTS/PLANNER.json, AGENTS.md, and README.md so the PLANNER keeps tasks atomic._
+
+- ✅ **[T-027] Add UPDATER optimization agent**
+  - _Status:_ *Done*
+  - **Priority:** high • **Owner:** codex • **Tags:** agents, optimization
+  - _Description:_ Introduce an agent dedicated to auditing the repository and proposing optimizations to existing agents when explicitly requested.
+  - 💬 **Comments:**
+    - **reviewer:** _Verified .AGENTS/UPDATER.json and AGENTS.md to ensure the new agent only runs on explicit optimization requests and outputs a repo-wide optimization plan._
+
+- ✅ **[T-028] Add virtualenv installation reminder**
+  - _Status:_ *Done*
+  - **Priority:** med • **Owner:** docs • **Tags:** docs, workflow
+  - _Description:_ Add a global reminder that any external libraries required by scripts must be installed only inside virtual environments.
+  - 💬 **Comments:**
+    - **docs:** _Added AGENTS.md guidance reminding contributors to install external dependencies only within virtual environments before running scripts._

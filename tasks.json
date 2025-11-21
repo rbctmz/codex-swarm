@@ -324,6 +324,16 @@
           "body": "Added AGENTS.md guidance reminding contributors to install external dependencies only within virtual environments before running scripts."
         }
       ]
+    },
+    {
+      "id": "T-029",
+      "title": "Audit agents for optimization opportunities",
+      "description": "Review every agent prompt and workflow the user asked about to find practical optimizations and recommend next steps.",
+      "status": "TODO",
+      "priority": "high",
+      "owner": "UPDATER",
+      "tags": ["agents", "optimization"],
+      "comments": []
     }
   ]
 }
