@@ -1,6 +1,6 @@
-# Codex Agents Swarm
+# Codex Swarm
 
-Codex Agents Swarm is a lightweight framework that bridges the OpenAI Codex Plugin with any IDE where the plugin is installed. It treats the IDE session as a cooperative multi-agent workspace, allowing you to orchestrate specialized agents that collaborate on tasks ranging from software development to documentation, planning, or research.
+Codex Swarm is a lightweight framework that bridges the OpenAI Codex Plugin with any IDE where the plugin is installed. It treats the IDE session as a cooperative multi-agent workspace, allowing you to orchestrate specialized agents that collaborate on tasks ranging from software development to documentation, planning, or research.
 
 ## How It Works
 
@@ -79,7 +79,7 @@ Because every agent is pure JSON, you can extend the swarm with domain experts f
 
 ## Extending Beyond Development
 
-While Codex Agents Swarm is comfortable implementing code, nothing restricts agents to development tasks. By defining workflows in JSON you can build:
+While Codex Swarm is comfortable implementing code, nothing restricts agents to development tasks. By defining workflows in JSON you can build:
 
 - Research agents that summarize documentation before coding begins.
 - Compliance reviewers that check commits for policy violations.
