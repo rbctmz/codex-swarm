@@ -644,5 +644,19 @@
         "message": "🛠️ T-034 bold label headers"
       }
     }
+,
+    {
+      "id": "T-035",
+      "title": "Remove italic on description label",
+      "description": "Render the description label without italics so only the bold text shows.",
+      "status": "DOING",
+      "priority": "med",
+      "owner": "codex",
+      "tags": [
+        "docs",
+        "workflow"
+      ],
+      "comments": []
+    }
   ]
 }

@@ -1,11 +1,11 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-21 18:17:16 UTC_
+_Last updated: 2025-11-21 18:24:22 UTC_
 
 ## **⭐ Summary**
-- 🧮 **Total:** 34
+- 🧮 **Total:** 35
 - 📋 **Backlog:** 0
-- 🚧 **In Progress:** 0
+- 🚧 **In Progress:** 1
 - ⛔ **Blocked:** 0
 - ✅ **Done:** 34
 
@@ -13,7 +13,12 @@ _Last updated: 2025-11-21 18:17:16 UTC_
 _No open tasks._
 
 ## **🚧 In Progress**
-_No active tasks._
+- ⚙️ **[T-035] Remove italic on description label**
+  - **_Status:_** *In Progress*
+  - **Priority:** `med` • **Owner:** `🤖 CODEX` • **Tags:** `docs`, `workflow`
+  - **_Description:_** Render the description label without italics so only the bold text shows.
+  - 💬 **Comments:**
+    - _No comments yet._
 
 ## **⛔ Blocked**
 _No blocked tasks._
