@@ -1,16 +1,21 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-21 16:00:55 UTC_
+_Last updated: 2025-11-21 16:01:35 UTC_
 
 ## ⭐ Summary
-- 🧮 **Total:** 29
-- 📋 **Backlog:** 0
+- 🧮 **Total:** 30
+- 📋 **Backlog:** 1
 - 🚧 **In Progress:** 0
 - ⛔ **Blocked:** 0
 - ✅ **Done:** 29
 
 ## 📋 Backlog
-_No open tasks._
+- 📝 **[T-030] Clarify CODER agent permissions**
+  - _Status:_ *Backlog*
+  - **Priority:** high • **Owner:** CODER • **Tags:** agents, permissions
+  - _Description:_ Align the CODER role with actual responsibilities by expanding permissions and workflow details per the recent request.
+  - 💬 **Comments:**
+    - _No comments yet._
 
 ## 🚧 In Progress
 _No active tasks._

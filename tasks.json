@@ -325,20 +325,31 @@
         }
       ]
     },
-    {
-      "id": "T-029",
-      "title": "Audit agents for optimization opportunities",
-      "description": "Review every agent prompt and workflow the user asked about to find practical optimizations and recommend next steps.",
-      "status": "DONE",
-      "priority": "high",
-      "owner": "UPDATER",
-      "tags": ["agents", "optimization"],
-      "comments": [
-        {
-          "author": "UPDATER",
-          "body": "Reported the missing glossary and CODER permission gaps plus suggested focused follow-ups."
-        }
-      ]
-    }
-  ]
+  {
+    "id": "T-029",
+    "title": "Audit agents for optimization opportunities",
+    "description": "Review every agent prompt and workflow the user asked about to find practical optimizations and recommend next steps.",
+    "status": "DONE",
+    "priority": "high",
+    "owner": "UPDATER",
+    "tags": ["agents", "optimization"],
+    "comments": [
+      {
+        "author": "UPDATER",
+        "body": "Reported the missing glossary and CODER permission gaps plus suggested focused follow-ups."
+      }
+    ]
+  }
+  ,
+  {
+    "id": "T-030",
+    "title": "Clarify CODER agent permissions",
+    "description": "Align the CODER role with actual responsibilities by expanding permissions and workflow details per the recent request.",
+    "status": "TODO",
+    "priority": "high",
+    "owner": "CODER",
+    "tags": ["agents", "permissions"],
+    "comments": []
+  }
+]
 }
