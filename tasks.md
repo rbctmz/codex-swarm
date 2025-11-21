@@ -1,11 +1,11 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-21 18:12:43 UTC_
+_Last updated: 2025-11-21 18:16:22 UTC_
 
 ## **⭐ Summary**
-- 🧮 **Total:** 33
+- 🧮 **Total:** 34
 - 📋 **Backlog:** 0
-- 🚧 **In Progress:** 0
+- 🚧 **In Progress:** 1
 - ⛔ **Blocked:** 0
 - ✅ **Done:** 33
 
@@ -13,7 +13,12 @@ _Last updated: 2025-11-21 18:12:43 UTC_
 _No open tasks._
 
 ## **🚧 In Progress**
-_No active tasks._
+- ⚙️ **[T-034] Bold status, description, commit labels**
+  - _Status:_ *In Progress*
+  - **Priority:** `high` • **Owner:** `🤖 CODEX` • **Tags:** `docs`, `workflow`, `formatting`
+  - _Description:_ Render the `_Status`, `_Description`, and `_Commit` prefixes as bold text while leaving their italic suffixes intact.
+  - 💬 **Comments:**
+    - _No comments yet._
 
 ## **⛔ Blocked**
 _No blocked tasks._

@@ -621,5 +621,20 @@
         "message": "🛠️ T-033 style tasks board"
       }
     }
+,
+    {
+      "id": "T-034",
+      "title": "Bold status, description, commit labels",
+      "description": "Render the `_Status`, `_Description`, and `_Commit` prefixes as bold text while leaving their italic suffixes intact.",
+      "status": "DOING",
+      "priority": "high",
+      "owner": "codex",
+      "tags": [
+        "docs",
+        "workflow",
+        "formatting"
+      ],
+      "comments": []
+    }
   ]
 }
