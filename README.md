@@ -36,6 +36,7 @@ Codex Agents Swarm is a lightweight framework that bridges the OpenAI Codex Plug
 | `.AGENTS/REVIEWER.json` | Performs reviews, verifies work, and flips task statuses accordingly. |
 | `.AGENTS/DOCS.json` | Keeps README and other docs synchronized with recently completed work. |
 | `.AGENTS/CREATOR.json` | On-demand agent factory that writes new JSON agents plus registry updates. |
+| `.AGENTS/UPDATER.json` | Audits the repo and `.AGENTS` prompts when explicitly requested to outline concrete optimization opportunities and follow-up tasks. |
 | `tasks.json` | Canonical backlog with status, priority, description, tags, and threaded comments. |
 | `tasks.md` | Generated human-readable board grouped by status buckets (do not edit by hand). |
 | `scripts/tasks.py` | Utility script that reads `tasks.json` and rewrites `tasks.md` so both stay in sync. |
@@ -48,6 +49,8 @@ Codex Agents Swarm is a lightweight framework that bridges the OpenAI Codex Plug
 2. **Approval:** The user can approve, edit, or cancel the plan before any work starts.
 3. **Execution:** The orchestrator switches `agent_mode` according to the plan, allowing each agent to follow its JSON-defined workflow inside the IDE.
 4. **Progress tracking:** Agents edit `tasks.json` according to their permissions and rerun `python scripts/tasks.py` so `tasks.md` instantly reflects the new state.
+
+5. **Optimization audits (optional):** When the user explicitly asks for agent improvements, the orchestrator triggers `@.AGENTS/UPDATER.json` so it can inspect `.AGENTS/*.json` and the rest of the repo before outlining targeted follow-up tasks.
 
 This structure lets you string together arbitrary workflows such as code implementation, documentation refreshes, research digests, or task triage—all from the same IDE session.
 

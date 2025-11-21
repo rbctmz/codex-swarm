@@ -1,24 +1,24 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-21 16:09:36 UTC_
+_Last updated: 2025-11-21 16:10:07 UTC_
 
 ## ⭐ Summary
 - 🧮 **Total:** 31
-- 📋 **Backlog:** 1
-- 🚧 **In Progress:** 0
+- 📋 **Backlog:** 0
+- 🚧 **In Progress:** 1
 - ⛔ **Blocked:** 0
 - ✅ **Done:** 30
 
 ## 📋 Backlog
-- 📝 **[T-031] Sync README with current agent lineup**
-  - _Status:_ *Backlog*
+_No open tasks._
+
+## 🚧 In Progress
+- ⚙️ **[T-031] Sync README with current agent lineup**
+  - _Status:_ *In Progress*
   - **Priority:** med • **Owner:** docs • **Tags:** docs, readme
   - _Description:_ Refresh README.md so it describes the existing agents (including UPDATER), workflow rules, and repository layout that reflect the latest codebase.
   - 💬 **Comments:**
     - _No comments yet._
-
-## 🚧 In Progress
-_No active tasks._
 
 ## ⛔ Blocked
 _No blocked tasks._
