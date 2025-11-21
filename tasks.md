@@ -1,6 +1,6 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-21 18:29:59 UTC_
+_Last updated: 2025-11-21 18:30:33 UTC_
 
 ## **⭐ Summary**
 
@@ -8,9 +8,9 @@ _Last updated: 2025-11-21 18:29:59 UTC_
 | --- | --- | --- |
 | 🧮 | **Total** | 36 |
 | 📋 | **Backlog** | 0 |
-| 🚧 | **In Progress** | 1 |
+| 🚧 | **In Progress** | 0 |
 | ⛔ | **Blocked** | 0 |
-| ✅ | **Done** | 35 |
+| ✅ | **Done** | 36 |
 
 🌈 **Palette note:** Keep `python scripts/tasks.py` handy so the table stays in sync after every update.
 🎉 **Vibe check:** Emoji commits + clear summaries = joyful collaborators.
@@ -19,12 +19,7 @@ _Last updated: 2025-11-21 18:29:59 UTC_
 _No open tasks._
 
 ## **🚧 In Progress**
-- ⚙️ **[T-036] Beautify summary table**
-  - **_Status:_** *In Progress*
-  - **Priority:** `high` • **Owner:** `🤖 CODEX` • **Tags:** `docs`, `workflow`, `formatting`
-  - **Description:** Turn the summary list into an emoji-rich table and add extra decorative flair, keeping the `_Status` italic values as-is.
-  - 💬 **Comments:**
-    - _No comments yet._
+_No active tasks._
 
 ## **⛔ Blocked**
 _No blocked tasks._
@@ -306,3 +301,11 @@ _No blocked tasks._
   - **_Commit:_** [`6c5bc66`](https://github.com/CodexTown/codex-swarm/commit/6c5bc662a3f71b8e206a48133cc401033142ccd2) — 🛠️ T-035 remove description italic
   - 💬 **Comments:**
     - **reviewer:** _Confirmed the description label is no longer italicized yet still stands out via bold styling._
+
+- ✅ **[T-036] Beautify summary table**
+  - **_Status:_** *Done*
+  - **Priority:** `high` • **Owner:** `🤖 CODEX` • **Tags:** `docs`, `workflow`, `formatting`
+  - **Description:** Turn the summary list into an emoji-rich table and add extra decorative flair, keeping the `_Status` italic values as-is.
+  - **_Commit:_** [`463a885`](https://github.com/CodexTown/codex-swarm/commit/463a8853f38d3b9f3ebd9f6a191f3f7c81db0aa7) — 🛠️ T-036 beautify summary table
+  - 💬 **Comments:**
+    - **reviewer:** _Confirmed the summary section is now a table with playful emoji notes and the `_Status` italic text stays intact._
