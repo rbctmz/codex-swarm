@@ -749,7 +749,28 @@
           "author": "docs",
           "body": "Refreshed README intro, added a concrete Getting Started path with clean.sh guidance, an example session, and a Limitations/Non-goals section."
         }
-      ]
+      ],
+      "commit": {
+        "hash": "f9c3e6c1e4bb906895811443799ef70faf18c7a3",
+        "message": "📘 T-040 add README onboarding"
+      }
+    },
+    {
+      "id": "T-041",
+      "title": "Document framework guideline",
+      "description": "Create GUIDELINE.md that explains prerequisites, setup, installation, and step-by-step usage of the Codex Swarm framework.",
+      "status": "DONE",
+      "priority": "med",
+      "owner": "docs",
+      "tags": [
+        "docs",
+        "guideline"
+      ],
+      "comments": [],
+      "commit": {
+        "hash": "",
+        "message": ""
+      }
     }
   ]
 }

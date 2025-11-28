@@ -1,16 +1,16 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-28 05:47:05 UTC_
+_Last updated: 2025-11-28 15:45:55 UTC_
 
 ## **⭐ Summary**
 
 | Icon | Metric | Count |
 | --- | --- | --- |
-| 🧮 | **Total** | 39 |
+| 🧮 | **Total** | 40 |
 | 📋 | **Backlog** | 0 |
 | 🚧 | **In Progress** | 0 |
 | ⛔ | **Blocked** | 0 |
-| ✅ | **Done** | 39 |
+| ✅ | **Done** | 40 |
 
 🌈 **Palette note:** Keep `python scripts/tasks.py` handy so the table stays in sync after every update.
 🎉 **Vibe check:** Emoji commits + clear summaries = joyful collaborators.
@@ -330,5 +330,13 @@ _No blocked tasks._
   - **_Status:_** *Done*
   - **Priority:** `high` • **Owner:** `📚 DOCS` • **Tags:** `docs`, `readme`
   - **Description:** Add a focused Getting Started path, example session log, and limitations/non-goals to README with a simpler intro.
+  - **_Commit:_** [`f9c3e6c`](https://github.com/basilisk-labs/codex-swarm/commit/f9c3e6c1e4bb906895811443799ef70faf18c7a3) — 📘 T-040 add README onboarding
   - 💬 **Comments:**
     - **docs:** _Refreshed README intro, added a concrete Getting Started path with clean.sh guidance, an example session, and a Limitations/Non-goals section._
+
+- ✅ **[T-041] Document framework guideline**
+  - **_Status:_** *Done*
+  - **Priority:** `med` • **Owner:** `📚 DOCS` • **Tags:** `docs`, `guideline`
+  - **Description:** Create GUIDELINE.md that explains prerequisites, setup, installation, and step-by-step usage of the Codex Swarm framework.
+  - 💬 **Comments:**
+    - _No comments yet._
