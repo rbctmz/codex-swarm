@@ -1,16 +1,16 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-28 15:54:27 UTC_
+_Last updated: 2025-11-28 16:17:49 UTC_
 
 ## **⭐ Summary**
 
 | Icon | Metric | Count |
 | --- | --- | --- |
-| 🧮 | **Total** | 41 |
+| 🧮 | **Total** | 42 |
 | 📋 | **Backlog** | 0 |
 | 🚧 | **In Progress** | 0 |
 | ⛔ | **Blocked** | 0 |
-| ✅ | **Done** | 41 |
+| ✅ | **Done** | 42 |
 
 🌈 **Palette note:** Keep `python scripts/tasks.py` handy so the table stays in sync after every update.
 🎉 **Vibe check:** Emoji commits + clear summaries = joyful collaborators.
@@ -346,5 +346,14 @@ _No blocked tasks._
   - **_Status:_** *Done*
   - **Priority:** `med` • **Owner:** `📚 DOCS` • **Tags:** `docs`, `guideline`, `workflow`
   - **Description:** Add example sessions, troubleshooting tips, and best practices to GUIDELINE.md so the framework flow is crystal clear.
+  - **_Commit:_** [`18a62ee`](https://github.com/basilisk-labs/codex-swarm/commit/18a62ee44d660dd7d7e8590329edb92194e4eba6) — 📝 T-042 expand framework guideline
   - 💬 **Comments:**
     - _No comments yet._
+
+- ✅ **[T-044] Add sync_tasks.py script to synchronize tasks.json with GitHub Issues**
+  - **_Status:_** *Done*
+  - **Priority:** `high` • **Owner:** `🧠 HUMAN` • **Tags:** `automation`, `sync`
+  - **Description:** Ensure the local tasks.json reflects the completed synchronization script and the GitHub Issues mirror.
+  - **_Commit:_** [`5e3b74a`](https://github.com/basilisk-labs/codex-swarm/commit/5e3b74a497ada1b723813b416747ccc47ca6ddbc) — ✨ T-044 add sync_tasks.py script to synchronize tasks.json with GitHub Issues
+  - 💬 **Comments:**
+    - **docs:** _Recorded completion of sync_tasks.py so tasks.json stays aligned with GitHub Issues._
