@@ -5,7 +5,46 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
-Codex Swarm is a lightweight framework that bridges the OpenAI Codex Plugin with any IDE where the plugin is installed. It treats the IDE session as a cooperative multi-agent workspace, allowing you to orchestrate specialized agents that collaborate on tasks ranging from software development to documentation, planning, or research.
+Codex Swarm turns your local IDE + OpenAI Codex plugin into a predictable multi-agent workflow. It fixes the “just chat with the model” chaos by adding a small, opinionated layer: JSON-defined agents, a shared task board, and commit rules so every change is planned and traceable. There is no separate runner or daemon—everything lives in this repo and flows through the plugin you already use. It’s tighter than “ChatGPT + my IDE” because the orchestrator plans, delegates, and keeps docs/tasks in sync instead of leaving breadcrumbs in a chat log.
+
+## Getting Started
+
+Prerequisites:
+- OpenAI Codex plugin (Cursor / VS Code / JetBrains) configured for your repo
+- Git and Python 3.10+ installed locally
+
+1. Clone the repo:
+   git clone https://github.com/basilisk-labs/codex-swarm.git
+   cd codex-swarm
+
+2. Open this folder in your IDE with the OpenAI Codex plugin enabled.
+
+3. Start with the ORCHESTRATOR:
+   - Describe a goal (e.g. “Add a new agent that keeps CHANGELOG.md in sync”).
+   - The ORCHESTRATOR will propose a plan, map steps to PLANNER/CODER/REVIEWER/DOCS and ask for approval.
+
+4. Task board:
+   - Run `python scripts/tasks.py` to regenerate `tasks.md` from `tasks.json`.
+   - `tasks.md` is read-only; edit `tasks.json` via PLANNER / agents only.
+
+5. Optional (recommended for a clean slate):
+   - Run `./clean.sh` to remove the bundled project files, reinitialize the git repo, and reuse the framework for any tasks you want to orchestrate locally.
+
+## Example: auto-doc for a tiny refactor
+
+1. User: “Refactor utils/date.ts and update the README accordingly.”
+2. ORCHESTRATOR: proposes a 2-step plan (PLANNER creates tasks; CODER implements and commits).
+3. PLANNER: creates T-041 (refactor) and T-042 (docs), sets them to DOING, and regenerates the board.
+4. CODER: edits `utils/date.ts`, updates `README.md`, runs any checks, and commits with an emoji message like “🔧 T-041 refactor date utils”.
+5. REVIEWER: verifies the diff, adds a short review comment, and marks T-041 done.
+6. DOCS (optional): updates docs for T-042, marks it done, and regenerates the board.
+
+## Limitations / Non-goals
+
+- Codex Swarm is a prompt + JSON framework that assumes the OpenAI Codex plugin as the runtime; there is no standalone agent runner yet.
+- All file operations happen in your local repo; the model only sees what the plugin sends from the IDE session.
+- It is designed for orchestrated, human-in-the-loop workflows—not autonomous deployments or remote execution.
+- Network calls or external tooling only happen when you explicitly run them from your IDE; the framework itself does not fetch data on its own.
 
 ## ✨ Highlights
 

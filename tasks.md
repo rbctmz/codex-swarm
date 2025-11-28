@@ -1,16 +1,16 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-27 04:16:05 UTC_
+_Last updated: 2025-11-28 05:47:05 UTC_
 
 ## **⭐ Summary**
 
 | Icon | Metric | Count |
 | --- | --- | --- |
-| 🧮 | **Total** | 38 |
+| 🧮 | **Total** | 39 |
 | 📋 | **Backlog** | 0 |
 | 🚧 | **In Progress** | 0 |
 | ⛔ | **Blocked** | 0 |
-| ✅ | **Done** | 38 |
+| ✅ | **Done** | 39 |
 
 🌈 **Palette note:** Keep `python scripts/tasks.py` handy so the table stays in sync after every update.
 🎉 **Vibe check:** Emoji commits + clear summaries = joyful collaborators.
@@ -322,5 +322,13 @@ _No blocked tasks._
   - **_Status:_** *Done*
   - **Priority:** `med` • **Owner:** `📚 DOCS` • **Tags:** `docs`, `readme`
   - **Description:** Ensure README describes the codebase and includes local development steps (download Zip, run clean.sh).
+  - **_Commit:_** [`bec7e7d`](https://github.com/basilisk-labs/codex-swarm/commit/bec7e7de9cbeaed166adefb51ff2c497e1ffa1fc) — 📝 T-038 update README local dev
   - 💬 **Comments:**
     - **docs:** _Extended README with code breakdown and local dev steps (download zip, run clean.sh)._
+
+- ✅ **[T-040] Add README onboarding sections**
+  - **_Status:_** *Done*
+  - **Priority:** `high` • **Owner:** `📚 DOCS` • **Tags:** `docs`, `readme`
+  - **Description:** Add a focused Getting Started path, example session log, and limitations/non-goals to README with a simpler intro.
+  - 💬 **Comments:**
+    - **docs:** _Refreshed README intro, added a concrete Getting Started path with clean.sh guidance, an example session, and a Limitations/Non-goals section._
