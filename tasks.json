@@ -813,6 +813,28 @@
       }
     },
     {
+      "id": "T-043",
+      "title": "Update .gitignore to include .env files",
+      "description": "Ignore `.env*` so sensitive environment overrides stay out of the repo.",
+      "status": "DONE",
+      "priority": "med",
+      "owner": "human",
+      "tags": [
+        "git",
+        "workflow"
+      ],
+      "comments": [
+        {
+          "author": "docs",
+          "body": ".gitignore now ignores `.env` variants following the cleanup."
+        }
+      ],
+      "commit": {
+        "hash": "a63694f182aff97ce18b5b9458bf54982e787120",
+        "message": "🛠️ T-043 update .gitignore to include .env files"
+      }
+    },
+    {
       "id": "T-044",
       "title": "Add sync_tasks.py script to synchronize tasks.json with GitHub Issues",
       "description": "Ensure the local tasks.json reflects the completed synchronization script and the GitHub Issues mirror.",

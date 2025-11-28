@@ -1,16 +1,16 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-28 16:48:41 UTC_
+_Last updated: 2025-11-28 16:48:58 UTC_
 
 ## **⭐ Summary**
 
 | Icon | Metric | Count |
 | --- | --- | --- |
-| 🧮 | **Total** | 45 |
+| 🧮 | **Total** | 46 |
 | 📋 | **Backlog** | 0 |
 | 🚧 | **In Progress** | 0 |
 | ⛔ | **Blocked** | 0 |
-| ✅ | **Done** | 45 |
+| ✅ | **Done** | 46 |
 
 🌈 **Palette note:** Keep `python scripts/tasks.py` handy so the table stays in sync after every update.
 🎉 **Vibe check:** Emoji commits + clear summaries = joyful collaborators.
@@ -357,6 +357,14 @@ _No blocked tasks._
   - **_Commit:_** [`18a62ee`](https://github.com/basilisk-labs/codex-swarm/commit/18a62ee44d660dd7d7e8590329edb92194e4eba6) — 📝 T-042 expand framework guideline
   - 💬 **Comments:**
     - _No comments yet._
+
+- ✅ **[T-043] Update .gitignore to include .env files**
+  - **_Status:_** *Done*
+  - **Priority:** `med` • **Owner:** `🧠 HUMAN` • **Tags:** `git`, `workflow`
+  - **Description:** Ignore `.env*` so sensitive environment overrides stay out of the repo.
+  - **_Commit:_** [`a63694f`](https://github.com/basilisk-labs/codex-swarm/commit/a63694f182aff97ce18b5b9458bf54982e787120) — 🛠️ T-043 update .gitignore to include .env files
+  - 💬 **Comments:**
+    - **docs:** _.gitignore now ignores `.env` variants following the cleanup._
 
 - ✅ **[T-044] Add sync_tasks.py script to synchronize tasks.json with GitHub Issues**
   - **_Status:_** *Done*
