@@ -1,16 +1,16 @@
 # ✨ Project Tasks Board
 
-_Last updated: 2025-11-28 16:17:49 UTC_
+_Last updated: 2025-11-28 16:25:23 UTC_
 
 ## **⭐ Summary**
 
 | Icon | Metric | Count |
 | --- | --- | --- |
-| 🧮 | **Total** | 42 |
+| 🧮 | **Total** | 43 |
 | 📋 | **Backlog** | 0 |
 | 🚧 | **In Progress** | 0 |
 | ⛔ | **Blocked** | 0 |
-| ✅ | **Done** | 42 |
+| ✅ | **Done** | 43 |
 
 🌈 **Palette note:** Keep `python scripts/tasks.py` handy so the table stays in sync after every update.
 🎉 **Vibe check:** Emoji commits + clear summaries = joyful collaborators.
@@ -357,3 +357,11 @@ _No blocked tasks._
   - **_Commit:_** [`5e3b74a`](https://github.com/basilisk-labs/codex-swarm/commit/5e3b74a497ada1b723813b416747ccc47ca6ddbc) — ✨ T-044 add sync_tasks.py script to synchronize tasks.json with GitHub Issues
   - 💬 **Comments:**
     - **docs:** _Recorded completion of sync_tasks.py so tasks.json stays aligned with GitHub Issues._
+
+- ✅ **[T-045] Add GitHub Actions workflow to sync tasks.json with GitHub Issues**
+  - **_Status:_** *Done*
+  - **Priority:** `high` • **Owner:** `🧠 HUMAN` • **Tags:** `automation`, `workflow`
+  - **Description:** Document the new `.github/workflows/sync-tasks.yml` workflow that keeps tasks.json and GitHub Issues synchronized.
+  - **_Commit:_** [`7b8445b`](https://github.com/basilisk-labs/codex-swarm/commit/7b8445b4326e1d8c52e7f0e2718b9d88f75db502) — ✨ T-045 add GitHub Actions workflow to sync tasks.json with GitHub Issues
+  - 💬 **Comments:**
+    - **docs:** _Workflow file exists and ensures tasks.json is kept in sync via GitHub Actions._
