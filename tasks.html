@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>tasks.json viewer</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0b0d12;
+        --panel: #101522;
+        --panel-2: #0d1220;
+        --text: #e9eefc;
+        --muted: #aab4d0;
+        --border: rgba(255, 255, 255, 0.12);
+        --shadow: rgba(0, 0, 0, 0.35);
+        --accent: #7c5cff;
+        --accent-2: #46d3ff;
+        --good: #2bd576;
+        --warn: #f7b84b;
+        --bad: #ff4d5d;
+        --chip-bg: rgba(255, 255, 255, 0.06);
+        --chip-border: rgba(255, 255, 255, 0.12);
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f7f8fc;
+          --panel: #ffffff;
+          --panel-2: #fbfbff;
+          --text: #111629;
+          --muted: #52607c;
+          --border: rgba(17, 22, 41, 0.12);
+          --shadow: rgba(10, 14, 26, 0.08);
+          --chip-bg: rgba(17, 22, 41, 0.05);
+          --chip-border: rgba(17, 22, 41, 0.1);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--sans);
+        background: radial-gradient(1100px 700px at 12% 6%, rgba(124, 92, 255, 0.23), transparent 60%),
+          radial-gradient(900px 600px at 82% 10%, rgba(70, 211, 255, 0.18), transparent 62%),
+          radial-gradient(1000px 700px at 50% 110%, rgba(43, 213, 118, 0.11), transparent 60%), var(--bg);
+        color: var(--text);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 28px 18px 46px;
+      }
+
+      header {
+        display: grid;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .titleRow {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        font-size: 22px;
+        margin: 0;
+        letter-spacing: 0.2px;
+      }
+
+      .subtle {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .panel {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 90%), var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 18px 45px var(--shadow);
+      }
+
+      .controls {
+        padding: 14px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .controlsGrid {
+        display: grid;
+        grid-template-columns: 1.3fr repeat(4, minmax(150px, 0.5fr));
+        gap: 10px;
+      }
+
+      @media (max-width: 980px) {
+        .controlsGrid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .controlsGrid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 10px 11px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: var(--panel-2);
+        color: var(--text);
+        outline: none;
+      }
+
+      input[type="text"]:focus,
+      select:focus {
+        border-color: rgba(124, 92, 255, 0.65);
+        box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.18);
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .chips {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--chip-border);
+        background: var(--chip-bg);
+        color: var(--muted);
+        font-size: 12px;
+        user-select: none;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--muted);
+        display: inline-block;
+      }
+
+      .dot.good {
+        background: var(--good);
+      }
+
+      .dot.warn {
+        background: var(--warn);
+      }
+
+      .dot.bad {
+        background: var(--bad);
+      }
+
+      .dot.accent {
+        background: var(--accent);
+      }
+
+      .dot.neutral {
+        background: var(--muted);
+      }
+
+      .tasks {
+        margin-top: 16px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .task {
+        padding: 14px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .taskHeader {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .taskTitle {
+        display: grid;
+        gap: 6px;
+        min-width: 240px;
+        flex: 1;
+      }
+
+      .taskTitleLine {
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+        flex-wrap: wrap;
+      }
+
+      .taskId {
+        font-family: var(--mono);
+        font-size: 13px;
+        padding: 4px 7px;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .taskName {
+        font-size: 15px;
+        font-weight: 650;
+        letter-spacing: 0.1px;
+      }
+
+      .metaLine {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 9px;
+        border-radius: 999px;
+        border: 1px solid var(--chip-border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .pill strong {
+        font-weight: 650;
+        color: var(--text);
+      }
+
+      .desc {
+        color: var(--text);
+        opacity: 0.96;
+        line-height: 1.45;
+        font-size: 13px;
+        white-space: pre-wrap;
+      }
+
+      details {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 10px 12px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .detailsBody {
+        padding: 10px 12px 12px;
+        display: grid;
+        gap: 8px;
+        border-top: 1px solid var(--border);
+      }
+
+      .kv {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 10px;
+        align-items: start;
+        font-size: 12px;
+      }
+
+      @media (max-width: 560px) {
+        .kv {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .k {
+        color: var(--muted);
+      }
+
+      .v {
+        font-family: var(--mono);
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      .deps {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .depLink {
+        font-family: var(--mono);
+        font-size: 12px;
+        padding: 5px 9px;
+        border-radius: 999px;
+        border: 1px solid var(--chip-border);
+        background: rgba(255, 255, 255, 0.04);
+        text-decoration: none;
+      }
+
+      .depLink:hover {
+        border-color: rgba(124, 92, 255, 0.55);
+      }
+
+      .comments {
+        display: grid;
+        gap: 8px;
+      }
+
+      .comment {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.03);
+        display: grid;
+        gap: 6px;
+      }
+
+      .commentHead {
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+        flex-wrap: wrap;
+      }
+
+      .commentAuthor {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--text);
+        opacity: 0.9;
+      }
+
+      .commentBody {
+        color: var(--text);
+        opacity: 0.9;
+        font-size: 12px;
+        line-height: 1.45;
+        white-space: pre-wrap;
+      }
+
+      .errorBox {
+        padding: 14px;
+        display: grid;
+        gap: 10px;
+      }
+
+      code {
+        font-family: var(--mono);
+      }
+
+      .btn {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        border-radius: 10px;
+        padding: 9px 11px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      .btn:hover {
+        border-color: rgba(124, 92, 255, 0.55);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      .footerNote {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="titleRow">
+          <h1>tasks.json viewer</h1>
+          <div class="subtle" id="loadMeta">Loading…</div>
+        </div>
+        <div class="panel controls">
+          <div class="controlsGrid">
+            <label>
+              Search
+              <input id="q" type="text" placeholder="id, title, tag, owner, description…" autocomplete="off" />
+            </label>
+            <label>
+              Status
+              <select id="status">
+                <option value="">All</option>
+                <option value="TODO">TODO</option>
+                <option value="DOING">DOING</option>
+                <option value="BLOCKED">BLOCKED</option>
+                <option value="DONE">DONE</option>
+              </select>
+            </label>
+            <label>
+              Owner
+              <select id="owner">
+                <option value="">All</option>
+              </select>
+            </label>
+            <label>
+              Priority
+              <select id="priority">
+                <option value="">All</option>
+              </select>
+            </label>
+            <label>
+              Tag
+              <select id="tag">
+                <option value="">All</option>
+              </select>
+            </label>
+          </div>
+          <div class="row">
+            <div class="chips" id="summary"></div>
+            <div class="chips">
+              <label class="chip" style="gap: 10px; cursor: pointer">
+                <input id="hideDone" type="checkbox" />
+                Hide DONE
+              </label>
+              <label class="chip">
+                Sort
+                <select id="sort" style="padding: 6px 8px; border-radius: 10px">
+                  <option value="id_asc">ID ↑</option>
+                  <option value="id_desc">ID ↓</option>
+                  <option value="status_then_id">Status → ID</option>
+                  <option value="priority_then_id">Priority → ID</option>
+                  <option value="title_asc">Title ↑</option>
+                </select>
+              </label>
+              <button class="btn" id="reload">Reload</button>
+            </div>
+          </div>
+          <div class="row" id="fileModeRow" style="display: none">
+            <div class="chips" style="flex: 1">
+              <div class="chip">
+                <span class="dot neutral"></span>
+                <span>Opened via <code>file://</code> — select <code>tasks.json</code> to load</span>
+              </div>
+            </div>
+            <div class="chips">
+              <input id="fileInput" type="file" accept="application/json" style="display: none" />
+              <button class="btn" id="openFileBtn">Open tasks.json…</button>
+            </div>
+          </div>
+          <div
+            id="dropZone"
+            class="panel"
+            style="
+              display: none;
+              padding: 12px;
+              border-style: dashed;
+              background: rgba(255, 255, 255, 0.02);
+              color: var(--muted);
+              font-size: 12px;
+            "
+          >
+            Drop <code>tasks.json</code> here to load (no server needed).
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="tasks" id="tasks"></div>
+        <div class="footerNote">
+          If served over HTTP, this page auto-loads <code>./tasks.json</code>. If opened as <code>file://</code>, use the
+          file picker / drag &amp; drop to load <code>tasks.json</code>.
+        </div>
+        <details class="panel" id="metaPanel" style="margin-top: 14px">
+          <summary>tasks.json meta</summary>
+          <div class="detailsBody">
+            <div class="kv">
+              <div class="k">meta</div>
+              <div class="v" id="metaJson"></div>
+            </div>
+          </div>
+        </details>
+      </main>
+    </div>
+
+    <script>
+      const STATUS_ORDER = ["DOING", "TODO", "BLOCKED", "DONE"];
+      const PRIORITY_ORDER = ["high", "med", "low"];
+      const KNOWN_KEYS = new Set([
+        "id",
+        "title",
+        "description",
+        "status",
+        "priority",
+        "owner",
+        "tags",
+        "depends_on",
+        "comments",
+        "commit",
+      ]);
+
+      let lastLoaded = { source: "unknown", file: null };
+
+      function escapeHtml(input) {
+        return String(input)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function safeUpper(value) {
+        return String(value || "").trim().toUpperCase();
+      }
+
+      function normalizeTask(task) {
+        const id = String(task?.id || "").trim();
+        const title = String(task?.title || "").trim();
+        const description = String(task?.description || "").trim();
+        const status = safeUpper(task?.status || "TODO") || "TODO";
+        const priority = String(task?.priority || "").trim();
+        const owner = String(task?.owner || "").trim();
+        const tags = Array.isArray(task?.tags) ? task.tags.filter((t) => typeof t === "string") : [];
+        const dependsOn = Array.isArray(task?.depends_on)
+          ? task.depends_on.filter((t) => typeof t === "string" && t.trim()).map((t) => t.trim())
+          : [];
+        const comments = Array.isArray(task?.comments) ? task.comments.filter((c) => c && typeof c === "object") : [];
+        const commit = task?.commit && typeof task.commit === "object" ? task.commit : null;
+        return { raw: task, id, title, description, status, priority, owner, tags, dependsOn, comments, commit };
+      }
+
+      function statusDotClass(status) {
+        if (status === "DONE") return "good";
+        if (status === "DOING") return "accent";
+        if (status === "BLOCKED") return "bad";
+        return "warn";
+      }
+
+      function compareById(a, b) {
+        return a.id.localeCompare(b.id);
+      }
+
+      function compareByTitle(a, b) {
+        return a.title.localeCompare(b.title) || compareById(a, b);
+      }
+
+      function compareByStatusThenId(a, b) {
+        const ia = STATUS_ORDER.indexOf(a.status);
+        const ib = STATUS_ORDER.indexOf(b.status);
+        return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib) || compareById(a, b);
+      }
+
+      function compareByPriorityThenId(a, b) {
+        const pa = PRIORITY_ORDER.indexOf(String(a.priority || "").toLowerCase());
+        const pb = PRIORITY_ORDER.indexOf(String(b.priority || "").toLowerCase());
+        return (pa === -1 ? 99 : pa) - (pb === -1 ? 99 : pb) || compareById(a, b);
+      }
+
+      function jsonPretty(value) {
+        try {
+          return JSON.stringify(value, null, 2);
+        } catch {
+          return String(value);
+        }
+      }
+
+      function collectExtraFields(rawTask) {
+        const extra = {};
+        for (const [k, v] of Object.entries(rawTask || {})) {
+          if (!KNOWN_KEYS.has(k)) extra[k] = v;
+        }
+        return extra;
+      }
+
+      function optionify(values) {
+        const unique = Array.from(new Set(values.filter((v) => String(v || "").trim()))).sort((a, b) =>
+          String(a).localeCompare(String(b)),
+        );
+        return unique;
+      }
+
+      function renderSummary(tasks) {
+        const counts = new Map();
+        for (const t of tasks) {
+          counts.set(t.status, (counts.get(t.status) || 0) + 1);
+        }
+        const total = tasks.length;
+        const order = ["TODO", "DOING", "BLOCKED", "DONE"];
+        const root = document.getElementById("summary");
+        root.innerHTML = "";
+        const totalChip = document.createElement("div");
+        totalChip.className = "chip";
+        totalChip.innerHTML = `<span class="dot neutral"></span><span>Total</span><strong style="color: var(--text)">${total}</strong>`;
+        root.appendChild(totalChip);
+        for (const s of order) {
+          const chip = document.createElement("div");
+          chip.className = "chip";
+          chip.innerHTML = `<span class="dot ${statusDotClass(s)}"></span><span>${escapeHtml(s)}</span><strong style="color: var(--text)">${counts.get(
+            s,
+          ) || 0}</strong>`;
+          root.appendChild(chip);
+        }
+      }
+
+      function renderTask(task) {
+        const el = document.createElement("article");
+        el.className = "panel task";
+        el.id = `task-${task.id}`;
+        el.dataset.status = task.status;
+
+        const commitHash = task.commit?.hash ? String(task.commit.hash) : "";
+        const commitMsg = task.commit?.message ? String(task.commit.message) : "";
+
+        const ownerText = task.owner ? escapeHtml(task.owner) : "-";
+        const priorityText = task.priority ? escapeHtml(task.priority) : "-";
+
+        const tagsHtml = task.tags.length
+          ? task.tags
+              .map((tag) => `<span class="pill"><span class="dot neutral"></span><span>${escapeHtml(tag)}</span></span>`)
+              .join(" ")
+          : `<span class="pill"><span class="dot neutral"></span><span>-</span></span>`;
+
+        const depsHtml = task.dependsOn.length
+          ? `<div class="deps">${task.dependsOn
+              .map((dep) => `<a class="depLink" href="#task-${encodeURIComponent(dep)}">${escapeHtml(dep)}</a>`)
+              .join("")}</div>`
+          : `<span class="subtle">-</span>`;
+
+        const commentsHtml = task.comments.length
+          ? `<div class="comments">${task.comments
+              .map((c) => {
+                const author = escapeHtml(c.author || "unknown");
+                const body = escapeHtml(c.body || "");
+                return `<div class="comment"><div class="commentHead"><span class="commentAuthor">${author}</span></div><div class="commentBody">${body}</div></div>`;
+              })
+              .join("")}</div>`
+          : `<div class="subtle">No comments.</div>`;
+
+        const extra = collectExtraFields(task.raw);
+        const extraKeys = Object.keys(extra);
+        const extraKvHtml = extraKeys.length
+          ? extraKeys
+              .sort((a, b) => a.localeCompare(b))
+              .map(
+                (k) =>
+                  `<div class="kv"><div class="k">${escapeHtml(k)}</div><div class="v">${escapeHtml(
+                    jsonPretty(extra[k]),
+                  )}</div></div>`,
+              )
+              .join("")
+          : `<div class="subtle">No extra fields.</div>`;
+
+        el.innerHTML = `
+          <div class="taskHeader">
+            <div class="taskTitle">
+              <div class="taskTitleLine">
+                <a class="taskId" href="#task-${encodeURIComponent(task.id)}">${escapeHtml(task.id || "(missing id)")}</a>
+                <span class="taskName">${escapeHtml(task.title || "(untitled task)")}</span>
+              </div>
+              <div class="metaLine">
+                <span class="pill"><span class="dot ${statusDotClass(task.status)}"></span><strong>Status</strong><span>${escapeHtml(
+                  task.status,
+                )}</span></span>
+                <span class="pill"><span class="dot neutral"></span><strong>Priority</strong><span>${priorityText}</span></span>
+                <span class="pill"><span class="dot neutral"></span><strong>Owner</strong><span>${ownerText}</span></span>
+              </div>
+            </div>
+            <div class="chips" style="justify-content: flex-end; max-width: 520px">${tagsHtml}</div>
+          </div>
+
+          <div class="desc">${escapeHtml(task.description || "") || '<span class="subtle">No description.</span>'}</div>
+
+          <details>
+            <summary>Dependencies • Comments • Commit</summary>
+            <div class="detailsBody">
+              <div class="kv">
+                <div class="k">depends_on</div>
+                <div class="v">${depsHtml}</div>
+              </div>
+              <div class="kv">
+                <div class="k">commit</div>
+                <div class="v">${
+                  commitHash
+                    ? `${escapeHtml(commitHash)}${commitMsg ? "\\n" + escapeHtml(commitMsg) : ""}`
+                    : "No commit metadata."
+                }</div>
+              </div>
+              <div class="kv">
+                <div class="k">comments</div>
+                <div class="v" style="font-family: var(--sans)">${commentsHtml}</div>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>All fields (including unknown)</summary>
+            <div class="detailsBody">
+              <div class="kv"><div class="k">id</div><div class="v">${escapeHtml(task.id)}</div></div>
+              <div class="kv"><div class="k">title</div><div class="v">${escapeHtml(task.title)}</div></div>
+              <div class="kv"><div class="k">status</div><div class="v">${escapeHtml(task.status)}</div></div>
+              <div class="kv"><div class="k">priority</div><div class="v">${escapeHtml(task.priority || "-")}</div></div>
+              <div class="kv"><div class="k">owner</div><div class="v">${escapeHtml(task.owner || "-")}</div></div>
+              <div class="kv"><div class="k">tags</div><div class="v">${escapeHtml(jsonPretty(task.tags || []))}</div></div>
+              <div class="kv"><div class="k">depends_on</div><div class="v">${escapeHtml(jsonPretty(task.dependsOn || []))}</div></div>
+              <div class="kv"><div class="k">description</div><div class="v">${escapeHtml(task.description || "")}</div></div>
+              <div class="kv"><div class="k">comments</div><div class="v">${escapeHtml(jsonPretty(task.comments || []))}</div></div>
+              <div class="kv"><div class="k">commit</div><div class="v">${escapeHtml(jsonPretty(task.commit || null))}</div></div>
+              <div style="height: 6px"></div>
+              <div class="subtle">Extra keys (not in the standard schema):</div>
+              ${extraKvHtml}
+            </div>
+          </details>
+        `;
+
+        return el;
+      }
+
+      function renderTasks(tasks) {
+        const root = document.getElementById("tasks");
+        root.innerHTML = "";
+        if (!tasks.length) {
+          const empty = document.createElement("div");
+          empty.className = "panel errorBox";
+          empty.innerHTML = `<div style="font-weight: 650">No tasks match the current filters.</div>`;
+          root.appendChild(empty);
+          return;
+        }
+        for (const task of tasks) root.appendChild(renderTask(task));
+      }
+
+      function applyFilters(tasks) {
+        const q = String(document.getElementById("q").value || "").trim().toLowerCase();
+        const status = safeUpper(document.getElementById("status").value || "");
+        const owner = String(document.getElementById("owner").value || "").trim();
+        const priority = String(document.getElementById("priority").value || "").trim();
+        const tag = String(document.getElementById("tag").value || "").trim();
+        const hideDone = !!document.getElementById("hideDone").checked;
+
+        return tasks.filter((t) => {
+          if (hideDone && t.status === "DONE") return false;
+          if (status && t.status !== status) return false;
+          if (owner && t.owner !== owner) return false;
+          if (priority && t.priority !== priority) return false;
+          if (tag && !t.tags.includes(tag)) return false;
+          if (!q) return true;
+          const hay = [
+            t.id,
+            t.title,
+            t.description,
+            t.status,
+            t.priority,
+            t.owner,
+            ...(t.tags || []),
+            ...(t.dependsOn || []),
+            ...(t.comments || []).map((c) => `${c.author || ""} ${c.body || ""}`),
+          ]
+            .join(" ")
+            .toLowerCase();
+          return hay.includes(q);
+        });
+      }
+
+      function applySort(tasks) {
+        const mode = String(document.getElementById("sort").value || "id_asc");
+        const sorted = [...tasks];
+        if (mode === "id_desc") sorted.sort((a, b) => compareById(b, a));
+        else if (mode === "status_then_id") sorted.sort(compareByStatusThenId);
+        else if (mode === "priority_then_id") sorted.sort(compareByPriorityThenId);
+        else if (mode === "title_asc") sorted.sort(compareByTitle);
+        else sorted.sort(compareById);
+        return sorted;
+      }
+
+      function wireControls(onChange) {
+        const ids = ["q", "status", "owner", "priority", "tag", "hideDone", "sort"];
+        for (const id of ids) {
+          const el = document.getElementById(id);
+          el.addEventListener("input", onChange);
+          el.addEventListener("change", onChange);
+        }
+      }
+
+      async function loadTasksJson() {
+        const tasksUrl = new URL("./tasks.json", window.location.href);
+        const res = await fetch(tasksUrl, { cache: "no-store" });
+        if (!res.ok) throw new Error(`Failed to load tasks.json: HTTP ${res.status}`);
+        return await res.json();
+      }
+
+      async function loadTasksFromFile(file) {
+        if (!file) throw new Error("No file selected");
+        const text = await file.text();
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch (err) {
+          throw new Error(`Invalid JSON: ${err?.message || err}`);
+        }
+        if (!data || typeof data !== "object") throw new Error("Expected a JSON object at the top level");
+        return data;
+      }
+
+      function renderLoadMeta(message) {
+        document.getElementById("loadMeta").textContent = message;
+      }
+
+      function fillSelect(select, values) {
+        const keep = select.value;
+        select.querySelectorAll("option:not([value=''])").forEach((o) => o.remove());
+        for (const v of values) {
+          const opt = document.createElement("option");
+          opt.value = v;
+          opt.textContent = v;
+          select.appendChild(opt);
+        }
+        if (values.includes(keep)) select.value = keep;
+      }
+
+      function renderError(error) {
+        const root = document.getElementById("tasks");
+        root.innerHTML = "";
+        const el = document.createElement("div");
+        el.className = "panel errorBox";
+        el.innerHTML = `
+          <div style="font-weight: 650">Could not load tasks.json</div>
+          <div class="subtle">${escapeHtml(String(error?.message || error))}</div>
+          <div class="subtle">
+            If you opened this page via <code>file://</code>, use “Open tasks.json…” above (no server needed).
+          </div>
+        `;
+        root.appendChild(el);
+      }
+
+      function setFileModeVisible(visible) {
+        const row = document.getElementById("fileModeRow");
+        const dz = document.getElementById("dropZone");
+        row.style.display = visible ? "" : "none";
+        dz.style.display = visible ? "" : "none";
+      }
+
+      function applyData(data, sourceLabel) {
+        const meta = data?.meta && typeof data.meta === "object" ? data.meta : null;
+        const rawTasks = Array.isArray(data?.tasks) ? data.tasks : [];
+        const tasks = rawTasks.filter((t) => t && typeof t === "object").map(normalizeTask);
+
+        const owners = optionify(tasks.map((t) => t.owner).filter(Boolean));
+        const priorities = optionify(tasks.map((t) => t.priority).filter(Boolean));
+        const tags = optionify(tasks.flatMap((t) => t.tags || []));
+        fillSelect(document.getElementById("owner"), owners);
+        fillSelect(document.getElementById("priority"), priorities);
+        fillSelect(document.getElementById("tag"), tags);
+
+        renderSummary(tasks);
+
+        const metaPanel = document.getElementById("metaPanel");
+        const metaJson = document.getElementById("metaJson");
+        if (meta) {
+          metaPanel.style.display = "";
+          metaJson.textContent = jsonPretty(meta);
+        } else {
+          metaPanel.style.display = "none";
+        }
+
+        const metaBits = [];
+        if (sourceLabel) metaBits.push(sourceLabel);
+        if (meta?.schema_version != null) metaBits.push(`schema_version=${meta.schema_version}`);
+        if (meta?.checksum) metaBits.push(`checksum=${String(meta.checksum).slice(0, 12)}…`);
+        renderLoadMeta(
+          `Loaded ${tasks.length} tasks • ${metaBits.join(" • ")}${metaBits.length ? " • " : ""}${new Date().toLocaleString()}`,
+        );
+
+        function rerender() {
+          const filtered = applyFilters(tasks);
+          renderSummary(filtered);
+          renderTasks(applySort(filtered));
+        }
+
+        wireControls(rerender);
+        rerender();
+      }
+
+      async function main() {
+        renderLoadMeta("Loading tasks.json…");
+        try {
+          const fileMode = window.location.protocol === "file:";
+          setFileModeVisible(fileMode);
+
+          const data = await loadTasksJson();
+          lastLoaded = { source: "fetch", file: null };
+          applyData(data, "source=./tasks.json");
+        } catch (err) {
+          const fileMode = window.location.protocol === "file:";
+          setFileModeVisible(fileMode);
+          renderLoadMeta(fileMode ? "Select tasks.json to load" : "Load failed");
+          renderError(err);
+        }
+      }
+
+      function openFilePicker() {
+        document.getElementById("fileInput").click();
+      }
+
+      document.getElementById("openFileBtn").addEventListener("click", openFilePicker);
+      document.getElementById("fileInput").addEventListener("change", async (ev) => {
+        const file = ev.target.files?.[0] || null;
+        if (!file) return;
+        try {
+          renderLoadMeta(`Loading ${file.name}…`);
+          const data = await loadTasksFromFile(file);
+          lastLoaded = { source: "file", file };
+          applyData(data, `source=${file.name}`);
+        } catch (err) {
+          renderLoadMeta("Load failed");
+          renderError(err);
+        }
+      });
+
+      const dz = document.getElementById("dropZone");
+      dz.addEventListener("dragover", (ev) => {
+        ev.preventDefault();
+        dz.style.borderColor = "rgba(124, 92, 255, 0.55)";
+      });
+      dz.addEventListener("dragleave", () => {
+        dz.style.borderColor = "";
+      });
+      dz.addEventListener("drop", async (ev) => {
+        ev.preventDefault();
+        dz.style.borderColor = "";
+        const file = ev.dataTransfer?.files?.[0] || null;
+        if (!file) return;
+        try {
+          renderLoadMeta(`Loading ${file.name}…`);
+          const data = await loadTasksFromFile(file);
+          lastLoaded = { source: "file", file };
+          applyData(data, `source=${file.name}`);
+        } catch (err) {
+          renderLoadMeta("Load failed");
+          renderError(err);
+        }
+      });
+
+      document.getElementById("reload").addEventListener("click", async () => {
+        if (lastLoaded.source === "file" && lastLoaded.file) {
+          try {
+            renderLoadMeta(`Reloading ${lastLoaded.file.name}…`);
+            const data = await loadTasksFromFile(lastLoaded.file);
+            applyData(data, `source=${lastLoaded.file.name}`);
+          } catch (err) {
+            renderLoadMeta("Load failed");
+            renderError(err);
+          }
+          return;
+        }
+        window.location.reload();
+      });
+      main();
+    </script>
+  </body>
+</html>
