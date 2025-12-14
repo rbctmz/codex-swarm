@@ -1123,8 +1123,8 @@
         "workflow"
       ],
       "verify": [
-        "bash clean.sh",
-        "git status --short"
+        "bash -n clean.sh",
+        "python scripts/agentctl.py task lint"
       ],
       "comments": [
         {
@@ -1138,6 +1138,6 @@
     "schema_version": 1,
     "managed_by": "agentctl",
     "checksum_algo": "sha256",
-    "checksum": "1bb0918a86e23d4a6bbf5927f0b703390e4ccf4908c227fca80789adf295e4ca"
+    "checksum": "8af76983d51965ca3c67f806a9421e6abe14495c6f6770fa0959269674922c39"
   }
 }
