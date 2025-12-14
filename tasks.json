@@ -1079,12 +1079,29 @@
         "hash": "cc0a0a73dd2d3864f6d2cb9619d8837465046887",
         "message": "🧪 T-052 Add TESTER agent and enforce post-CODER tests"
       }
+    },
+    {
+      "id": "T-053",
+      "title": "Require DOCS workflow artifact before finishing tasks",
+      "description": "Change DOCS agent behavior so it runs before finishing any task and produces an atomic documentation artifact under @docs/workflow (e.g., @docs/workflow/T-025.md) describing what was implemented. Update orchestration guidance so plans include DOCS before REVIEWER marks tasks DONE.\\n\\nAcceptance criteria:\\n- @docs/workflow directory exists and is committed (with a short README describing artifact convention).\\n- @.AGENTS/DOCS.json instructs producing @docs/workflow/T-###.md artifacts (English, atomic, task-scoped).\\n- @AGENTS.md ORCHESTRATOR guidance schedules DOCS before finishing any task (DOCS before REVIEWER finish).\\n\\nNotes:\\n- Artifacts must be task-ID named, contain summary + changed files + verification commands (when available).",
+      "status": "TODO",
+      "priority": "med",
+      "owner": "CREATOR",
+      "tags": [
+        "agents",
+        "docs",
+        "workflow"
+      ],
+      "verify": [
+        "python scripts/agentctl.py task lint",
+        "python scripts/agentctl.py agents"
+      ]
     }
   ],
   "meta": {
     "schema_version": 1,
     "managed_by": "agentctl",
     "checksum_algo": "sha256",
-    "checksum": "44aa7e785f713b01063799d8feeb65fe75b04864552c99345093d91755c62b26"
+    "checksum": "f3c433c4d02d20e6235998f0905b2b18af60aae38b708aa71aa5524355ac907e"
   }
 }
