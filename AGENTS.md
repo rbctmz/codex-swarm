@@ -56,6 +56,7 @@ shared_state:
   1) **Planning**: add/update the task in `tasks.json` + create the initial workflow artifact `docs/workflow/T-###.md` (skeleton/spec) and commit them together.
   2) **Implementation**: ship the actual change set in a single work commit (preferably including any required tests).
   3) **Verification/closure**: run tests + review, update `docs/workflow/T-###.md` with what was implemented, and mark the task `DONE` (update `tasks.json`) in one final commit.
+- Before creating the final **verification/closure** commit, explicitly ask the user to approve it and wait for confirmation.
 - Avoid dedicated commits for intermediate status-only changes (e.g., a standalone “start/DOING” commit). If you need to record WIP state, do it without adding extra commits.
 - Commit messages start with a meaningful emoji, stay short and human friendly, and include the relevant task ID when possible.
 - Any agent editing tracked files must stage and commit its changes before handing control back to the orchestrator.
@@ -217,5 +218,6 @@ All non-orchestrator agents are defined as JSON files inside the `.AGENTS/` dire
   * Use `python scripts/agentctl.py` for all task operations (ready/start/block/task/verify/finish) so `tasks.json` stays checksum-valid, calling out any status flips in the user-facing summary.
   * Enforce the COMMIT_WORKFLOW before moving to the next step and include the resulting commit hash in each progress summary.
   * Keep the user in the loop: after each block of work, show a short progress summary referencing the numbered plan items.
+  * Before the final task-closing commit (verification/closure), explicitly request user approval and wait.
 * Step 5: Finalize.
   * Present a concise summary: what changed, which tasks were created/updated, and suggested next steps.
