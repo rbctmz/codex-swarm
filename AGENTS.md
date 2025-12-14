@@ -50,7 +50,12 @@ shared_state:
 
 # COMMIT_WORKFLOW
 
-- Treat each plan task (`T-###`) as an atomic unit of work that must end with its own git commit (and commit the resulting `tasks.json` updates as needed).
+- Treat each plan task (`T-###`) as an atomic unit of work and keep commits minimal.
+- Default to a 3-commit cadence per task:
+  1) **Planning**: add/update the task in `tasks.json` + create the initial workflow artifact `docs/workflow/T-###.md` (skeleton/spec) and commit them together.
+  2) **Implementation**: ship the actual change set in a single work commit (preferably including any required tests).
+  3) **Verification/closure**: run tests + review, update `docs/workflow/T-###.md` with what was implemented, and mark the task `DONE` (update `tasks.json`) in one final commit.
+- Avoid dedicated commits for intermediate status-only changes (e.g., a standalone “start/DOING” commit). If you need to record WIP state, do it without adding extra commits.
 - Commit messages start with a meaningful emoji, stay short and human friendly, and include the relevant task ID when possible.
 - Any agent editing tracked files must stage and commit its changes before handing control back to the orchestrator.
 - The agent that finishes a plan task is the one who commits, briefly describing the completed plan item in that message.
@@ -108,7 +113,7 @@ Schema (JSON):
 ### Status Transition Protocol
 
 - **Create / Reprioritize (PLANNER only).** PLANNER is the sole writer of new tasks and the only agent that may change priorities or mark work as `BLOCKED`; record the reasoning directly inside `tasks.json` (usually via `description` or a new `comments` entry).
-- **Start Work (specialist agent).** Before flipping a task to `DOING`, confirm every `depends_on` task is `DONE` (and dedupe task IDs if needed). If any parent task is not `DONE`, do not start; request PLANNER to resolve ordering or mark the task `BLOCKED`.
+- **Start Work (specialist agent).** Before starting, confirm every `depends_on` task is `DONE`. Marking `DOING` is optional, but do not create extra commits just to record `DOING`.
 - **Complete Work (review/doc specialist).** REVIEWER or DOCS marks tasks `DONE` only after validating the deliverable; add a `comments` entry summarizing the verification (this replaces the old indented `Review:` line in `PLAN.md`).
 - **Status Sync.** `tasks.json` is canonical. There is no derived status board file; use `python scripts/agentctl.py task list` / `python scripts/agentctl.py task show T-123`.
 - **Escalations.** Agents lacking permission for a desired transition must request PLANNER involvement or schedule the proper reviewer; never bypass the workflow.

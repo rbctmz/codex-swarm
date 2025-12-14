@@ -113,11 +113,14 @@ This structure lets you string together arbitrary workflows such as code impleme
 ## 🧾 Commit Workflow
 
 - The workspace is always a git repository, so every meaningful change must land in version control.
-- Each atomic task listed in `tasks.json` should have a work commit with a concise, meaningful emoji-prefixed message that mentions the task ID.
+- Default to a minimal 3-phase commit cadence per task:
+  - Planning: `tasks.json` + initial `docs/workflow/T-###.md` artifact.
+  - Implementation: the actual change set (preferably including tests) as a single work commit.
+  - Verification/closure: run checks, update `docs/workflow/T-###.md`, and mark the task `DONE` in `tasks.json`.
 - The agent that performs the work stages and commits before handing control back to the orchestrator, briefly describing the completed plan item so the summary is obvious, and the orchestrator pauses the plan until that commit exists.
 - Step summaries mention the new commit hash and confirm the working tree is clean so humans can audit progress directly from the conversation.
 - If a plan step produces no file changes, call that out explicitly; otherwise the swarm must not proceed without a commit.
-- After the work commit, mark the task DONE via `python scripts/agentctl.py finish T-123` and commit the resulting `tasks.json` update (DONE + commit metadata) as a small follow-up commit that also mentions the task ID.
+- Avoid extra commits that only move status fields (e.g., standalone “start/DOING” commits) unless truly necessary.
 
 ## 📚 Shared State Details
 
