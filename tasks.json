@@ -1014,12 +1014,47 @@
         "hash": "8f6ecd8bd1a461e52243f90732530069652a45c1",
         "message": "🛠️ T-050 Adopt agentctl workflow"
       }
+    },
+    {
+      "id": "T-051",
+      "title": "Remove legacy tasks.py + migrate docs to agentctl",
+      "description": "Delete scripts/tasks.py and update README.md + any other docs/configs that mention the old tasks.py/status-board flow, replacing it with the agentctl CLI workflow (ready/start/block/task/verify/guard/finish).",
+      "status": "DONE",
+      "priority": "high",
+      "owner": "CODER",
+      "tags": [
+        "docs",
+        "workflow",
+        "tooling"
+      ],
+      "verify": [
+        "python scripts/agentctl.py task lint",
+        "python scripts/agentctl.py agents"
+      ],
+      "comments": [
+        {
+          "author": "PLANNER",
+          "body": "Planned: remove legacy tasks.py + update docs to agentctl; Constraints: no manual tasks.json edits; keep guidance consistent across repo."
+        },
+        {
+          "author": "CODER",
+          "body": "Start: remove scripts/tasks.py; update README + other docs to new agentctl workflow; Constraints: no manual tasks.json edits; keep changes minimal and consistent."
+        },
+        {
+          "author": "REVIEWER",
+          "body": "Verified: scripts/tasks.py removed; README.md and GUIDELINE.md updated to agentctl-based task lifecycle (ready/start/block/task/verify/guard/finish); agentctl task lint passes; Limitations: existing CODEX owner warnings remain."
+        }
+      ],
+      "commit": {
+        "hash": "d6517d61191b4d80e80acc63117b6e55ba02c557",
+        "message": "🧹 T-051 Remove tasks.py; migrate docs to agentctl"
+      }
     }
   ],
   "meta": {
     "schema_version": 1,
     "managed_by": "agentctl",
     "checksum_algo": "sha256",
-    "checksum": "acfabf1d972000644028a857da06f92e0f434983e567c2e442b6a3eaa704b6dd"
+    "checksum": "7b92f17c65a338bec8fe226321b7bb3611dd45e550dd51b174f923019d1ae192"
   }
 }
