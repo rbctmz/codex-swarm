@@ -52,6 +52,7 @@ Prerequisites:
 - 🧠 **Orchestrated specialists:** Every agent prompt lives in `.AGENTS/*.json` so the orchestrator can load roles, permissions, and workflows dynamically.
 - 🧭 **Workflow guardrails:** The global instructions in `AGENTS.md` enforce approvals, planning, and emoji-prefixed commits so collaboration stays predictable.
 - 📝 **Docs-first cadence:** `tasks.json` drives the backlog, and `python scripts/agentctl.py` provides a safe CLI for inspecting/updating tasks (checksum-backed, no manual edits).
+- 🧪 **Post-change test coverage:** Development work can hand off to TESTER so relevant behavior is protected by automated tests before moving on.
 
 ## 🚀 How It Works
 
@@ -60,6 +61,7 @@ Prerequisites:
 3. 📑 **Shared task state.** All task data lives in the root-level `tasks.json`, and `scripts/agentctl.py` is the only supported way to inspect/update it (checksum-valid, with readiness + verify gates).
 4. 🧰 **Plugin-agnostic operation.** Because the instructions are plain Markdown and JSON, any IDE that supports the Codex Plugin can execute the same flows without extra configuration.
 5. 🎯 **Optimization audits (optional):** When the user explicitly asks for agent improvements, the orchestrator triggers `@.AGENTS/UPDATER.json` so it can inspect `.AGENTS/*.json` and the rest of the repo before outlining targeted follow-up tasks.
+6. 🧪 **Testing handoff (optional):** After CODER finishes an implementation, TESTER can add automated coverage for the touched behavior before REVIEWER finalizes the task.
 
 ## 🗂️ Repository Layout
 
@@ -74,6 +76,7 @@ Prerequisites:
 └── .AGENTS/
     ├── PLANNER.json
     ├── CODER.json
+    ├── TESTER.json
     ├── REVIEWER.json
     ├── DOCS.json
     ├── CREATOR.json
@@ -85,6 +88,7 @@ Prerequisites:
 | `AGENTS.md` | 🌐 Global rules, commit workflow, and the ORCHESTRATOR specification (plus the JSON template for new agents). |
 | `.AGENTS/PLANNER.json` | 🗒️ Defines how tasks are added/updated via `python scripts/agentctl.py` and kept aligned with each plan. |
 | `.AGENTS/CODER.json` | 🔧 Implementation specialist responsible for code or config edits tied to task IDs. |
+| `.AGENTS/TESTER.json` | 🧪 Adds or extends automated tests for the relevant code changes after implementation. |
 | `.AGENTS/REVIEWER.json` | 👀 Performs reviews, runs `verify` commands, and finishes tasks via `python scripts/agentctl.py finish`. |
 | `.AGENTS/DOCS.json` | 🧾 Keeps README and other docs synchronized with recently completed work. |
 | `.AGENTS/CREATOR.json` | 🏗️ On-demand agent factory that writes new JSON agents plus registry updates. |

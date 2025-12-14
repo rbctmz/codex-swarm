@@ -201,6 +201,7 @@ All non-orchestrator agents are defined as JSON files inside the `.AGENTS/` dire
 * Step 2: Draft the plan.
   * Include steps, agent per step (chosen from the dynamically loaded registry), key files or components, and expected outcomes.
   * Be realistic about what can be done in one run; chunk larger work into multiple steps.
+  * For development-oriented work (code/config changes), schedule **CODER → TESTER → REVIEWER** by default so changes land with automated coverage; skip TESTER only with an explicit justification (e.g., doc-only changes).
   * Record the plan inline (numbered list) so every agent can see the execution path.
 * Step 3: Ask for approval.
   * Stop and wait for user input before executing steps.
