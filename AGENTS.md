@@ -8,7 +8,7 @@ shared_state:
 # CODEX IDE CONTEXT
 
 - The entire workflow runs inside the local repository opened in VS Code, Cursor, or Windsurf; there are no remote runtimes, so pause for approval before touching files outside the repo or using the network.
-- There are no auxiliary agent tools—describe every action inside your reply and reference files with `@relative/path` (for example `Use @example.tsx as a reference...`).
+- Use `python scripts/agentctl.py` as the workflow helper for task operations and git guardrails; otherwise, describe every action inside your reply and reference files with `@relative/path` (for example `Use @example.tsx as a reference...`).
 - Default to the **GPT-5-Codex** model with medium reasoning effort; increase to high only for complex migrations and drop to low when speed matters more than completeness.
 - For setup tips review https://developers.openai.com/codex/ide/; for advanced CLI usage see https://github.com/openai/codex/.
 
@@ -20,7 +20,7 @@ shared_state:
   - Think step by step internally. DO NOT print full reasoning, only concise results, plans, and key checks.
   - Prefer structured outputs (lists, tables, JSON) when they help execution.
 - If user instructions conflict with this file, this file wins unless the user explicitly overrides it for a one-off run.
-- Never invent external facts. For tasks and project state, use the canonical `tasks.json` as the single source of truth.
+- Never invent external facts. For tasks and project state, treat `tasks.json` as canonical, but inspect/update it only via `python scripts/agentctl.py` (no manual edits).
 - The workspace is always a git repository. After completing each atomic task tracked in `tasks.json`, create a concise, human-readable commit before continuing.
 
 ---
@@ -42,6 +42,7 @@ shared_state:
 - When work spans multiple sub-steps, write a short numbered plan directly in your reply before editing anything. Update that list as progress is made so everyone can see the latest path.
 - Describe every edit, command, or validation precisely (file + snippet + replacement) because no automation surface exists; keep changes incremental so Codex can apply them verbatim.
 - When commands or tests are required, spell out the command for Codex to run inside the workspace terminal, then summarize the key lines of output instead of dumping full logs.
+- For any task operation (add/update/comment/status/verify/finish), use `python scripts/agentctl.py` rather than editing `tasks.json` directly so the checksum stays valid.
 - For frontend or design work, enforce the design-system tokens described by the project before inventing new colors or components.
 - If running any script requires installing external libraries or packages, create or activate a virtual environment first and install those dependencies exclusively inside it.
 
@@ -49,13 +50,14 @@ shared_state:
 
 # COMMIT_WORKFLOW
 
-- Treat each plan task (`T-###`) as an atomic unit of work that must end with its own git commit.
+- Treat each plan task (`T-###`) as an atomic unit of work that must end with its own git commit (and commit the resulting `tasks.json` updates as needed).
 - Commit messages start with a meaningful emoji, stay short and human friendly, and include the relevant task ID when possible.
 - Any agent editing tracked files must stage and commit its changes before handing control back to the orchestrator.
 - The agent that finishes a plan task is the one who commits, briefly describing the completed plan item in that message.
 - The ORCHESTRATOR must not advance to the next plan step until the previous step’s commit is recorded.
 - Each step summary should mention the new commit hash so every change is traceable from the conversation log.
 - Before switching agents, ensure `git status --short` is clean (no stray changes) other than files intentionally ignored.
+- Before committing, run `python scripts/agentctl.py guard commit T-123 -m "…" --allow <path>` to validate the staged allowlist and message quality.
 
 > Role-specific commit conventions live in each agent’s JSON profile.
 
@@ -78,37 +80,45 @@ Schema (JSON):
       "id": "T-001",
       "title": "Add Normalizer Service",
       "description": "What the task accomplishes and why it matters.",
+      "depends_on": ["T-000"],
       "status": "TODO",
       "priority": "med",
       "owner": "human",
       "tags": ["codextown", "normalizer"],
+      "verify": ["python -m pytest -q"],
       "comments": [
         { "author": "owner", "body": "Context, review notes, or follow-ups." }
-      ]
+      ],
+      "commit": { "hash": "abc123...", "message": "🛠️ T-001 ..." }
     }
-  ]
+  ],
+  "meta": { "schema_version": 1, "managed_by": "agentctl", "checksum_algo": "sha256", "checksum": "..." }
 }
 ```
 
 - Keep tasks atomic: PLANNER decomposes each request into single-owner items that map one-to-one with commits.
 - Allowed statuses: `TODO`, `DOING`, `DONE`, `BLOCKED`.
 - `description` explains the business value or acceptance criteria.
+- `depends_on` (optional) lists parent task IDs that must be `DONE` before starting this task.
+- `verify` (optional) is a list of local shell commands the REVIEWER must run (or allow `finish` to run automatically) before marking `DONE`.
 - `comments` captures discussion, reviews, or handoffs; use short sentences with the author recorded explicitly.
+- `commit` is required when a task is `DONE`.
+- `meta` is maintained by `agentctl`; manual edits to `tasks.json` will break the checksum and fail `agentctl task lint`.
 
 ### Status Transition Protocol
 
 - **Create / Reprioritize (PLANNER only).** PLANNER is the sole writer of new tasks and the only agent that may change priorities or mark work as `BLOCKED`; record the reasoning directly inside `tasks.json` (usually via `description` or a new `comments` entry).
-- **Start Work (specialist agent).** Whoever assumes ownership flips the task to `DOING` inside `tasks.json` before editing files so the backlog always reflects current work.
+- **Start Work (specialist agent).** Before flipping a task to `DOING`, confirm every `depends_on` task is `DONE` (and dedupe task IDs if needed). If any parent task is not `DONE`, do not start; request PLANNER to resolve ordering or mark the task `BLOCKED`.
 - **Complete Work (review/doc specialist).** REVIEWER or DOCS marks tasks `DONE` only after validating the deliverable; add a `comments` entry summarizing the verification (this replaces the old indented `Review:` line in `PLAN.md`).
-- **Status Sync.** `tasks.json` is canonical. After editing it, immediately run `python scripts/tasks.py` at the repo root so the generated status board stays current before committing.
+- **Status Sync.** `tasks.json` is canonical. There is no derived status board file; use `python scripts/agentctl.py task list` / `python scripts/agentctl.py task show T-123`.
 - **Escalations.** Agents lacking permission for a desired transition must request PLANNER involvement or schedule the proper reviewer; never bypass the workflow.
 
 Protocol:
 
 - Before changing tasks: review the latest `tasks.json` so you understand the current state.
-- When updating: edit the existing JSON entries; do NOT silently drop tasks.
+- When updating: do not edit `tasks.json` by hand; use `python scripts/agentctl.py task add/update/comment/set-status` (and `start/block/finish`) so the checksum stays valid.
 - In your reply: list every task ID you touched plus the new status or notes.
-- Only `tasks.json` stores task data. Regenerate the read-only status board with `python scripts/tasks.py` whenever you need a refreshed view.
+- Only `tasks.json` stores task data. Use `python scripts/agentctl.py task list` / `python scripts/agentctl.py task show T-123` to inspect tasks during execution.
 
 # AGENT REGISTRY
 
@@ -196,7 +206,7 @@ All non-orchestrator agents are defined as JSON files inside the `.AGENTS/` dire
   * Stop and wait for user input before executing steps.
 * Step 4: Execute.
   * For each step, follow the corresponding agent’s JSON workflow before taking action.
-  * Update `tasks.json` through the owner specified in the Status Transition Protocol, then run `python scripts/tasks.py` so the generated status board stays in sync, calling out any status flips in the user-facing summary.
+  * Use `python scripts/agentctl.py` for all task operations (ready/start/block/task/verify/finish) so `tasks.json` stays checksum-valid, calling out any status flips in the user-facing summary.
   * Enforce the COMMIT_WORKFLOW before moving to the next step and include the resulting commit hash in each progress summary.
   * Keep the user in the loop: after each block of work, show a short progress summary referencing the numbered plan items.
 * Step 5: Finalize.

@@ -11,7 +11,11 @@
         "docs",
         "readme"
       ],
-      "comments": []
+      "comments": [],
+      "commit": {
+        "hash": "76d362097fa5d7237d78e4142d9d4ce7f9511513",
+        "message": "Create README.md"
+      }
     },
     {
       "id": "T-002",
@@ -24,7 +28,11 @@
         "agents",
         "architecture"
       ],
-      "comments": []
+      "comments": [],
+      "commit": {
+        "hash": "645a960e59145717d77f4bfab367c2a14234cc03",
+        "message": "Dynamic Agents"
+      }
     },
     {
       "id": "T-003",
@@ -37,7 +45,11 @@
         "state",
         "persistence"
       ],
-      "comments": []
+      "comments": [],
+      "commit": {
+        "hash": "645a960e59145717d77f4bfab367c2a14234cc03",
+        "message": "Dynamic Agents"
+      }
     },
     {
       "id": "T-004",
@@ -963,7 +975,43 @@
           "author": "docs",
           "body": "Added tasks.html as a local-first viewer for tasks.json (auto-load over HTTP, plus file picker/drag-drop when opened via file://)."
         }
+      ],
+      "commit": {
+        "hash": "5cc30b601bb86f224a984851dae8137374db7ded",
+        "message": "✨ T-049 add tasks.html tasks viewer"
+      }
+    },
+    {
+      "id": "T-050",
+      "title": "Adopt agentctl-based agent workflow",
+      "description": "Update AGENTS.md + .AGENTS/*.json to use scripts/agentctl.py for task operations (no manual tasks.json edits), add the new CLI to the repo, and make tasks.json pass agentctl task lint (meta+checksum, DONE tasks have commit metadata).",
+      "status": "DOING",
+      "priority": "high",
+      "owner": "CODER",
+      "tags": [
+        "agents",
+        "workflow",
+        "tooling"
+      ],
+      "verify": [
+        "python scripts/agentctl.py agents"
+      ],
+      "comments": [
+        {
+          "author": "PLANNER",
+          "body": "Planned: migrate agent workflow to agentctl CLI; Constraints: local repo only; No manual tasks.json edits."
+        },
+        {
+          "author": "CODER",
+          "body": "Start: update AGENTS.md and .AGENTS/*.json to use agentctl; add scripts/agentctl.py; make tasks.json lint-clean; Constraints: no manual tasks.json edits."
+        }
       ]
     }
-  ]
+  ],
+  "meta": {
+    "schema_version": 1,
+    "managed_by": "agentctl",
+    "checksum_algo": "sha256",
+    "checksum": "5a3e6d7bb8e0c66ecd69154000ddbc418e4e0a3a33a5b56bed5a34b4b48805e5"
+  }
 }

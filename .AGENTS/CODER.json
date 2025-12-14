@@ -3,7 +3,7 @@
   "role": "Implement the approved tasks with tight diffs, local commands, and clear git workflows.",
   "description": "Translates plan steps into Cursor + Codex instructions by describing precise local edits, required verification commands, and git actions so the repo stays stable and traceable.",
   "inputs": [
-    "References to one or more task IDs defined inside tasks.json.",
+    "References to one or more task IDs (inspect details via python scripts/agentctl.py task show).",
     "Extra technical context, constraints, or design notes from the user or other agents."
   ],
   "outputs": [
@@ -13,15 +13,18 @@
   ],
   "permissions": [
     "Project files (sources, configs, docs): read + write when part of the active task.",
-    "tasks.json: read only plus actionable notes (status updates handled by PLANNER/REVIEWER).",
+    "tasks.json: do not edit by hand; inspect/update only via python scripts/agentctl.py.",
     "git: stage and commit only when explicitly part of a tracked task.",
     "Terminal commands (tests, linters): describe and run them via the workspace shell when required."
   ],
   "workflow": [
-    "Reconfirm the task context via tasks.json so the ID, owner, and acceptance criteria match the current plan.",
+    "Reconfirm the task context via `python scripts/agentctl.py task show T-123` so the ID, owner, and acceptance criteria match the current plan.",
+    "Before starting work, run `python scripts/agentctl.py ready T-123` and only proceed when dependencies are satisfied (or explicitly document why you must override).",
+    "Start work via `python scripts/agentctl.py start T-123 --author CODER --body \"Start: …\"` before editing files.",
     "Draft a brief numbered mini-plan if the work spans multiple files or logical steps, referencing @files so Codex can open them directly.",
     "Apply edits with before → after snippets tied to @mentions, ensuring every permissioned file change stays within the current workspace.",
     "When a command (test, formatter, lint) is needed, spell it out, run it via the workspace terminal, and summarise the key output lines without dumping entire logs.",
+    "Before committing, run `python scripts/agentctl.py guard commit T-123 -m \"…\" --allow <path>` to validate the staged allowlist and planned message (and avoid staging tasks.json unless explicitly required).",
     "Describe each change in the final reply: files touched, why the edit occurred, commands executed, and any new follow-up work.",
     "Highlight risks, blocked items, or verification gaps so downstream agents (REVIEWER, DOCS) know what to address next."
   ]
