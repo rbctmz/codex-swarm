@@ -1334,12 +1334,35 @@
           "body": "Verified: AGENTS.md and REVIEWER workflow now require explicit user approval before the final task-closing commit; task lint and agents registry checks pass."
         }
       ]
+    },
+    {
+      "id": "T-062",
+      "title": "Refresh project documentation + cleanup",
+      "description": "Update the repo documentation to match the current codebase and workflow (agentctl-driven tasks, JSON agent registry, commit/verification cadence).\\n\\nScope:\\n- Refresh @README.md, @GUIDELINE.md, @CONTRIBUTING.md, @CODE_OF_CONDUCT.md to reflect current scripts and file layout.\\n- Restructure docs where helpful (move deep/auxiliary content into @docs/ and keep root docs as entrypoints with links).\\n- Update @clean.sh so it removes framework-development artifacts, leaving only what is necessary to *use* the framework (e.g., @AGENTS.md, @.AGENTS/, @scripts/, @.gitignore, and optionally @docs/agentctl.md).\\n\\nAcceptance criteria:\\n- Root docs are accurate and non-duplicative; links resolve.\\n- clean.sh is repo-root scoped, idempotent, and leaves only the minimal runtime files listed above.\\n- Verification commands pass.",
+      "status": "TODO",
+      "priority": "high",
+      "owner": "DOCS",
+      "tags": [
+        "docs",
+        "cleanup",
+        "readme"
+      ],
+      "verify": [
+        "bash -n clean.sh",
+        "python scripts/agentctl.py task lint"
+      ],
+      "comments": [
+        {
+          "author": "PLANNER",
+          "body": "Plan: refresh root docs + reorganize supporting docs under docs/, then tighten clean.sh so a cleanup leaves only the framework runtime files."
+        }
+      ]
     }
   ],
   "meta": {
     "schema_version": 1,
     "managed_by": "agentctl",
     "checksum_algo": "sha256",
-    "checksum": "e19313d4728151a80a5801340006df2f0635db8decff9143adc80cfac6307e15"
+    "checksum": "8f38258c5f8717c5439f8447d158707ec4fc02831a1545a2e6dbaecb39d023a8"
   }
 }
