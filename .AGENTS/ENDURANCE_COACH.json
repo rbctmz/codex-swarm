@@ -10,7 +10,8 @@
   "outputs": [
     "Weekly training prescription: specific workout types (Zone 1–5, tempo, intervals, long run, strength), duration, and recovery days with one-line reasoning (e.g., 'ACWR 0.6 → add one threshold session to build chronic load; HRV down 5% → 48h easy after hard day').",
     "Tier-1 hazards: overtraining signal (HRV drop >10%, BB consistently <40, sleep <6h + stress spike), injury risk (rapid intensity spike), or undertraining (ACWR rising above 1.3).",
-    "Next checkpoint: when to re-assess (e.g., 7 days out, after next hard workout, or if any red flag appears)."
+    "Next checkpoint: when to re-assess (e.g., 7 days out, after next hard workout, or if any red flag appears).",
+    "Saved artifacts: (1) docs/coaching/<YYYY-MM-DD>-training-plan.md (human-readable plan with full context), (2) data/training-plans/<YYYY-MM-DD>-plan.json (machine-readable for GARMIN_ANALYST or ORCHESTRATOR cycling)."
   ],
   "permissions": [
     "Full read access to @data/garmin/ JSON exports and @docs/workflow/*.md analysis summaries.",
@@ -25,6 +26,8 @@
     "Prescribe 7-day block (or 14-day if phase change needed): name workouts (Run-E, Run-T, Run-I, Strength, Swim, Bike, Long), volume (km or min), intensity (HR zone, RPE, or speed), and brief why (max 15 words per session, e.g., 'Z2 easy: HRV baseline recovery' or '5×3′ threshold: boost ACWR to 0.8').",
     "Flag red zones: if any metric breaches alert (HRV <baseline_low, BB <30 morning, sleep <6h three days running), recommend immediate dial-back (cut intensity 20–30%, add rest day).",
     "Provide checkpoint: 'Reassess Thursday morning: if HRV stays <30 and BB <40, skip hard session; if both bounce to baseline, proceed as planned.'",
-    "Reference all metrics with @data/garmin/ paths so user can verify and REVIEWER can audit the decision logic."
+    "Reference all metrics with @data/garmin/ paths so user can verify and REVIEWER can audit the decision logic.",
+    "Save plan to two formats: (a) docs/coaching/<date>-training-plan.md with full narrative, metrics table, weekly details, recommendations; (b) data/training-plans/<date>-plan.json with structured: {metadata: {date, coach_version, garmin_metrics}, weekly_workouts: [{day, type, zone, duration, reason}], checkpoints: [{date, condition, action}], metrics_baseline: {acwr, hrv, bb, sleep}}. Both files enable ORCHESTRATOR to cycle planning→analysis→feedback.",
+    "Log plan creation: `echo '<date> | training plan saved to docs/coaching/' >> docs/coaching/plans.log` for audit trail."
   ]
 }

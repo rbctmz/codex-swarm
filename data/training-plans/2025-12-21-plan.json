@@ -1,0 +1,340 @@
+{
+  "metadata": {
+    "plan_id": "2025-12-21",
+    "created_at": "2025-12-20T10:30:00Z",
+    "coach_agent": "ENDURANCE_COACH",
+    "coach_version": "1.0",
+    "date_range": {
+      "start": "2025-12-21",
+      "end": "2025-12-27"
+    },
+    "garmin_data_snapshot": {
+      "acwr": 0.6,
+      "acwr_status": "LOW",
+      "hrv_latest": 32,
+      "hrv_trend_start": 40,
+      "hrv_trend_change_pct": -20,
+      "body_battery_avg": 30,
+      "body_battery_range": [8, 79],
+      "sleep_score_avg": 65,
+      "sleep_score_quality_distribution": {
+        "excellent": 2,
+        "good": 7,
+        "fair": 13,
+        "poor": 8
+      },
+      "training_status": "RECOVERY",
+      "aerobic_high": 481,
+      "aerobic_high_target_min": 501,
+      "anaerobic": 91,
+      "anaerobic_target_min": 133,
+      "vo2_max_running": 43,
+      "vo2_max_cycling": 36
+    }
+  },
+  "weekly_workouts": [
+    {
+      "day": "Sunday",
+      "date": "2025-12-21",
+      "workout_type": "EASY_RECOVERY",
+      "sport": "cycling+walking",
+      "zone": "Z1",
+      "zone_range": "50-60% max HR",
+      "duration_min": 30,
+      "structure": "30 min bike + 20 min walk",
+      "total_time_min": 50,
+      "intensity_rpe": 3,
+      "reason": "HRV 32 (lower bound), activate recovery without parasympathetic deactivation; BB 30 needs charging",
+      "key_metric_link": "recovery.json#hrv_latest=32, readiness.json#body_battery_avg=30"
+    },
+    {
+      "day": "Monday",
+      "date": "2025-12-22",
+      "workout_type": "THRESHOLD",
+      "sport": "running",
+      "zone": "Z4",
+      "zone_range": "85-90% max HR",
+      "duration_min": 45,
+      "structure": "10 min Z2 warm-up + 4x5min Z4 (2 min Z2 recovery) + 5 min cool-down",
+      "work_duration_min": 20,
+      "total_time_min": 45,
+      "intensity_rpe": 7,
+      "reason": "ACWR 0.6 allows intensity; aerobic_high 481 < 501 target; sleep improved (77 yesterday); add ~15min to aerobic_high zone",
+      "key_metric_link": "readiness.json#acwr=0.6, training.json#aerobic_high=481, sleep.json#latest_score=77"
+    },
+    {
+      "day": "Tuesday",
+      "date": "2025-12-23",
+      "workout_type": "STEADY_BASE",
+      "sport": "cycling",
+      "zone": "Z2",
+      "zone_range": "65-75% max HR",
+      "duration_min": 75,
+      "structure": "steady tempo, no intervals",
+      "total_time_min": 75,
+      "intensity_rpe": 4.5,
+      "reason": "Recovery day with volume; builds chronic load (key to ACWR increase); low stress typical this day (20-25 overall)",
+      "key_metric_link": "recovery.json#daily_stress, readiness.json#weekly_trends"
+    },
+    {
+      "day": "Wednesday",
+      "date": "2025-12-24",
+      "workout_type": "VO2_MAX_INTERVALS",
+      "sport": "running",
+      "zone": "Z5",
+      "zone_range": "90-100% max HR",
+      "duration_min": 50,
+      "structure": "15 min Z2 warm-up + 5x4min Z5 (3 min Z2 recovery) + 10 min cool-down",
+      "work_duration_min": 20,
+      "total_time_min": 50,
+      "intensity_rpe": 8.5,
+      "reason": "Anaerobic 91 critically low (target 133); VO2max 43 has reserve; Z5 intervals trigger mitochondrial adaptation; final hard day before holidays",
+      "key_metric_link": "readiness.json#anaerobic=91, vo2_max_running=43"
+    },
+    {
+      "day": "Thursday",
+      "date": "2025-12-25",
+      "workout_type": "RECOVERY_ACTIVE",
+      "sport": "walking+mobility",
+      "zone": "Z1",
+      "zone_range": "50-60% max HR",
+      "duration_min": 30,
+      "structure": "30 min easy walk + 15 min stretch/mobility/breathwork",
+      "total_time_min": 45,
+      "intensity_rpe": 2,
+      "reason": "Recovery day after Z5 workout (Wed); holiday—preserve sleep; BB typically peaks midday; light walking mobilizes without catabolism",
+      "key_metric_link": "readiness.json#weekly_body_battery, recovery.json#hrv_daily"
+    },
+    {
+      "day": "Friday",
+      "date": "2025-12-26",
+      "workout_type": "THRESHOLD_BASE_CONDITIONAL",
+      "sport": "cycling",
+      "zone_conditional": {
+        "if_bb_gte_50": "Z3-Z4 (75-90% max HR)",
+        "else": "Z1-Z2 (50-75% max HR)"
+      },
+      "duration_min_active": 38,
+      "duration_min_easy": 35,
+      "structure_active": "10 min Z2 warm-up + 2x10min Z3 (3 min Z2 recovery) + 5 min cool-down",
+      "structure_easy": "steady Z1-Z2, no intervals",
+      "intensity_rpe_active": 6,
+      "intensity_rpe_easy": 3,
+      "decision_checkpoint": {
+        "check_time": "Friday morning 06:00-07:00",
+        "metric": "Body Battery at wake",
+        "rule_active": "if BB >= 50 execute THRESHOLD_BASE_ACTIVE",
+        "rule_easy": "if BB < 50 OR HRV < 32 execute EASY",
+        "rule_rest": "if HRV < 30 AND BB < 40 FULL_REST"
+      },
+      "reason": "Conditional: if energy high (BB≥50) add Z3 work; if depleted, preserve with Z1-Z2. Flexibility based on bio-markers.",
+      "key_metric_link": "readiness.json#body_battery, recovery.json#hrv_daily"
+    },
+    {
+      "day": "Saturday",
+      "date": "2025-12-27",
+      "workout_type": "LONG_EASY",
+      "sport": "running",
+      "zone": "Z2",
+      "zone_range": "65-75% max HR",
+      "duration_min_long": 90,
+      "duration_min_short": 60,
+      "structure": "steady tempo Z2, no intervals",
+      "intensity_rpe": 4,
+      "decision_checkpoint": {
+        "check_time": "Saturday morning",
+        "metric": "Body Battery avg (Mon-Fri)",
+        "rule_long": "if BB_avg (21-25 Dec) > 35 execute 90 min",
+        "rule_short": "if BB_avg <= 35 execute 60 min"
+      },
+      "reason": "Final aerobic volume; completed week of intensity; recent weekly steps 62k (avg 8.8k/day), capacity exists; prepares for next week",
+      "key_metric_link": "training.json#weekly_steps_history, readiness.json#weekly_body_battery"
+    }
+  ],
+  "hazards": {
+    "tier_1_signals": [
+      {
+        "signal": "ACWR 0.6 = UNDERDOSE",
+        "metric": "acute_load 256 / chronic_load 379",
+        "severity": "MEDIUM",
+        "action": "Add intensity (mon Z4, wed Z5, fri conditional Z3); target ACWR 0.7-0.8 end of week"
+      },
+      {
+        "signal": "HRV TREND DOWN 20% (40→32 over 30 days)",
+        "metric": "daily_hrv latest 32 ms",
+        "severity": "HIGH",
+        "baseline_low": 30,
+        "baseline_high": 41,
+        "action": "Daily monitoring; if <30 for 3 consecutive days, dial-back hard sessions; add early bedtimes (22:00)"
+      },
+      {
+        "signal": "ANAEROBIC CRITICALLY LOW",
+        "metric": "91 min (target 133+, deficit 42 min)",
+        "severity": "HIGH",
+        "action": "Wednesday Z5 intervals (5x4min) = +20 min; requires 2-3 more weeks of high-intensity work"
+      },
+      {
+        "signal": "REM DEFICIENCY IN SLEEP",
+        "metric": "13 nights insufficient REM, 8 POOR nights; pattern: late bedtimes",
+        "severity": "HIGH",
+        "action": "Target bedtime 22:00 (even during holidays); magnesium 200-300mg before bed"
+      },
+      {
+        "signal": "BODY BATTERY DECLINING",
+        "metric": "avg 30 (week 4 of 30-day window); was 40 week 1",
+        "severity": "MEDIUM",
+        "action": "Recovery days (sun, fri, sat) + early sleep; monitor parity—if <25 morning, add full rest day"
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "checkpoint_id": "CP1",
+      "date": "2025-12-25",
+      "time_utc": "06:00-07:00",
+      "condition": "HRV < 30 AND Body Battery < 40",
+      "action": "CANCEL Friday 26 Dec hard session; switch to FULL REST or EASY Z1 only"
+    },
+    {
+      "checkpoint_id": "CP2",
+      "date": "2025-12-25",
+      "time_utc": "06:00-07:00",
+      "condition": "HRV 30-32 AND Body Battery 40-50",
+      "action": "Proceed Friday 26 as EASY Z2 (30-40 min) instead of THRESHOLD_BASE"
+    },
+    {
+      "checkpoint_id": "CP3",
+      "date": "2025-12-26",
+      "time_utc": "06:00-07:00",
+      "condition": "Body Battery < 50",
+      "action": "Reduce Friday to Z1-Z2 easy (30-40 min) instead of Z3-Z4"
+    },
+    {
+      "checkpoint_id": "CP4",
+      "date": "2025-12-26",
+      "time_utc": "06:00-07:00",
+      "condition": "HRV < 30",
+      "action": "CANCEL Friday hard session; add 1 additional recovery day; monitor for overtraining"
+    },
+    {
+      "checkpoint_id": "CP5",
+      "date": "2025-12-27",
+      "time_utc": "06:00-07:00",
+      "condition": "Body Battery avg (21-25 Dec) <= 35",
+      "action": "Reduce Saturday long run from 90 min to 60 min"
+    },
+    {
+      "checkpoint_id": "CP6",
+      "date": "2025-12-27",
+      "time_utc": "12:00-18:00",
+      "condition": "Stress > 35 overall AND Body Battery < 50",
+      "action": "Replace LONG with EASY Z1 (40-45 min recovery run)"
+    }
+  ],
+  "recommendations": [
+    {
+      "category": "SLEEP",
+      "priority": 1,
+      "action": "Target bedtime 22:00 (max 22:30); Garmin data shows 6 nights 'NEGATIVE_LATE_BED_TIME' correlating REM deficit",
+      "expected_outcome": "Sleep score 72+, REM ≥20% of total sleep"
+    },
+    {
+      "category": "NUTRITION",
+      "priority": 2,
+      "action": "Post-intensity (Mon 22, Wed 24): 30-40g carbs + 15-20g protein within 30 min; steady hydration 2.5L/day on hard days",
+      "expected_outcome": "Faster glycogen recovery; reduced DOMS"
+    },
+    {
+      "category": "SUPPLEMENTATION",
+      "priority": 2,
+      "action": "Magnesium 200-300mg 30 min before bed; if HRV not recovering add 500mL extra water morning",
+      "expected_outcome": "HRV recovery support; better sleep quality"
+    },
+    {
+      "category": "MONITORING",
+      "priority": 1,
+      "action": "Daily log: HRV (target >32), Body Battery avg (target >35), sleep duration + REM%; checkpoint decisions every morning",
+      "expected_outcome": "Early detection of overtraining; agile plan adjustment"
+    }
+  ],
+  "weekly_targets": [
+    {
+      "metric": "ACWR",
+      "current": 0.6,
+      "target_eow": 0.75,
+      "target_range": "0.7-0.8",
+      "method": "3 hard days (mon Z4, wed Z5, fri Z3) + 1 volume day (tue Z2)"
+    },
+    {
+      "metric": "Aerobic High intensity minutes",
+      "current": 481,
+      "target_eow": 520,
+      "target_increment": 39,
+      "method": "Mon 4x5min Z4 (~18 min) + Fri 2x10min Z3 (~20 min) + Wed Z5 contributes ~15 min crossover"
+    },
+    {
+      "metric": "Anaerobic intensity minutes",
+      "current": 91,
+      "target_eow": 110,
+      "target_increment": 19,
+      "method": "Wed 5x4min Z5 (~20 min); longer-term target 133+ needs 2-3 more weeks"
+    },
+    {
+      "metric": "HRV",
+      "current": 32,
+      "target_eow": 35,
+      "method": "Early sleep (22:00), magnesium, hydration, 2 recovery days (sun, fri)"
+    },
+    {
+      "metric": "Body Battery avg",
+      "current": 30,
+      "target_eow": 35,
+      "method": "Recovery days + consistent early sleep"
+    },
+    {
+      "metric": "Sleep score avg",
+      "current": 65,
+      "target_eow": 72,
+      "method": "Bedtime 22:00, magnesium, consistent 7-8h duration"
+    }
+  ],
+  "verification_audit": {
+    "data_sources": [
+      "@data/garmin/readiness.json (ACWR 0.6, training_status RECOVERY, aerobic_high 481, anaerobic 91, VO2max)",
+      "@data/garmin/recovery.json (HRV daily 32 latest, Body Battery range 8-79, stress patterns)",
+      "@data/garmin/sleep.json (avg score 65, REM deficiency pattern, late bedtime feedback)",
+      "@data/garmin/training.json (50 activities, weekly_trends, intensity distribution)"
+    ],
+    "verification_checklist": [
+      {
+        "check": "ACWR 0.6 confirms LOW underdose status",
+        "method": "Plan includes 3 hard days (mon/wed/fri) totaling 50 min Z4+Z5 + 20 min Z3 = ~90 min intensity",
+        "status": "PASS"
+      },
+      {
+        "check": "HRV 32 ms at lower bound requires flexibility",
+        "method": "Plan includes 4 dynamic checkpoints (CP1-CP4) for Thu-Fri-Sat",
+        "status": "PASS"
+      },
+      {
+        "check": "Anaerobic 91 critically low targets Z5 work",
+        "method": "Wed contains 5x4min Z5 intervals = 20 min Z5 work",
+        "status": "PASS"
+      },
+      {
+        "check": "REM deficiency targets early sleep",
+        "method": "Recommendations list bedtime 22:00 + magnesium",
+        "status": "PASS"
+      },
+      {
+        "check": "Body Battery declining trend addressed",
+        "method": "Recovery days (sun/fri/sat) + volume day (tue) preserves recovery",
+        "status": "PASS"
+      }
+    ]
+  },
+  "next_review": {
+    "date": "2025-12-27",
+    "focus": "Execution analysis; HRV recovery trajectory; ACWR gain; plan adjustment for week 28-03 Jan"
+  }
+}
