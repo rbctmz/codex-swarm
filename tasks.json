@@ -1365,12 +1365,25 @@
         "hash": "c4d8084771dabcdb57353f5e7792322010f648ed",
         "message": "📝 T-062 Refresh docs and cleanup"
       }
+    },
+    {
+      "id": "T-063",
+      "title": "Add Garmin MCP analyst agent",
+      "description": "Create a GARMIN_ANALYST agent that ingests MCP Garmin data (training, recovery, sleep, readiness) and summarizes key outcomes for the swarm; include instructions for authenticating with the MCP server, data sanitization, and referencing MCP docs. Ensure the task workflow stays within Codex constraints and mention required verify steps if any.",
+      "status": "TODO",
+      "priority": "med",
+      "owner": "human",
+      "tags": [
+        "agent",
+        "garmin",
+        "mcp"
+      ]
     }
   ],
   "meta": {
     "schema_version": 1,
     "managed_by": "agentctl",
     "checksum_algo": "sha256",
-    "checksum": "76468d1102c609457e6e3ef35c923d7e6faa38a9c61f3bf2bdc6dd47276c716f"
+    "checksum": "c6e74b54b99c29294ab32cf95b3a4bceb4c49897906f209df5d8efa2e0c4d27d"
   }
 }
