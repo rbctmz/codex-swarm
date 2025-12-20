@@ -1382,12 +1382,24 @@
         "hash": "7fc06a04a54c09409a6ef13fd1764f15154a4a5e",
         "message": "📝 T-063 document Garmin analyst agent"
       }
+    },
+    {
+      "id": "T-064",
+      "title": "Analyze 7-day Garmin MCP telemetry",
+      "description": "Run GARMIN_ANALYST on the latest seven days of Garmin MCP training, recovery, and sleep data and report the key insights. Include any data paths, assumptions, and required verify commands.",
+      "status": "TODO",
+      "priority": "med",
+      "owner": "human",
+      "tags": [
+        "analysis",
+        "garmin"
+      ]
     }
   ],
   "meta": {
     "schema_version": 1,
     "managed_by": "agentctl",
     "checksum_algo": "sha256",
-    "checksum": "9fe37a250009dfe0b72fdf9a6c4ee9bf03091d443ef958ad2073b592150294e7"
+    "checksum": "a7515e7c577197ac7f21c9549e2f59029b9db496574cd97de02ead679cf64fe5"
   }
 }
