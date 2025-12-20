@@ -1370,20 +1370,24 @@
       "id": "T-063",
       "title": "Add Garmin MCP analyst agent",
       "description": "Create a GARMIN_ANALYST agent that ingests MCP Garmin data (training, recovery, sleep, readiness) and summarizes key outcomes for the swarm; include instructions for authenticating with the MCP server, data sanitization, and referencing MCP docs. Ensure the task workflow stays within Codex constraints and mention required verify steps if any.",
-      "status": "TODO",
+      "status": "DONE",
       "priority": "med",
       "owner": "human",
       "tags": [
         "agent",
         "garmin",
         "mcp"
-      ]
+      ],
+      "commit": {
+        "hash": "7fc06a04a54c09409a6ef13fd1764f15154a4a5e",
+        "message": "📝 T-063 document Garmin analyst agent"
+      }
     }
   ],
   "meta": {
     "schema_version": 1,
     "managed_by": "agentctl",
     "checksum_algo": "sha256",
-    "checksum": "c6e74b54b99c29294ab32cf95b3a4bceb4c49897906f209df5d8efa2e0c4d27d"
+    "checksum": "9fe37a250009dfe0b72fdf9a6c4ee9bf03091d443ef958ad2073b592150294e7"
   }
 }
