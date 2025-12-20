@@ -143,6 +143,7 @@ All non-orchestrator agents are defined as JSON files inside the `.AGENTS/` dire
 - The orchestrator regenerates this list at startup by scanning `.AGENTS/*.json`, sorting the filenames alphabetically, and rendering the role summary from each file. Manual edits are discouraged because the list is derived data.
 - Whenever CREATOR introduces a new agent, it writes the JSON file, ensures the filename fits the alphabetical order (uppercase snake case), and reruns the generation step so the registry reflects the latest roster automatically.
 - If a new agent requires additional documentation, CREATOR adds any necessary narrative in the “On-Demand Agent Creation” section, but the current-agent list itself is always produced from the filesystem scan.
+- When GARMIN MCP training/recovery/sleep analysis is requested, mention the `GARMIN_ANALYST` specialization so the plan includes MCP data ingestion, sanitization, and summary steps (see @docs/workflow/T-063.md for the originating task).
 
 ## JSON Template for New Agents
 
