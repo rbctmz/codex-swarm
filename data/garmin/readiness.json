@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "collected_at": "2025-12-20T10:30:00Z",
+    "date_range": {
+      "start": "2025-11-21",
+      "end": "2025-12-20"
+    },
+    "data_source": "garmin_connect_mcp"
+  },
+  "training_status": {
+    "current_status": "RECOVERY",
+    "since_date": "2025-12-19",
+    "training_status_code": 5,
+    "fitness_trend": "MAINTAINING",
+    "training_paused": false,
+    "feedback": "RECOVERY_1"
+  },
+  "training_load_balance": {
+    "calendar_date": "2025-12-20",
+    "monthly_aerobic_low": 936.21,
+    "monthly_aerobic_high": 480.88,
+    "monthly_anaerobic": 90.86,
+    "targets": {
+      "aerobic_low": {"min": 233, "max": 634},
+      "aerobic_high": {"min": 501, "max": 901},
+      "anaerobic": {"min": 133, "max": 400}
+    },
+    "feedback": "AEROBIC_HIGH_SHORTAGE"
+  },
+  "acute_chronic_workload": {
+    "acute_load": 256,
+    "chronic_load": 379,
+    "ratio": 0.6,
+    "ratio_percent": 25,
+    "status": "LOW",
+    "feedback": "FEEDBACK_1"
+  },
+  "vo2_max": {
+    "running": {"value": 43, "precise": 42.9, "date": "2025-12-18"},
+    "cycling": {"value": 36, "precise": 35.6, "date": "2025-12-15"}
+  },
+  "weekly_trends": {
+    "body_battery": [
+      {"week": "2025-11-24", "avg_charged": 40, "avg_drained": 11, "avg_lowest": 18, "avg_highest": 68},
+      {"week": "2025-12-01", "avg_charged": 28, "avg_drained": 8, "avg_lowest": 19, "avg_highest": 65},
+      {"week": "2025-12-08", "avg_charged": 34, "avg_drained": 9, "avg_lowest": 22, "avg_highest": 70},
+      {"week": "2025-12-15", "avg_charged": 30, "avg_drained": 7, "avg_lowest": 20, "avg_highest": 68}
+    ],
+    "hrv": [
+      {"week": "2025-11-24", "avg": 40, "baseline_low": 28, "baseline_high": 45},
+      {"week": "2025-12-01", "avg": 37, "baseline_low": 28, "baseline_high": 42},
+      {"week": "2025-12-08", "avg": 36, "baseline_low": 28, "baseline_high": 41},
+      {"week": "2025-12-15", "avg": 33, "baseline_low": 30, "baseline_high": 41}
+    ],
+    "stress": [
+      {"week": "2025-11-24", "avg_overall": 26, "avg_rest_sec": 49500, "avg_high_sec": 960},
+      {"week": "2025-12-01", "avg_overall": 30, "avg_rest_sec": 38340, "avg_high_sec": 2280},
+      {"week": "2025-12-08", "avg_overall": 26, "avg_rest_sec": 46260, "avg_high_sec": 1440},
+      {"week": "2025-12-15", "avg_overall": 30, "avg_rest_sec": 34860, "avg_high_sec": 1260}
+    ]
+  }
+}

@@ -1398,12 +1398,65 @@
         "hash": "fa0dc6841ff5e93e04517a14947a55878b2c18f6",
         "message": "🧪 T-064 summarize Garmin telemetry"
       }
+    },
+    {
+      "id": "T-065",
+      "title": "Create GARMIN_COLLECTOR agent for data ingestion",
+      "description": "Build specialized agent to fetch training, recovery, sleep, and readiness data from Garmin via MCP and save to data/garmin/ for GARMIN_ANALYST processing",
+      "status": "DONE",
+      "priority": "high",
+      "owner": "CREATOR",
+      "tags": [
+        "garmin",
+        "mcp",
+        "data-ingestion",
+        "agents"
+      ],
+      "commit": {
+        "hash": "eccf4431069c177d55ceb905193a7d37439db91e",
+        "message": "🤖 T-065 Add GARMIN_COLLECTOR agent for MCP data ingestion"
+      },
+      "comments": [
+        {
+          "author": "CREATOR",
+          "body": "Verified: Agent JSON created with comprehensive MCP workflow. All 4 data files specified (training, recovery, sleep, readiness). Follows JSON agent template. Ready for testing with live MCP server."
+        }
+      ]
+    },
+    {
+      "id": "T-066",
+      "title": "Create ENDURANCE_COACH agent",
+      "description": "Build agent that interprets GARMIN_ANALYST output and coaches training decisions",
+      "status": "DONE",
+      "priority": "med",
+      "owner": "human",
+      "tags": [
+        "agent",
+        "coach"
+      ],
+      "commit": {
+        "hash": "3616ac345e8c46fbcef9e0e75003cc94d376c3d2",
+        "message": "🏃 T-066 create Endurance Coach agent"
+      }
+    },
+    {
+      "id": "T-067",
+      "title": "Создать тренировочный план на 29 декабря - 4 января 2026",
+      "description": "Проанализировать текущее состояние спортсмена по данным Garmin и сформировать недельный тренировочный план на период 29 дек 2025 - 4 янв 2026, учитывая праздничные дни и тренды восстановления.",
+      "status": "TODO",
+      "priority": "med",
+      "owner": "ENDURANCE_COACH",
+      "tags": [
+        "garmin",
+        "coaching",
+        "training-plan"
+      ]
     }
   ],
   "meta": {
     "schema_version": 1,
     "managed_by": "agentctl",
     "checksum_algo": "sha256",
-    "checksum": "d63030e7511ed2d6b87a01a869118817366ac5a25efa77253ffe61c3b8991e89"
+    "checksum": "b0600cb148bf66dc49e8d81eb63f134c019819b9ac369439dafbedb4606ff351"
   }
 }

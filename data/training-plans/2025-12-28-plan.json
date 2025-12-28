@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "plan_id": "2025-12-28",
+    "period": {
+      "start": "2025-12-29",
+      "end": "2026-01-04"
+    },
+    "created_at": "2025-12-28T00:00:00Z",
+    "created_by": "ENDURANCE_COACH v1.0",
+    "data_source": "garmin_connect_mcp",
+    "data_last_updated": "2025-12-20T10:30:00Z",
+    "previous_plan": "2025-12-21-plan.json"
+  },
+  "athlete_state": {
+    "date": "2025-12-20",
+    "acwr": 0.6,
+    "hrv": 32,
+    "body_battery_avg": 30,
+    "sleep_score_avg": 65,
+    "training_status": "RECOVERY",
+    "vo2_max_running": 43,
+    "vo2_max_cycling": 36,
+    "aerobic_high_minutes": 481,
+    "aerobic_high_target_min": 501,
+    "anaerobic_minutes": 91,
+    "anaerobic_target_min": 133
+  },
+  "week_goals": {
+    "acwr_target": "0.5-0.55",
+    "acwr_note": "Праздничная неделя, допустимое снижение",
+    "aerobic_high_target": "505-520",
+    "anaerobic_target": "95-100",
+    "hrv_target": "34-36",
+    "body_battery_target": "35-38",
+    "sleep_score_target": "68-70",
+    "training_load_minutes": "180-200"
+  },
+  "weekly_schedule": [
+    {
+      "date": "2025-12-29",
+      "day": "sunday",
+      "session_type": "RECOVERY",
+      "activity": "WALK_OR_EASY_RIDE",
+      "zone": "Z1",
+      "zone_hr_percent": "50-60",
+      "duration_minutes": "40-60",
+      "distance_km": "3-5 walk OR 10-15 bike",
+      "intensity_rpe": "2-3",
+      "work_time_target_zone": 0,
+      "structure": {
+        "type": "continuous",
+        "description": "Активное восстановление, постоянный темп Z1"
+      },
+      "rationale": "Начало недели после возможной длинной сессии 27 дец. Z1 стимулирует восстановление без утомления.",
+      "conditions": []
+    },
+    {
+      "date": "2025-12-30",
+      "day": "monday",
+      "session_type": "TEMPO",
+      "activity": "RUN",
+      "zone": "Z3-Z4",
+      "zone_hr_percent": "75-90",
+      "duration_minutes": 38,
+      "distance_km": null,
+      "intensity_rpe": "6-7",
+      "work_time_target_zone": 18,
+      "structure": {
+        "type": "intervals",
+        "warmup": "10 min Z2",
+        "work_intervals": "3 × 6min Z3-Z4",
+        "recovery_intervals": "2 min Z2 between",
+        "cooldown": "5 min Z1"
+      },
+      "rationale": "ACWR 0.6 позволяет качественную сессию. Aerobic_high дефицит требует пороговой работы. Темповые 3×6min менее стрессовые чем 4×5min.",
+      "conditions": [
+        {
+          "checkpoint": "morning",
+          "condition": "HRV <30 OR Body Battery <35",
+          "action": "Сократить до 3×4min Z3"
+        }
+      ]
+    },
+    {
+      "date": "2025-12-31",
+      "day": "tuesday",
+      "session_type": "ENDURANCE",
+      "activity": "CYCLING",
+      "zone": "Z2",
+      "zone_hr_percent": "65-75",
+      "duration_minutes": "45-50",
+      "distance_km": "18-22",
+      "intensity_rpe": "4",
+      "work_time_target_zone": 45,
+      "structure": {
+        "type": "continuous",
+        "description": "Постоянный темп Z2, без интервалов"
+      },
+      "rationale": "Канун Нового года. Z2 база поддерживает аэробную ёмкость без утомления ЦНС. Велосипед меньше ударная нагрузка.",
+      "conditions": [
+        {
+          "checkpoint": "evening",
+          "condition": "Планируется поздний вечер (>23:00)",
+          "action": "Сократить до 30 мин ИЛИ заменить на 40 мин walk Z1"
+        }
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "day": "wednesday",
+      "session_type": "REST",
+      "activity": "FULL_REST_OR_OPTIONAL_WALK",
+      "zone": "REST or Z1",
+      "zone_hr_percent": "0 or 50-60",
+      "duration_minutes": "0 OR 20-30",
+      "distance_km": null,
+      "intensity_rpe": "0-2",
+      "work_time_target_zone": 0,
+      "structure": {
+        "type": "rest",
+        "description": "Приоритет: полный отдых, сон, восстановление. Опционально лёгкая прогулка если чувствуете себя бодро."
+      },
+      "rationale": "Новый год - социальный приоритет. Body Battery после поздней ночи вероятно <40. Лучшая стратегия - полное восстановление.",
+      "conditions": [
+        {
+          "checkpoint": "morning",
+          "condition": "Body Battery <40 OR HRV <30",
+          "action": "FULL REST, никакой активности"
+        },
+        {
+          "checkpoint": "morning",
+          "condition": "Body Battery ≥50 AND feeling good",
+          "action": "20-30 мин лёгкая прогулка допустима"
+        }
+      ]
+    },
+    {
+      "date": "2026-01-02",
+      "day": "thursday",
+      "session_type": "EASY",
+      "activity": "RUN",
+      "zone": "Z2",
+      "zone_hr_percent": "65-75",
+      "duration_minutes": "30-40",
+      "distance_km": "5-7",
+      "intensity_rpe": "4",
+      "work_time_target_zone": 35,
+      "structure": {
+        "type": "continuous",
+        "description": "Постоянный темп Z2, без интервалов"
+      },
+      "rationale": "Первый день после праздника. Z2 бег безопасен и помогает перезапустить систему. Короткая длительность минимизирует риск.",
+      "conditions": [
+        {
+          "checkpoint": "morning",
+          "condition": "HRV <30 OR Body Battery <35",
+          "action": "Заменить на WALK Z1 40 мин"
+        },
+        {
+          "checkpoint": "morning",
+          "condition": "Sleep <6 hours",
+          "action": "Сократить до 25 мин лёгкого бега"
+        }
+      ]
+    },
+    {
+      "date": "2026-01-03",
+      "day": "friday",
+      "session_type": "SWEET_SPOT",
+      "activity": "CYCLING",
+      "zone": "Z3",
+      "zone_hr_percent": "75-85",
+      "duration_minutes": 43,
+      "distance_km": null,
+      "intensity_rpe": "6",
+      "work_time_target_zone": 24,
+      "structure": {
+        "type": "intervals",
+        "warmup": "10 min Z2",
+        "work_intervals": "2 × 12min Z3",
+        "recovery_intervals": "4 min Z2 between",
+        "cooldown": "5 min Z1"
+      },
+      "rationale": "Aerobic_high дефицит требует пороговой работы. Sweet spot (Z3) даёт 24 мин качественной работы без глубокого утомления ЦНС.",
+      "conditions": [
+        {
+          "checkpoint": "morning",
+          "condition": "HRV <30",
+          "action": "Сократить до 2×8min Z3"
+        }
+      ]
+    },
+    {
+      "date": "2026-01-04",
+      "day": "saturday",
+      "session_type": "LONG_EASY",
+      "activity": "RUN",
+      "zone": "Z2",
+      "zone_hr_percent": "65-75",
+      "duration_minutes": "60-75",
+      "distance_km": "9-13",
+      "intensity_rpe": "4-5",
+      "work_time_target_zone": 70,
+      "structure": {
+        "type": "continuous",
+        "description": "Постоянный темп Z2, без интервалов"
+      },
+      "rationale": "Конец недели, завершающий объёмный элемент. Длинная база Z2 критична для аэробной ёмкости и митохондриального биогенеза.",
+      "conditions": [
+        {
+          "checkpoint": "morning",
+          "condition": "Body Battery avg (29дец-3янв) <40",
+          "action": "Сократить до 60 мин вместо 75 мин"
+        }
+      ]
+    }
+  ],
+  "dynamic_checkpoints": [
+    {
+      "id": "CP1",
+      "date": "2025-12-30",
+      "time": "morning",
+      "condition": "HRV <30 OR Body Battery <35",
+      "action": "Сократить понедельник: 3×6min → 3×4min Z3"
+    },
+    {
+      "id": "CP2",
+      "date": "2025-12-31",
+      "time": "evening",
+      "condition": "Планируется поздний новогодний вечер (>23:00)",
+      "action": "Сократить вторник: 50 мин велосипед → 30 мин ИЛИ заменить на walk"
+    },
+    {
+      "id": "CP3",
+      "date": "2026-01-02",
+      "time": "morning",
+      "condition": "HRV <30 OR BB <35 OR sleep <6h",
+      "action": "Заменить бег на прогулку Z1 40 мин"
+    },
+    {
+      "id": "CP4",
+      "date": "2026-01-02",
+      "time": "morning",
+      "condition": "HRV ≥32 AND BB ≥40 AND sleep ≥6.5h",
+      "action": "Выполнить четверг как запланировано"
+    },
+    {
+      "id": "CP5",
+      "date": "2026-01-03",
+      "time": "morning",
+      "condition": "HRV <30",
+      "action": "Сократить пятницу: 2×12min → 2×8min Z3"
+    },
+    {
+      "id": "CP6",
+      "date": "2026-01-04",
+      "time": "morning",
+      "condition": "Body Battery avg (29дец-3янв) <40",
+      "action": "Сократить субботу: 75 мин → 60 мин"
+    }
+  ],
+  "recommendations": {
+    "sleep": {
+      "target_bedtime": "22:00-22:30",
+      "new_year_exception": "31→1 янв: спать до естественного пробуждения",
+      "target_score": "≥68",
+      "notes": [
+        "Избегать алкоголя после 23:00 (сокращает REM)",
+        "Гидратация перед сном (300-500ml воды)"
+      ]
+    },
+    "nutrition": {
+      "post_workout": "30-40г углеводов + 15-20г белка в течение 30мин после интенсива",
+      "hydration": "минимум 2л/день",
+      "alcohol": [
+        "1 стакан воды на каждый бокал",
+        "Прекратить за 3-4ч до сна (минимизирует влияние на HRV)"
+      ]
+    },
+    "hrv_monitoring": {
+      "daily_check": "утром перед подъёмом (Garmin)",
+      "red_line": "HRV <28 три дня подряд = обязательный отдых",
+      "recovery_actions": [
+        "Добавить 500ml воды утром",
+        "Магний 300mg вечером (за 30мин до сна)",
+        "Сократить или отменить интенсив"
+      ]
+    }
+  },
+  "weekly_summary": {
+    "total_sessions": 7,
+    "rest_days": 1,
+    "easy_days": 3,
+    "tempo_quality_days": 2,
+    "long_day": 1,
+    "estimated_training_time_minutes": "180-200",
+    "estimated_z3_plus_minutes": 42,
+    "holiday_adjustments": "Умеренная неделя с учётом праздников, приоритет восстановлению над интенсивностью"
+  },
+  "notes": [
+    "Данные Garmin устарели (последнее обновление 20 дек). Рекомендуется обновить до 28 дек.",
+    "Праздничная неделя требует максимальной гибкости - приоритет HRV и Body Battery.",
+    "Умеренное снижение ACWR с 0.6 до 0.5 допустимо и ожидаемо.",
+    "Следующая неделя (5-11 янв): вернуться к объёму 250-280 мин для подъёма ACWR к 0.65-0.7."
+  ]
+}

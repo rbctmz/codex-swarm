@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "collected_at": "2025-12-20T10:30:00Z",
+    "date_range": {
+      "start": "2025-11-21",
+      "end": "2025-12-20"
+    },
+    "total_nights": 30,
+    "data_source": "garmin_connect_mcp"
+  },
+  "sleep_summary": {
+    "avg_sleep_duration_sec": 25056,
+    "avg_sleep_score": 65,
+    "score_distribution": {
+      "poor": 8,
+      "fair": 13,
+      "good": 7,
+      "excellent": 2
+    }
+  },
+  "nightly_sleep": [
+    {"date": "2025-11-21", "duration_sec": 16680, "deep_sec": 2940, "light_sec": 10140, "rem_sec": 3600, "awake_sec": 600, "score": 59, "quality": "POOR", "feedback": "POSITIVE_SHORT_BUT_DEEP", "insight": "POSITIVE_EXERCISE"},
+    {"date": "2025-11-22", "duration_sec": 31320, "deep_sec": 3840, "light_sec": 23460, "rem_sec": 4020, "awake_sec": 1440, "score": 75, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_DEEP", "insight": "POSITIVE_EXERCISE"},
+    {"date": "2025-11-23", "duration_sec": 24900, "deep_sec": 3540, "light_sec": 19320, "rem_sec": 2040, "awake_sec": 2340, "score": 67, "quality": "FAIR", "feedback": "NEGATIVE_LONG_BUT_NOT_ENOUGH_REM", "insight": "NONE"},
+    {"date": "2025-11-24", "duration_sec": 21660, "deep_sec": 6660, "light_sec": 12540, "rem_sec": 2460, "awake_sec": 1380, "score": 56, "quality": "POOR", "feedback": "NEGATIVE_NOT_RESTORATIVE", "insight": "NEGATIVE_HIGHLY_STRESSFUL_DAY"},
+    {"date": "2025-11-25", "duration_sec": 29580, "deep_sec": 3900, "light_sec": 18360, "rem_sec": 7320, "awake_sec": 1020, "score": 82, "quality": "GOOD", "feedback": "POSITIVE_LONG_AND_REFRESHING", "insight": "POSITIVE_RESTFUL_DAY"},
+    {"date": "2025-11-26", "duration_sec": 26820, "deep_sec": 4800, "light_sec": 17580, "rem_sec": 4440, "awake_sec": 240, "score": 85, "quality": "GOOD", "feedback": "POSITIVE_LONG_AND_CONTINUOUS", "insight": "POSITIVE_EXERCISE"},
+    {"date": "2025-11-27", "duration_sec": 28632, "deep_sec": 4560, "light_sec": 20160, "rem_sec": 3960, "awake_sec": 1200, "score": 81, "quality": "GOOD", "feedback": "POSITIVE_LONG_AND_DEEP", "insight": "NONE"},
+    {"date": "2025-11-28", "duration_sec": 24813, "deep_sec": 4620, "light_sec": 16260, "rem_sec": 3960, "awake_sec": 2280, "score": 68, "quality": "FAIR", "feedback": "NEGATIVE_LONG_BUT_RESTLESS", "insight": "NEGATIVE_LATE_BED_TIME"},
+    {"date": "2025-11-29", "duration_sec": 27178, "deep_sec": 4140, "light_sec": 20940, "rem_sec": 2100, "awake_sec": 4080, "score": 51, "quality": "POOR", "feedback": "NEGATIVE_LONG_BUT_POOR_QUALITY", "insight": "NONE"},
+    {"date": "2025-11-30", "duration_sec": 30480, "deep_sec": 1740, "light_sec": 26940, "rem_sec": 1800, "awake_sec": 3840, "score": 49, "quality": "POOR", "feedback": "NEGATIVE_LONG_BUT_POOR_QUALITY", "insight": "NONE"},
+    {"date": "2025-12-01", "duration_sec": 22740, "deep_sec": 4200, "light_sec": 18540, "rem_sec": 0, "awake_sec": 240, "score": 57, "quality": "POOR", "feedback": "NEGATIVE_NOT_ENOUGH_REM", "insight": "NEGATIVE_LATE_BED_TIME"},
+    {"date": "2025-12-02", "duration_sec": 26028, "deep_sec": 1860, "light_sec": 24180, "rem_sec": 0, "awake_sec": 5880, "score": 32, "quality": "POOR", "feedback": "NEGATIVE_LONG_BUT_NOT_RESTORATIVE", "insight": "NONE"},
+    {"date": "2025-12-03", "duration_sec": 25481, "deep_sec": 5460, "light_sec": 18120, "rem_sec": 1920, "awake_sec": 1320, "score": 67, "quality": "FAIR", "feedback": "NEGATIVE_LONG_BUT_NOT_ENOUGH_REM", "insight": "NONE"},
+    {"date": "2025-12-04", "duration_sec": 20460, "deep_sec": 3540, "light_sec": 14340, "rem_sec": 2580, "awake_sec": 1620, "score": 68, "quality": "FAIR", "feedback": "POSITIVE_DEEP", "insight": "POSITIVE_RESTFUL_EVENING"},
+    {"date": "2025-12-05", "duration_sec": 26460, "deep_sec": 4140, "light_sec": 16920, "rem_sec": 5400, "awake_sec": 900, "score": 82, "quality": "GOOD", "feedback": "POSITIVE_LONG_AND_RECOVERING", "insight": "POSITIVE_RESTFUL_EVENING"},
+    {"date": "2025-12-06", "duration_sec": 25260, "deep_sec": 3600, "light_sec": 19260, "rem_sec": 2400, "awake_sec": 1200, "score": 68, "quality": "FAIR", "feedback": "NEGATIVE_LONG_BUT_NOT_RESTORATIVE", "insight": "NONE"},
+    {"date": "2025-12-07", "duration_sec": 29580, "deep_sec": 3840, "light_sec": 21720, "rem_sec": 4020, "awake_sec": 1260, "score": 77, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_DEEP", "insight": "POSITIVE_EXERCISE"},
+    {"date": "2025-12-08", "duration_sec": 24180, "deep_sec": 3960, "light_sec": 16080, "rem_sec": 4140, "awake_sec": 1740, "score": 72, "quality": "FAIR", "feedback": "POSITIVE_DEEP", "insight": "POSITIVE_RESTFUL_DAY"},
+    {"date": "2025-12-09", "duration_sec": 26880, "deep_sec": 3960, "light_sec": 20640, "rem_sec": 2280, "awake_sec": 840, "score": 73, "quality": "FAIR", "feedback": "NEGATIVE_LONG_BUT_NOT_ENOUGH_REM", "insight": "NONE"},
+    {"date": "2025-12-10", "duration_sec": 26760, "deep_sec": 4740, "light_sec": 19920, "rem_sec": 2100, "awake_sec": 600, "score": 74, "quality": "FAIR", "feedback": "NEGATIVE_LONG_BUT_NOT_ENOUGH_REM", "insight": "NONE"},
+    {"date": "2025-12-11", "duration_sec": 26100, "deep_sec": 5520, "light_sec": 17700, "rem_sec": 2880, "awake_sec": 2340, "score": 76, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_DEEP", "insight": "POSITIVE_LATE_BED_TIME"},
+    {"date": "2025-12-12", "duration_sec": 22560, "deep_sec": 3960, "light_sec": 17460, "rem_sec": 1140, "awake_sec": 2880, "score": 41, "quality": "POOR", "feedback": "NEGATIVE_NOT_RESTORATIVE", "insight": "NONE"},
+    {"date": "2025-12-13", "duration_sec": 22380, "deep_sec": 4140, "light_sec": 12780, "rem_sec": 5460, "awake_sec": 180, "score": 78, "quality": "FAIR", "feedback": "POSITIVE_REFRESHING", "insight": "NONE"},
+    {"date": "2025-12-14", "duration_sec": 23925, "deep_sec": 4200, "light_sec": 17820, "rem_sec": 1920, "awake_sec": 960, "score": 71, "quality": "FAIR", "feedback": "NEGATIVE_NOT_ENOUGH_REM", "insight": "NEGATIVE_LATE_BED_TIME"},
+    {"date": "2025-12-15", "duration_sec": 24930, "deep_sec": 6300, "light_sec": 14460, "rem_sec": 4200, "awake_sec": 1320, "score": 75, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_DEEP", "insight": "POSITIVE_RESTFUL_EVENING"},
+    {"date": "2025-12-16", "duration_sec": 25800, "deep_sec": 5580, "light_sec": 16860, "rem_sec": 3360, "awake_sec": 1200, "score": 76, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_DEEP", "insight": "NONE"},
+    {"date": "2025-12-17", "duration_sec": 23160, "deep_sec": 4200, "light_sec": 17940, "rem_sec": 1020, "awake_sec": 660, "score": 61, "quality": "FAIR", "feedback": "NEGATIVE_NOT_ENOUGH_REM", "insight": "NONE"},
+    {"date": "2025-12-18", "duration_sec": 27540, "deep_sec": 3060, "light_sec": 22860, "rem_sec": 1620, "awake_sec": 4140, "score": 46, "quality": "POOR", "feedback": "NEGATIVE_LONG_BUT_NOT_RESTORATIVE", "insight": "NONE"},
+    {"date": "2025-12-19", "duration_sec": 23460, "deep_sec": 4560, "light_sec": 17040, "rem_sec": 1860, "awake_sec": 420, "score": 67, "quality": "FAIR", "feedback": "NEGATIVE_NOT_ENOUGH_REM", "insight": "NEGATIVE_LATE_BED_TIME"},
+    {"date": "2025-12-20", "duration_sec": 27686, "deep_sec": 3360, "light_sec": 20640, "rem_sec": 3720, "awake_sec": 1320, "score": 77, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_RECOVERING", "insight": "POSITIVE_LATE_BED_TIME"}
+  ]
+}

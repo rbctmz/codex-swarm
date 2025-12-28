@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "collected_at": "2025-12-20T10:30:00Z",
+    "date_range": {
+      "start": "2025-11-21",
+      "end": "2025-12-20"
+    },
+    "data_source": "garmin_connect_mcp"
+  },
+  "body_battery_summary": {
+    "30_day_range": {"min": 8, "max": 79},
+    "avg_charged": 33,
+    "avg_drained": 9,
+    "avg_stress_level": 27
+  },
+  "hrv_summary": {
+    "weekly_avg_range": {"min": 32, "max": 42},
+    "baseline": {"low_upper": 28, "balanced_low": 30, "balanced_upper": 47},
+    "status_distribution": {
+      "balanced": 28,
+      "unbalanced": 2
+    }
+  },
+  "stress_summary": {
+    "overall_level_range": {"min": 19, "max": 40},
+    "avg_rest_duration_sec": 37620,
+    "avg_low_stress_duration_sec": 16200,
+    "avg_medium_stress_duration_sec": 4560,
+    "avg_high_stress_duration_sec": 1740
+  },
+  "daily_hrv": [
+    {"date": "2025-11-21", "weekly_avg": 40, "status": "BALANCED", "baseline_low": 28, "baseline_high": 47},
+    {"date": "2025-11-22", "weekly_avg": 42, "status": "UNBALANCED", "baseline_low": 28, "baseline_high": 47},
+    {"date": "2025-11-23", "weekly_avg": 42, "status": "BALANCED", "baseline_low": 28, "baseline_high": 46},
+    {"date": "2025-11-24", "weekly_avg": 41, "status": "BALANCED", "baseline_low": 28, "baseline_high": 46},
+    {"date": "2025-11-25", "weekly_avg": 40, "status": "BALANCED", "baseline_low": 28, "baseline_high": 45},
+    {"date": "2025-11-26", "weekly_avg": 40, "status": "BALANCED", "baseline_low": 28, "baseline_high": 45},
+    {"date": "2025-11-27", "weekly_avg": 40, "status": "BALANCED", "baseline_low": 28, "baseline_high": 44},
+    {"date": "2025-11-28", "weekly_avg": 39, "status": "BALANCED", "baseline_low": 28, "baseline_high": 44},
+    {"date": "2025-11-29", "weekly_avg": 38, "status": "BALANCED", "baseline_low": 28, "baseline_high": 43},
+    {"date": "2025-11-30", "weekly_avg": 38, "status": "BALANCED", "baseline_low": 28, "baseline_high": 43},
+    {"date": "2025-12-01", "weekly_avg": 38, "status": "BALANCED", "baseline_low": 28, "baseline_high": 43},
+    {"date": "2025-12-02", "weekly_avg": 37, "status": "BALANCED", "baseline_low": 28, "baseline_high": 42},
+    {"date": "2025-12-03", "weekly_avg": 37, "status": "BALANCED", "baseline_low": 28, "baseline_high": 42},
+    {"date": "2025-12-04", "weekly_avg": 37, "status": "BALANCED", "baseline_low": 28, "baseline_high": 42},
+    {"date": "2025-12-05", "weekly_avg": 36, "status": "BALANCED", "baseline_low": 28, "baseline_high": 42},
+    {"date": "2025-12-06", "weekly_avg": 36, "status": "BALANCED", "baseline_low": 28, "baseline_high": 42},
+    {"date": "2025-12-07", "weekly_avg": 36, "status": "BALANCED", "baseline_low": 28, "baseline_high": 41},
+    {"date": "2025-12-08", "weekly_avg": 36, "status": "BALANCED", "baseline_low": 28, "baseline_high": 41},
+    {"date": "2025-12-09", "weekly_avg": 36, "status": "BALANCED", "baseline_low": 28, "baseline_high": 41},
+    {"date": "2025-12-10", "weekly_avg": 36, "status": "BALANCED", "baseline_low": 29, "baseline_high": 41},
+    {"date": "2025-12-11", "weekly_avg": 36, "status": "BALANCED", "baseline_low": 29, "baseline_high": 41},
+    {"date": "2025-12-12", "weekly_avg": 35, "status": "BALANCED", "baseline_low": 29, "baseline_high": 41},
+    {"date": "2025-12-13", "weekly_avg": 35, "status": "BALANCED", "baseline_low": 30, "baseline_high": 41},
+    {"date": "2025-12-14", "weekly_avg": 34, "status": "BALANCED", "baseline_low": 30, "baseline_high": 41},
+    {"date": "2025-12-15", "weekly_avg": 34, "status": "BALANCED", "baseline_low": 30, "baseline_high": 41},
+    {"date": "2025-12-16", "weekly_avg": 34, "status": "BALANCED", "baseline_low": 30, "baseline_high": 41},
+    {"date": "2025-12-17", "weekly_avg": 33, "status": "BALANCED", "baseline_low": 30, "baseline_high": 41},
+    {"date": "2025-12-18", "weekly_avg": 32, "status": "UNBALANCED", "baseline_low": 30, "baseline_high": 41},
+    {"date": "2025-12-19", "weekly_avg": 32, "status": "BALANCED", "baseline_low": 30, "baseline_high": 41},
+    {"date": "2025-12-20", "weekly_avg": 32, "status": "BALANCED", "baseline_low": 30, "baseline_high": 41}
+  ],
+  "daily_stress": [
+    {"date": "2025-11-21", "overall": 31, "rest_sec": 35700, "low_sec": 20640, "medium_sec": 5820, "high_sec": 2940},
+    {"date": "2025-11-22", "overall": 26, "rest_sec": 46020, "low_sec": 33600, "medium_sec": 6300, "high_sec": 480},
+    {"date": "2025-11-23", "overall": 33, "rest_sec": 37980, "low_sec": 20100, "medium_sec": 6240, "high_sec": 1980},
+    {"date": "2025-11-24", "overall": 27, "rest_sec": 51660, "low_sec": 24720, "medium_sec": 9600, "high_sec": 240},
+    {"date": "2025-11-25", "overall": 19, "rest_sec": 62700, "low_sec": 16020, "medium_sec": 2580, "high_sec": 300},
+    {"date": "2025-11-26", "overall": 29, "rest_sec": 47340, "low_sec": 28380, "medium_sec": 5340, "high_sec": 540},
+    {"date": "2025-11-27", "overall": 21, "rest_sec": 60720, "low_sec": 19920, "medium_sec": 2700, "high_sec": 300},
+    {"date": "2025-11-28", "overall": 30, "rest_sec": 35700, "low_sec": 29880, "medium_sec": 15540, "high_sec": 1260},
+    {"date": "2025-11-29", "overall": 34, "rest_sec": 30000, "low_sec": 24600, "medium_sec": 11520, "high_sec": 3420},
+    {"date": "2025-11-30", "overall": 30, "rest_sec": 43560, "low_sec": 26580, "medium_sec": 7320, "high_sec": 1320},
+    {"date": "2025-12-01", "overall": 29, "rest_sec": 39480, "low_sec": 35940, "medium_sec": 3180, "high_sec": 1080},
+    {"date": "2025-12-02", "overall": 40, "rest_sec": 19020, "low_sec": 24600, "medium_sec": 10560, "high_sec": 4380},
+    {"date": "2025-12-03", "overall": 29, "rest_sec": 40740, "low_sec": 29100, "medium_sec": 6540, "high_sec": 420},
+    {"date": "2025-12-04", "overall": 23, "rest_sec": 48540, "low_sec": 20820, "medium_sec": 5760, "high_sec": 780},
+    {"date": "2025-12-05", "overall": 26, "rest_sec": 51300, "low_sec": 23640, "medium_sec": 7920, "high_sec": 540},
+    {"date": "2025-12-06", "overall": 36, "rest_sec": 31860, "low_sec": 25560, "medium_sec": 11100, "high_sec": 7980},
+    {"date": "2025-12-07", "overall": 23, "rest_sec": 55800, "low_sec": 14040, "medium_sec": 4080, "high_sec": 600},
+    {"date": "2025-12-08", "overall": 29, "rest_sec": 40320, "low_sec": 28260, "medium_sec": 5940, "high_sec": 1800},
+    {"date": "2025-12-09", "overall": 23, "rest_sec": 48120, "low_sec": 23340, "medium_sec": 5520, "high_sec": 1320},
+    {"date": "2025-12-10", "overall": 23, "rest_sec": 50520, "low_sec": 24000, "medium_sec": 5400, "high_sec": 600},
+    {"date": "2025-12-11", "overall": 27, "rest_sec": 43500, "low_sec": 29220, "medium_sec": 5880, "high_sec": 480},
+    {"date": "2025-12-12", "overall": 36, "rest_sec": 27780, "low_sec": 34020, "medium_sec": 8880, "high_sec": 2760},
+    {"date": "2025-12-13", "overall": 22, "rest_sec": 54180, "low_sec": 17820, "medium_sec": 4140, "high_sec": 660},
+    {"date": "2025-12-14", "overall": 26, "rest_sec": 50100, "low_sec": 20820, "medium_sec": 7620, "high_sec": 360},
+    {"date": "2025-12-15", "overall": 29, "rest_sec": 40920, "low_sec": 25500, "medium_sec": 7680, "high_sec": 540},
+    {"date": "2025-12-16", "overall": 27, "rest_sec": 46380, "low_sec": 21780, "medium_sec": 9780, "high_sec": 1140},
+    {"date": "2025-12-17", "overall": 30, "rest_sec": 39960, "low_sec": 29520, "medium_sec": 6240, "high_sec": 1440},
+    {"date": "2025-12-18", "overall": 39, "rest_sec": 15000, "low_sec": 30900, "medium_sec": 8400, "high_sec": 2340},
+    {"date": "2025-12-19", "overall": 26, "rest_sec": 42900, "low_sec": 26220, "medium_sec": 5880, "high_sec": 780},
+    {"date": "2025-12-20", "overall": 19, "rest_sec": 29580, "low_sec": 6120, "medium_sec": 180, "high_sec": 0}
+  ]
+}
