@@ -1443,20 +1443,24 @@
       "id": "T-067",
       "title": "Создать тренировочный план на 29 декабря - 4 января 2026",
       "description": "Проанализировать текущее состояние спортсмена по данным Garmin и сформировать недельный тренировочный план на период 29 дек 2025 - 4 янв 2026, учитывая праздничные дни и тренды восстановления.",
-      "status": "TODO",
+      "status": "DONE",
       "priority": "med",
       "owner": "ENDURANCE_COACH",
       "tags": [
         "garmin",
         "coaching",
         "training-plan"
-      ]
+      ],
+      "commit": {
+        "hash": "22a43891dd18160ee3774c110c24c8e24f85d39c",
+        "message": "Add new training data and plans for the week of December 29, 2025 to January 4, 2026"
+      }
     }
   ],
   "meta": {
     "schema_version": 1,
     "managed_by": "agentctl",
     "checksum_algo": "sha256",
-    "checksum": "b0600cb148bf66dc49e8d81eb63f134c019819b9ac369439dafbedb4606ff351"
+    "checksum": "d2239d2c3bd7dce864c3e308939fde04e6d2827a46354610ab928c2411200f18"
   }
 }
