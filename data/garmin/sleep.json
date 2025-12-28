@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "collected_at": "2025-12-20T10:30:00Z",
+    "collected_at": "2025-12-28T07:12:00Z",
     "date_range": {
-      "start": "2025-11-21",
-      "end": "2025-12-20"
+      "start": "2025-12-22",
+      "end": "2025-12-28"
     },
-    "total_nights": 30,
+    "total_nights": 37,
     "data_source": "garmin_connect_mcp"
   },
   "sleep_summary": {
@@ -48,6 +48,13 @@
     {"date": "2025-12-17", "duration_sec": 23160, "deep_sec": 4200, "light_sec": 17940, "rem_sec": 1020, "awake_sec": 660, "score": 61, "quality": "FAIR", "feedback": "NEGATIVE_NOT_ENOUGH_REM", "insight": "NONE"},
     {"date": "2025-12-18", "duration_sec": 27540, "deep_sec": 3060, "light_sec": 22860, "rem_sec": 1620, "awake_sec": 4140, "score": 46, "quality": "POOR", "feedback": "NEGATIVE_LONG_BUT_NOT_RESTORATIVE", "insight": "NONE"},
     {"date": "2025-12-19", "duration_sec": 23460, "deep_sec": 4560, "light_sec": 17040, "rem_sec": 1860, "awake_sec": 420, "score": 67, "quality": "FAIR", "feedback": "NEGATIVE_NOT_ENOUGH_REM", "insight": "NEGATIVE_LATE_BED_TIME"},
-    {"date": "2025-12-20", "duration_sec": 27686, "deep_sec": 3360, "light_sec": 20640, "rem_sec": 3720, "awake_sec": 1320, "score": 77, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_RECOVERING", "insight": "POSITIVE_LATE_BED_TIME"}
+    {"date": "2025-12-20", "duration_sec": 27686, "deep_sec": 3360, "light_sec": 20640, "rem_sec": 3720, "awake_sec": 1320, "score": 77, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_RECOVERING", "insight": "POSITIVE_LATE_BED_TIME"},
+    {"date": "2025-12-22", "duration_sec": 27180, "deep_sec": 4140, "light_sec": 18000, "rem_sec": 5040, "awake_sec": 360, "score": 79, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_CONTINUOUS", "insight": "NONE"},
+    {"date": "2025-12-23", "duration_sec": 27454, "deep_sec": 2760, "light_sec": 23760, "rem_sec": 960, "awake_sec": 780, "score": 62, "quality": "FAIR", "feedback": "NEGATIVE_LONG_BUT_NOT_ENOUGH_REM", "insight": "NONE"},
+    {"date": "2025-12-24", "duration_sec": 19020, "deep_sec": 4140, "light_sec": 12900, "rem_sec": 1980, "awake_sec": 240, "score": 65, "quality": "FAIR", "feedback": "NEGATIVE_SHORT_AND_NONRECOVERING", "insight": "NONE"},
+    {"date": "2025-12-25", "duration_sec": 30720, "deep_sec": 4620, "light_sec": 22620, "rem_sec": 3480, "awake_sec": 240, "score": 79, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_CONTINUOUS", "insight": "NONE"},
+    {"date": "2025-12-26", "duration_sec": 21180, "deep_sec": 2700, "light_sec": 15960, "rem_sec": 2520, "awake_sec": 60, "score": 72, "quality": "FAIR", "feedback": "POSITIVE_CONTINUOUS", "insight": "POSITIVE_RESTFUL_EVENING"},
+    {"date": "2025-12-27", "duration_sec": 24180, "deep_sec": 1080, "light_sec": 17760, "rem_sec": 5340, "awake_sec": 180, "score": 72, "quality": "FAIR", "feedback": "NEGATIVE_LIGHT", "insight": "NONE"},
+    {"date": "2025-12-28", "duration_sec": 33561, "deep_sec": 3540, "light_sec": 22980, "rem_sec": 7080, "awake_sec": 2040, "score": 77, "quality": "FAIR", "feedback": "POSITIVE_LONG_AND_REFRESHING", "insight": "NONE"}
   ]
 }

@@ -24,14 +24,14 @@
   "stress_summary": {
     "overall_level_range": {"min": 19, "max": 40},
     "avg_rest_duration_sec": 37620,
-    "avg_low_stress_duration_sec": 16200,
-    "avg_medium_stress_duration_sec": 4560,
-    "avg_high_stress_duration_sec": 1740
-  },
-  "daily_hrv": [
-    {"date": "2025-11-21", "weekly_avg": 40, "status": "BALANCED", "baseline_low": 28, "baseline_high": 47},
-    {"date": "2025-11-22", "weekly_avg": 42, "status": "UNBALANCED", "baseline_low": 28, "baseline_high": 47},
-    {"date": "2025-11-23", "weekly_avg": 42, "status": "BALANCED", "baseline_low": 28, "baseline_high": 46},
+      "metadata": {
+        "collected_at": "2025-12-28T07:02:00Z",
+        "date_range": {
+          "start": "2025-12-22",
+          "end": "2025-12-28"
+        },
+        "data_source": "garmin_connect_mcp"
+      },
     {"date": "2025-11-24", "weekly_avg": 41, "status": "BALANCED", "baseline_low": 28, "baseline_high": 46},
     {"date": "2025-11-25", "weekly_avg": 40, "status": "BALANCED", "baseline_low": 28, "baseline_high": 45},
     {"date": "2025-11-26", "weekly_avg": 40, "status": "BALANCED", "baseline_low": 28, "baseline_high": 45},
@@ -62,7 +62,14 @@
   ],
   "daily_stress": [
     {"date": "2025-11-21", "overall": 31, "rest_sec": 35700, "low_sec": 20640, "medium_sec": 5820, "high_sec": 2940},
-    {"date": "2025-11-22", "overall": 26, "rest_sec": 46020, "low_sec": 33600, "medium_sec": 6300, "high_sec": 480},
+        {"date": "2025-12-20", "weekly_avg": 32, "status": "BALANCED", "baseline_low": 30, "baseline_high": 41},
+        {"date": "2025-12-22", "weekly_avg": 32, "status": "UNBALANCED", "baseline_low": 30, "baseline_high": 47},
+        {"date": "2025-12-23", "weekly_avg": 32, "status": "UNBALANCED", "baseline_low": 30, "baseline_high": 47},
+        {"date": "2025-12-24", "weekly_avg": 32, "status": "UNBALANCED", "baseline_low": 30, "baseline_high": 47},
+        {"date": "2025-12-25", "weekly_avg": 34, "status": "BALANCED", "baseline_low": 33, "baseline_high": 47},
+        {"date": "2025-12-26", "weekly_avg": 35, "status": "BALANCED", "baseline_low": 33, "baseline_high": 47},
+        {"date": "2025-12-27", "weekly_avg": 35, "status": "BALANCED", "baseline_low": 33, "baseline_high": 47},
+        {"date": "2025-12-28", "weekly_avg": 35, "status": "BALANCED", "baseline_low": 33, "baseline_high": 47}
     {"date": "2025-11-23", "overall": 33, "rest_sec": 37980, "low_sec": 20100, "medium_sec": 6240, "high_sec": 1980},
     {"date": "2025-11-24", "overall": 27, "rest_sec": 51660, "low_sec": 24720, "medium_sec": 9600, "high_sec": 240},
     {"date": "2025-11-25", "overall": 19, "rest_sec": 62700, "low_sec": 16020, "medium_sec": 2580, "high_sec": 300},

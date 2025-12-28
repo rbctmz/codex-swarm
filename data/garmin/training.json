@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "collected_at": "2025-12-20T10:30:00Z",
+    "collected_at": "2025-12-28T07:12:00Z",
     "date_range": {
-      "start": "2025-11-21",
-      "end": "2025-12-20"
+      "start": "2025-12-22",
+      "end": "2025-12-28"
     },
-    "total_activities": 50,
+    "total_activities": 55,
     "data_source": "garmin_connect_mcp"
   },
   "activities_summary": {
@@ -49,7 +49,13 @@
       {"date": "2025-12-17", "moderate": 58, "vigorous": 0, "weekly_goal": 150},
       {"date": "2025-12-18", "moderate": 29, "vigorous": 36, "weekly_goal": 150},
       {"date": "2025-12-19", "moderate": 0, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-20", "moderate": 0, "vigorous": 0, "weekly_goal": 150}
+      {"date": "2025-12-20", "moderate": 0, "vigorous": 0, "weekly_goal": 150},
+      {"date": "2025-12-22", "moderate": 49, "vigorous": 0, "weekly_goal": 150},
+      {"date": "2025-12-23", "moderate": 20, "vigorous": 47, "weekly_goal": 150},
+      {"date": "2025-12-24", "moderate": 81, "vigorous": 12, "weekly_goal": 150},
+      {"date": "2025-12-25", "moderate": 0, "vigorous": 0, "weekly_goal": 150},
+      {"date": "2025-12-26", "moderate": 33, "vigorous": 57, "weekly_goal": 150},
+      {"date": "2025-12-27", "moderate": 69, "vigorous": 0, "weekly_goal": 150}
     ],
     "steps": [
       {"date": "2025-11-21", "steps": 9286, "distance_m": 7863, "goal": 9730},
@@ -81,7 +87,13 @@
       {"date": "2025-12-17", "steps": 7966, "distance_m": 6961, "goal": 12740},
       {"date": "2025-12-18", "steps": 6776, "distance_m": 5806, "goal": 12740},
       {"date": "2025-12-19", "steps": 4646, "distance_m": 4004, "goal": 11840},
-      {"date": "2025-12-20", "steps": 217, "distance_m": 186, "goal": 9730}
+      {"date": "2025-12-20", "steps": 217, "distance_m": 186, "goal": 9730},
+      {"date": "2025-12-22", "steps": 11358, "distance_m": 9523, "goal": 9440},
+      {"date": "2025-12-23", "steps": 10445, "distance_m": 9407, "goal": 9640},
+      {"date": "2025-12-24", "steps": 10508, "distance_m": 8291, "goal": 9810},
+      {"date": "2025-12-25", "steps": 5619, "distance_m": 4874, "goal": 9950},
+      {"date": "2025-12-26", "steps": 14388, "distance_m": 12483, "goal": 9520},
+      {"date": "2025-12-27", "steps": 9688, "distance_m": 7094, "goal": 10010}
     ]
   },
   "weekly_trends": {
@@ -89,13 +101,15 @@
       {"week_ending": "2025-11-24", "moderate": 262, "vigorous": 183, "goal": 150},
       {"week_ending": "2025-12-01", "moderate": 301, "vigorous": 211, "goal": 150},
       {"week_ending": "2025-12-08", "moderate": 167, "vigorous": 107, "goal": 150},
-      {"week_ending": "2025-12-15", "moderate": 287, "vigorous": 91, "goal": 150}
+      {"week_ending": "2025-12-14", "moderate": 287, "vigorous": 91, "goal": 150},
+      {"week_ending": "2025-12-29", "moderate": 252, "vigorous": 116, "goal": 150}
     ],
     "steps": [
       {"week_ending": "2025-11-23", "total": 83350, "average": 11907, "distance_total_m": 71554},
       {"week_ending": "2025-11-30", "total": 77063, "average": 11009, "distance_total_m": 66356},
       {"week_ending": "2025-12-07", "total": 38311, "average": 5473, "distance_total_m": 33694},
-      {"week_ending": "2025-12-14", "total": 62196, "average": 8885, "distance_total_m": 54394}
+      {"week_ending": "2025-12-14", "total": 62196, "average": 8885, "distance_total_m": 54394},
+      {"week_ending": "2025-12-29", "total": 62077, "average": 8868, "distance_total_m": 51733}
     ]
   }
 }

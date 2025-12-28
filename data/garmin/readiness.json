@@ -1,25 +1,25 @@
 {
   "metadata": {
-    "collected_at": "2025-12-20T10:30:00Z",
+    "collected_at": "2025-12-28T07:02:00Z",
     "date_range": {
-      "start": "2025-11-21",
-      "end": "2025-12-20"
+      "start": "2025-12-22",
+      "end": "2025-12-28"
     },
     "data_source": "garmin_connect_mcp"
   },
   "training_status": {
     "current_status": "RECOVERY",
-    "since_date": "2025-12-19",
+    "since_date": "2025-12-28",
     "training_status_code": 5,
     "fitness_trend": "MAINTAINING",
     "training_paused": false,
     "feedback": "RECOVERY_1"
   },
   "training_load_balance": {
-    "calendar_date": "2025-12-20",
-    "monthly_aerobic_low": 936.21,
-    "monthly_aerobic_high": 480.88,
-    "monthly_anaerobic": 90.86,
+    "calendar_date": "2025-12-28",
+    "monthly_aerobic_low": 819.37115,
+    "monthly_aerobic_high": 475.3944,
+    "monthly_anaerobic": 51.65329,
     "targets": {
       "aerobic_low": {"min": 233, "max": 634},
       "aerobic_high": {"min": 501, "max": 901},
@@ -28,16 +28,16 @@
     "feedback": "AEROBIC_HIGH_SHORTAGE"
   },
   "acute_chronic_workload": {
-    "acute_load": 256,
-    "chronic_load": 379,
-    "ratio": 0.6,
-    "ratio_percent": 25,
+    "acute_load": 246,
+    "chronic_load": 322,
+    "ratio": 0.7,
+    "ratio_percent": 29,
     "status": "LOW",
     "feedback": "FEEDBACK_1"
   },
   "vo2_max": {
-    "running": {"value": 43, "precise": 42.9, "date": "2025-12-18"},
-    "cycling": {"value": 36, "precise": 35.6, "date": "2025-12-15"}
+    "running": {"value": 43, "precise": 42.8, "date": "2025-12-26"},
+    "cycling": {"value": 36, "precise": 35.7, "date": "2025-12-24"}
   },
   "weekly_trends": {
     "body_battery": [
