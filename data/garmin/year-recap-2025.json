@@ -1,0 +1,59 @@
+{
+  "year": 2025,
+  "generated_at": "2025-12-31T12:00:00Z",
+  "totals": {
+    "activities": 50,
+    "distance_km": 2012.27,
+    "running_km": 490.4,
+    "cycling_km": 1461.4,
+    "swimming_km": 60.471,
+    "steps_total": 3241772,
+    "steps_daily_avg": 8881,
+    "days_over_10000_steps": 114
+  },
+  "by_type": {
+    "running": {
+      "distance_km": 490.4,
+      "count": 15
+    },
+    "cycling": {
+      "distance_km": 1461.4,
+      "count": 20
+    },
+    "swimming": {
+      "distance_km": 60.471,
+      "count": 5
+    },
+    "walking": {
+      "distance_km": 450.0,
+      "count": 30
+    },
+    "skiing": {
+      "distance_km": 6.177,
+      "count": 1
+    }
+  },
+  "highlights": {
+    "main_event": {
+      "name": "Триатлон «ЭНЕРГИЯ РУССКОГО СЕВЕРА»",
+      "date": "2025-06-21",
+      "type": "olympic_triathlon",
+      "record_steps": 28148
+    },
+    "new_activities": ["Лыжные гонки классическим стилем"],
+    "locations": ["Санкт-Петербург", "Тбилиси", "Батуми", "Выборг"]
+  },
+  "progression": {
+    "vo2max": {
+      "start": 41,
+      "end": 43,
+      "change": "+2"
+    },
+    "weight_kg": {
+      "start": 92.6,
+      "end": 90.9,
+      "change": "-1.7"
+    }
+  },
+  "device": "Garmin Forerunner 965"
+}
