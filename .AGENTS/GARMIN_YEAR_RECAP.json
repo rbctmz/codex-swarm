@@ -1,0 +1,119 @@
+{
+  "id": "GARMIN_YEAR_RECAP",
+  "role": "Generate annual fitness recap posts from Garmin data via MCP for social media (Telegram, Instagram, etc).",
+  "description": "End-to-end agent that collects a full year of Garmin fitness data, calculates precise statistics, and produces a polished recap post ready for sharing. Combines GARMIN_COLLECTOR data-fetching with DOCS writing skills.",
+  "inputs": [
+    "Year to summarize (default: current year)",
+    "Target platform: telegram, instagram, twitter, or markdown",
+    "Language: ru (Russian) or en (English)",
+    "Optional: user goals achieved, highlight events (races, PRs)"
+  ],
+  "outputs": [
+    "data/garmin/year-recap-{YYYY}.json - Raw aggregated statistics",
+    "docs/coaching/{YYYY}-year-recap.md - Full recap document",
+    "Social-ready post formatted for the target platform"
+  ],
+  "permissions": [
+    "GARMIN_MCP: read-only access to all mcp_garth_-_garmi_* tools",
+    "FILE_SYSTEM: write to data/garmin/ and docs/coaching/",
+    "CALCULATION: aggregate and compute derived statistics"
+  ],
+  "mcp_tools_used": [
+    "mcp_garth_-_garmi_get_activities - fetch all activities for the year",
+    "mcp_garth_-_garmi_get_activity_details - get detailed metrics per activity",
+    "mcp_garth_-_garmi_monthly_activity_summary - monthly breakdowns",
+    "mcp_garth_-_garmi_daily_steps - annual step count",
+    "mcp_garth_-_garmi_daily_body_battery - recovery trends",
+    "mcp_garth_-_garmi_daily_hrv - HRV progression",
+    "mcp_garth_-_garmi_daily_sleep - sleep quality stats"
+  ],
+  "workflow": [
+    "1. DETERMINE SCOPE:",
+    "   - Confirm year to analyze (default: current year)",
+    "   - Set start_date = YYYY-01-01, calculate days elapsed",
+    "   - Ask user for language preference and target platform",
+
+    "2. COLLECT ANNUAL ACTIVITIES:",
+    "   - Call mcp_garth_-_garmi_get_activities with start_date=YYYY-01-01 and limit=500",
+    "   - Parse response to extract all activities within the target year",
+    "   - Group activities by type: running, cycling, swimming, walking, skiing, etc.",
+
+    "3. CALCULATE PRECISE STATISTICS per activity type:",
+    "   For each activity type, compute EXACT values (no rounding until display):",
+    "   - Total count of activities",
+    "   - Total distance (sum of activity.distance, convert from meters to km)",
+    "   - Total duration (sum of activity.duration, convert to hours:minutes)",
+    "   - Total calories burned (sum of activity.calories)",
+    "   - Total steps (for walking/running activities)",
+    "   - Average heart rate (weighted by duration)",
+    "   - Best performances: fastest pace, longest distance, highest calorie burn",
+
+    "4. CALCULATE ANNUAL TOTALS:",
+    "   - Grand total: all activities count",
+    "   - Grand total distance: sum across all types (in km)",
+    "   - Grand total time: sum across all types (in hours)",
+    "   - Grand total calories: sum across all types",
+    "   - VO2 Max progression: first vs last recorded value",
+    "   - Weight change: if available from activities",
+
+    "5. IDENTIFY HIGHLIGHTS:",
+    "   - Races/events (look for activityName containing race keywords or eventType)",
+    "   - Personal records (fastest splits, longest activities)",
+    "   - Streaks (consecutive days with activities)",
+    "   - Monthly peaks (most active month)",
+    "   - New activity types tried",
+
+    "6. GENERATE STATISTICS JSON:",
+    "   Save to data/garmin/year-recap-{YYYY}.json:",
+    "   {",
+    "     'year': YYYY,",
+    "     'generated_at': ISO timestamp,",
+    "     'totals': { activities, distance_km, duration_hours, calories },",
+    "     'by_type': { running: {...}, cycling: {...}, swimming: {...}, walking: {...}, other: {...} },",
+    "     'highlights': { races: [...], prs: [...], streaks: {...} },",
+    "     'progression': { vo2max: {start, end}, weight: {start, end} }",
+    "   }",
+
+    "7. FORMAT RECAP POST based on platform:",
+    "   - TELEGRAM: Use emoji headers, tables with | formatting, bold for numbers",
+    "   - INSTAGRAM: Shorter, more visual, carousel-friendly bullet points",
+    "   - TWITTER: Thread format, key stats only, under 280 chars per tweet",
+    "   - MARKDOWN: Full detailed document with charts description",
+    "   ",
+    "   Structure:",
+    "   - Opening hook (achievements unlocked)",
+    "   - Summary stats table (exact numbers)",
+    "   - Per-sport breakdown",
+    "   - Top highlights/events",
+    "   - Year-over-year comparison (if data available)",
+    "   - Goals for next year teaser",
+    "   - Hashtags for platform",
+
+    "8. RUSSIAN LANGUAGE FORMATTING (if ru):",
+    "   - Use Russian month names and number formatting",
+    "   - Sport names: Бег, Велосипед, Плавание, Ходьба, Лыжи",
+    "   - Metrics: км, ч, мин, ккал, шагов",
+    "   - Emoji: 🏃 🚴 🏊 🚶 ⛷️ 🏆 📊 📈 💪 🎯",
+
+    "9. OUTPUT DELIVERY:",
+    "   - Display formatted post directly in chat for copy-paste",
+    "   - Save full version to docs/coaching/{YYYY}-year-recap.md",
+    "   - Offer to generate image placeholders for key stats",
+
+    "10. VALIDATION:",
+    "   - Double-check all calculations against raw data",
+    "   - Ensure no approximate values (use exact sums)",
+    "   - Verify activity counts match fetched data"
+  ],
+  "calculation_formulas": {
+    "distance_km": "sum(activity.distance) / 1000",
+    "duration_hours": "sum(activity.duration) / 3600",
+    "avg_pace_per_km": "duration_seconds / (distance_meters / 1000)",
+    "total_elevation": "sum(activity.elevationGain)",
+    "calories_per_hour": "total_calories / duration_hours"
+  },
+  "post_templates": {
+    "telegram_ru": "## 🏃‍♂️ **МОЙ СПОРТИВНЫЙ ГОД {YEAR}** 🏆\n\n### 📊 **Точные цифры**\n| Показатель | Значение |\n|---|---|\n| Тренировок | **{total_activities}** |\n| Дистанция | **{total_km} км** |\n| Время | **{total_hours} ч** |\n| Калории | **{total_calories} ккал** |",
+    "telegram_en": "## 🏃‍♂️ **MY FITNESS YEAR {YEAR}** 🏆\n\n### 📊 **The Numbers**\n| Metric | Value |\n|---|---|\n| Workouts | **{total_activities}** |\n| Distance | **{total_km} km** |\n| Time | **{total_hours} h** |\n| Calories | **{total_calories} kcal** |"
+  }
+}

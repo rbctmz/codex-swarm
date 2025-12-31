@@ -1,0 +1,104 @@
+<svg width="800" height="1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffecd2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fcb69f;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="1200" fill="url(#bgGradient)"/>
+  
+  <!-- Main Container -->
+  <rect x="40" y="40" width="720" height="1120" rx="24" fill="white" filter="url(#shadow)"/>
+  
+  <!-- Header -->
+  <rect x="40" y="40" width="720" height="120" rx="24" fill="url(#bgGradient)"/>
+  <text x="400" y="95" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">🏃‍♂️ СПОРТИВНЫЕ ИТОГИ 2025</text>
+  
+  <!-- Section 1: Главные цифры -->
+  <rect x="70" y="190" width="660" height="240" rx="16" fill="#f8f9fa"/>
+  <rect x="70" y="190" width="5" height="240" rx="2" fill="#667eea"/>
+  <text x="100" y="225" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#667eea">🎯 ГЛАВНЫЕ ЦИФРЫ</text>
+  
+  <!-- Big stat -->
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#667eea" text-anchor="middle">2 012 км</text>
+  
+  <!-- Stats grid -->
+  <text x="120" y="330" font-family="Arial, sans-serif" font-size="24">🏃</text>
+  <text x="160" y="325" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Бег</text>
+  <text x="160" y="345" font-family="Arial, sans-serif" font-size="18" font-weight="bold">490 км</text>
+  
+  <text x="450" y="330" font-family="Arial, sans-serif" font-size="24">🚴</text>
+  <text x="490" y="325" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Велосипед</text>
+  <text x="490" y="345" font-family="Arial, sans-serif" font-size="18" font-weight="bold">1 461 км</text>
+  
+  <text x="120" y="385" font-family="Arial, sans-serif" font-size="24">🏊</text>
+  <text x="160" y="380" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Плавание</text>
+  <text x="160" y="400" font-family="Arial, sans-serif" font-size="18" font-weight="bold">60 км</text>
+  
+  <text x="450" y="385" font-family="Arial, sans-serif" font-size="24">👟</text>
+  <text x="490" y="380" font-family="Arial, sans-serif" font-size="14" fill="#6c757d">Шагов</text>
+  <text x="490" y="400" font-family="Arial, sans-serif" font-size="18" font-weight="bold">3 241 772</text>
+  
+  <!-- Section 2: Главное событие -->
+  <rect x="70" y="460" width="660" height="150" rx="16" fill="url(#highlightGradient)"/>
+  <rect x="70" y="460" width="5" height="150" rx="2" fill="#ff6b6b"/>
+  <text x="400" y="495" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#c92a2a" text-anchor="middle">🏆 ГЛАВНОЕ СОБЫТИЕ</text>
+  <text x="400" y="530" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Триатлон «ЭНЕРГИЯ РУССКОГО СЕВЕРА» 🌊🚴🏃</text>
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="14" fill="#495057" text-anchor="middle">📅 21 июня 2025</text>
+  <text x="400" y="590" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#c92a2a" text-anchor="middle">28 148 шагов 🔥</text>
+  
+  <!-- Section 3: Прогресс -->
+  <rect x="70" y="640" width="660" height="130" rx="16" fill="#f8f9fa"/>
+  <rect x="70" y="640" width="5" height="130" rx="2" fill="#667eea"/>
+  <text x="100" y="675" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#667eea">📈 ПРОГРЕСС</text>
+  
+  <rect x="100" y="690" width="610" height="30" rx="8" fill="white"/>
+  <text x="120" y="710" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#495057">💪 VO2 Max (бег)</text>
+  <text x="680" y="710" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#667eea" text-anchor="end">41 ➜ 43 (+2)</text>
+  
+  <rect x="100" y="730" width="610" height="30" rx="8" fill="white"/>
+  <text x="120" y="750" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#495057">⚖️ Вес</text>
+  <text x="680" y="750" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#667eea" text-anchor="end">92.6 ➜ 90.9 кг (−1.7)</text>
+  
+  <!-- Section 4: Новое -->
+  <rect x="70" y="800" width="660" height="90" rx="16" fill="#f8f9fa"/>
+  <rect x="70" y="800" width="5" height="90" rx="2" fill="#667eea"/>
+  <text x="100" y="835" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#667eea">🎿 НОВОЕ В 2025</text>
+  <text x="400" y="870" font-family="Arial, sans-serif" font-size="16" fill="#495057" text-anchor="middle">✨ Лыжные гонки классическим стилем — открыл зимний сезон 30 декабря! ⛷️</text>
+  
+  <!-- Section 5: География -->
+  <rect x="70" y="920" width="660" height="110" rx="16" fill="#f8f9fa"/>
+  <rect x="70" y="920" width="5" height="110" rx="2" fill="#667eea"/>
+  <text x="100" y="955" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#667eea">🌍 ГЕОГРАФИЯ</text>
+  
+  <rect x="100" y="970" width="160" height="35" rx="18" fill="white" filter="url(#shadow)"/>
+  <text x="180" y="993" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#495057" text-anchor="middle">📍 Санкт-Петербург</text>
+  
+  <rect x="280" y="970" width="90" height="35" rx="18" fill="white" filter="url(#shadow)"/>
+  <text x="325" y="993" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#495057" text-anchor="middle">📍 Тбилиси</text>
+  
+  <rect x="390" y="970" width="80" height="35" rx="18" fill="white" filter="url(#shadow)"/>
+  <text x="430" y="993" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#495057" text-anchor="middle">📍 Батуми</text>
+  
+  <rect x="490" y="970" width="85" height="35" rx="18" fill="white" filter="url(#shadow)"/>
+  <text x="532" y="993" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#495057" text-anchor="middle">📍 Выборг</text>
+  
+  <!-- Section 6: Активность -->
+  <rect x="70" y="1060" width="660" height="90" rx="16" fill="#f8f9fa"/>
+  <rect x="70" y="1060" width="5" height="90" rx="2" fill="#667eea"/>
+  <text x="100" y="1095" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#667eea">💯 АКТИВНОСТЬ</text>
+  <text x="400" y="1125" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#667eea" text-anchor="middle">114 дней</text>
+  <text x="400" y="1143" font-family="Arial, sans-serif" font-size="14" fill="#495057" text-anchor="middle">с результатом >10 000 шагов (31% года) 🎊</text>
+  
+  <!-- Footer -->
+  <text x="400" y="1140" font-family="Arial, sans-serif" font-size="16" fill="#6c757d" text-anchor="middle">🎁 Garmin Forerunner 255 — верный спутник всех приключений</text>
+</svg>

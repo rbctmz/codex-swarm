@@ -1,115 +1,59 @@
 {
   "metadata": {
-    "collected_at": "2025-12-28T07:12:00Z",
+    "collected_at": "2025-12-31T12:00:00Z",
     "date_range": {
-      "start": "2025-12-22",
-      "end": "2025-12-28"
+      "start": "2025-01-01",
+      "end": "2025-12-31"
     },
-    "total_activities": 55,
-    "data_source": "garmin_connect_mcp"
+    "data_source": "garmin_connect_official",
+    "year": 2025
   },
-  "activities_summary": {
-    "by_type": {
-      "running": 23,
-      "walking": 12,
-      "cycling": 6,
-      "swimming": 1,
-      "strength": 2,
-      "other": 6
+  "year_totals": {
+    "running": {
+      "distance_m": 490400,
+      "distance_km": 490.4
+    },
+    "cycling": {
+      "distance_m": 1461400,
+      "distance_km": 1461.4
+    },
+    "swimming": {
+      "distance_m": 60471,
+      "distance_km": 60.471
+    },
+    "total_distance_km": 2012.27
+  },
+  "steps": {
+    "total_annual": 3241772,
+    "daily_average": 8881,
+    "record_day": {
+      "date": "2025-06-21",
+      "steps": 28148,
+      "event": "Триатлон ЭНЕРГИЯ РУССКОГО СЕВЕРА"
+    },
+    "days_over_10000": 114
+  },
+  "progression": {
+    "vo2max": {
+      "january": 41,
+      "december": 43,
+      "change": 2
+    },
+    "weight_kg": {
+      "start": 92.6,
+      "end": 90.9,
+      "change": -1.7
     }
   },
-  "daily_stats": {
-    "intensity_minutes": [
-      {"date": "2025-11-21", "moderate": 53, "vigorous": 33, "weekly_goal": 150},
-      {"date": "2025-11-22", "moderate": 53, "vigorous": 47, "weekly_goal": 150},
-      {"date": "2025-11-23", "moderate": 38, "vigorous": 26, "weekly_goal": 150},
-      {"date": "2025-11-24", "moderate": 0, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-11-25", "moderate": 0, "vigorous": 29, "weekly_goal": 150},
-      {"date": "2025-11-26", "moderate": 71, "vigorous": 34, "weekly_goal": 150},
-      {"date": "2025-11-27", "moderate": 12, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-11-28", "moderate": 2, "vigorous": 40, "weekly_goal": 150},
-      {"date": "2025-11-29", "moderate": 0, "vigorous": 36, "weekly_goal": 150},
-      {"date": "2025-11-30", "moderate": 0, "vigorous": 32, "weekly_goal": 150},
-      {"date": "2025-12-01", "moderate": 47, "vigorous": 40, "weekly_goal": 150},
-      {"date": "2025-12-02", "moderate": 61, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-03", "moderate": 46, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-04", "moderate": 59, "vigorous": 21, "weekly_goal": 150},
-      {"date": "2025-12-05", "moderate": 0, "vigorous": 50, "weekly_goal": 150},
-      {"date": "2025-12-06", "moderate": 41, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-07", "moderate": 47, "vigorous": 50, "weekly_goal": 150},
-      {"date": "2025-12-08", "moderate": 0, "vigorous": 36, "weekly_goal": 150},
-      {"date": "2025-12-09", "moderate": 78, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-10", "moderate": 42, "vigorous": 21, "weekly_goal": 150},
-      {"date": "2025-12-11", "moderate": 32, "vigorous": 32, "weekly_goal": 150},
-      {"date": "2025-12-12", "moderate": 111, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-13", "moderate": 0, "vigorous": 43, "weekly_goal": 150},
-      {"date": "2025-12-14", "moderate": 0, "vigorous": 36, "weekly_goal": 150},
-      {"date": "2025-12-15", "moderate": 93, "vigorous": 54, "weekly_goal": 150},
-      {"date": "2025-12-16", "moderate": 107, "vigorous": 1, "weekly_goal": 150},
-      {"date": "2025-12-17", "moderate": 58, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-18", "moderate": 29, "vigorous": 36, "weekly_goal": 150},
-      {"date": "2025-12-19", "moderate": 0, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-20", "moderate": 0, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-22", "moderate": 49, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-23", "moderate": 20, "vigorous": 47, "weekly_goal": 150},
-      {"date": "2025-12-24", "moderate": 81, "vigorous": 12, "weekly_goal": 150},
-      {"date": "2025-12-25", "moderate": 0, "vigorous": 0, "weekly_goal": 150},
-      {"date": "2025-12-26", "moderate": 33, "vigorous": 57, "weekly_goal": 150},
-      {"date": "2025-12-27", "moderate": 69, "vigorous": 0, "weekly_goal": 150}
-    ],
-    "steps": [
-      {"date": "2025-11-21", "steps": 9286, "distance_m": 7863, "goal": 9730},
-      {"date": "2025-11-22", "steps": 18306, "distance_m": 15746, "goal": 9650},
-      {"date": "2025-11-23", "steps": 9754, "distance_m": 8508, "goal": 8160},
-      {"date": "2025-11-24", "steps": 4422, "distance_m": 3713, "goal": 6710},
-      {"date": "2025-11-25", "steps": 10134, "distance_m": 8687, "goal": 7450},
-      {"date": "2025-11-26", "steps": 19178, "distance_m": 16394, "goal": 8050},
-      {"date": "2025-11-27", "steps": 12270, "distance_m": 10643, "goal": 11340},
-      {"date": "2025-11-28", "steps": 12866, "distance_m": 11060, "goal": 11340},
-      {"date": "2025-11-29", "steps": 11108, "distance_m": 9608, "goal": 11340},
-      {"date": "2025-11-30", "steps": 9148, "distance_m": 7909, "goal": 10690},
-      {"date": "2025-12-01", "steps": 17008, "distance_m": 14537, "goal": 10520},
-      {"date": "2025-12-02", "steps": 12872, "distance_m": 11119, "goal": 12740},
-      {"date": "2025-12-03", "steps": 7964, "distance_m": 6916, "goal": 12740},
-      {"date": "2025-12-04", "steps": 6856, "distance_m": 5885, "goal": 11450},
-      {"date": "2025-12-05", "steps": 13349, "distance_m": 11366, "goal": 9890},
-      {"date": "2025-12-06", "steps": 7506, "distance_m": 6629, "goal": 10340},
-      {"date": "2025-12-07", "steps": 11540, "distance_m": 10004, "goal": 9280},
-      {"date": "2025-12-08", "steps": 8664, "distance_m": 7528, "goal": 9590},
-      {"date": "2025-12-09", "steps": 7050, "distance_m": 6093, "goal": 9290},
-      {"date": "2025-12-10", "steps": 4758, "distance_m": 4143, "goal": 8770},
-      {"date": "2025-12-11", "steps": 5270, "distance_m": 4570, "goal": 8250},
-      {"date": "2025-12-12", "steps": 11809, "distance_m": 10212, "goal": 7760},
-      {"date": "2025-12-13", "steps": 11044, "distance_m": 9534, "goal": 8360},
-      {"date": "2025-12-14", "steps": 9361, "distance_m": 8107, "goal": 8860},
-      {"date": "2025-12-15", "steps": 16832, "distance_m": 14530, "goal": 8900},
-      {"date": "2025-12-16", "steps": 21076, "distance_m": 18184, "goal": 10800},
-      {"date": "2025-12-17", "steps": 7966, "distance_m": 6961, "goal": 12740},
-      {"date": "2025-12-18", "steps": 6776, "distance_m": 5806, "goal": 12740},
-      {"date": "2025-12-19", "steps": 4646, "distance_m": 4004, "goal": 11840},
-      {"date": "2025-12-20", "steps": 217, "distance_m": 186, "goal": 9730},
-      {"date": "2025-12-22", "steps": 11358, "distance_m": 9523, "goal": 9440},
-      {"date": "2025-12-23", "steps": 10445, "distance_m": 9407, "goal": 9640},
-      {"date": "2025-12-24", "steps": 10508, "distance_m": 8291, "goal": 9810},
-      {"date": "2025-12-25", "steps": 5619, "distance_m": 4874, "goal": 9950},
-      {"date": "2025-12-26", "steps": 14388, "distance_m": 12483, "goal": 9520},
-      {"date": "2025-12-27", "steps": 9688, "distance_m": 7094, "goal": 10010}
-    ]
+  "highlights": {
+    "main_event": {
+      "name": "Триатлон «ЭНЕРГИЯ РУССКОГО СЕВЕРА»",
+      "date": "2025-06-21",
+      "type": "olympic_triathlon",
+      "disciplines": ["swimming", "cycling", "running"]
+    },
+    "new_activities": ["cross_country_skiing"],
+    "locations": ["Санкт-Петербург", "Тбилиси", "Батуми", "Выборг"]
   },
-  "weekly_trends": {
-    "intensity_minutes": [
-      {"week_ending": "2025-11-24", "moderate": 262, "vigorous": 183, "goal": 150},
-      {"week_ending": "2025-12-01", "moderate": 301, "vigorous": 211, "goal": 150},
-      {"week_ending": "2025-12-08", "moderate": 167, "vigorous": 107, "goal": 150},
-      {"week_ending": "2025-12-14", "moderate": 287, "vigorous": 91, "goal": 150},
-      {"week_ending": "2025-12-29", "moderate": 252, "vigorous": 116, "goal": 150}
-    ],
-    "steps": [
-      {"week_ending": "2025-11-23", "total": 83350, "average": 11907, "distance_total_m": 71554},
-      {"week_ending": "2025-11-30", "total": 77063, "average": 11009, "distance_total_m": 66356},
-      {"week_ending": "2025-12-07", "total": 38311, "average": 5473, "distance_total_m": 33694},
-      {"week_ending": "2025-12-14", "total": 62196, "average": 8885, "distance_total_m": 54394},
-      {"week_ending": "2025-12-29", "total": 62077, "average": 8868, "distance_total_m": 51733}
-    ]
-  }
+  "device": "Garmin Forerunner 965"
 }
